@@ -57,12 +57,11 @@
 		CE3DCF2728519B1F00E048A3 /* MeetingNMusae */ = {
 			isa = PBXGroup;
 			children = (
-				CE7605982851BCAF00D647EE /* Views */,
-				CE7605972851BCAA00D647EE /* ViewModels */,
-				CE7605962851BCA100D647EE /* Models */,
+				CE76059B2851BD6D00D647EE /* Models */,
+				CE76059A2851BD6600D647EE /* ViewModels */,
+				CE7605992851BD5400D647EE /* Views */,
 				CE3DCF3628519B7700E048A3 /* GoogleService-Info.plist */,
 				CE3DCF2828519B1F00E048A3 /* MeetingNMusaeApp.swift */,
-				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				CE3DCF2C28519B2000E048A3 /* Assets.xcassets */,
 				CE3DCF2E28519B2000E048A3 /* Preview Content */,
 			);
@@ -77,25 +76,26 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		CE7605962851BCA100D647EE /* Models */ = {
+		CE7605992851BD5400D647EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 			);
-			path = Models;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		CE7605972851BCAA00D647EE /* ViewModels */ = {
+		CE76059A2851BD6600D647EE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		CE7605982851BCAF00D647EE /* Views */ = {
+		CE76059B2851BD6D00D647EE /* Models */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Views;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
