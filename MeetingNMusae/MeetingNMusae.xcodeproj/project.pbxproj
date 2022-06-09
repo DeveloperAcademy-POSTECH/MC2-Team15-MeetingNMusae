@@ -12,6 +12,7 @@
 		CE3DCF2D28519B2000E048A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF2C28519B2000E048A3 /* Assets.xcassets */; };
 		CE3DCF3028519B2000E048A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF2F28519B2000E048A3 /* Preview Assets.xcassets */; };
 		CE3DCF3728519B7700E048A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF3628519B7700E048A3 /* GoogleService-Info.plist */; };
+		CE4733EF2851D00B00DA45B7 /* RoleSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4733EE2851D00B00DA45B7 /* RoleSelectView.swift */; };
 		CE76059D2851BDDD00D647EE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76059C2851BDDD00D647EE /* Role.swift */; };
 		CE76059F2851BE0000D647EE /* RoleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76059E2851BE0000D647EE /* RoleListViewModel.swift */; };
 		CE7B51CC28519BC2004BCA89 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CE7B51CB28519BC2004BCA89 /* FirebaseFirestore */; };
@@ -24,6 +25,7 @@
 		CE3DCF2C28519B2000E048A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE3DCF2F28519B2000E048A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE3DCF3628519B7700E048A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE4733EE2851D00B00DA45B7 /* RoleSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectView.swift; sourceTree = "<group>"; };
 		CE76059C2851BDDD00D647EE /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		CE76059E2851BE0000D647EE /* RoleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
+				CE4733EE2851D00B00DA45B7 /* RoleSelectView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
 				CE76059D2851BDDD00D647EE /* Role.swift in Sources */,
+				CE4733EF2851D00B00DA45B7 /* RoleSelectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

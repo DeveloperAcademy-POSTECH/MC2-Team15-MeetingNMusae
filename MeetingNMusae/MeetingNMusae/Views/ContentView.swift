@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            NavigationLink(destination: RoleSelectView(), label: {
+                Text("move Role Select View")
+            })
+        }
     }
 }
 
