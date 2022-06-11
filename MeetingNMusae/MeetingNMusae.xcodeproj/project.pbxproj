@@ -14,8 +14,17 @@
 		CE3DCF3728519B7700E048A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF3628519B7700E048A3 /* GoogleService-Info.plist */; };
 		CE4733EF2851D00B00DA45B7 /* RoleSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4733EE2851D00B00DA45B7 /* RoleSelectView.swift */; };
 		CE76059D2851BDDD00D647EE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76059C2851BDDD00D647EE /* Role.swift */; };
-		CE76059F2851BE0000D647EE /* RoleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76059E2851BE0000D647EE /* RoleListViewModel.swift */; };
-		CE7B51CC28519BC2004BCA89 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CE7B51CB28519BC2004BCA89 /* FirebaseFirestore */; };
+		CE76059F2851BE0000D647EE /* RoleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76059E2851BE0000D647EE /* RoleViewModel.swift */; };
+		CE79E21A2853357A005BA8CB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CE79E2192853357A005BA8CB /* FirebaseAnalytics */; };
+		CE79E21C2853357A005BA8CB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CE79E21B2853357A005BA8CB /* FirebaseFirestore */; };
+		CE79E21E2853357A005BA8CB /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE79E21D2853357A005BA8CB /* FirebaseFirestoreSwift */; };
+		CEC5F07A2851EC9500372F87 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F0792851EC9500372F87 /* User.swift */; };
+		CEC5F07C2851EE0B00372F87 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F07B2851EE0B00372F87 /* UserViewModel.swift */; };
+		CEC5F07E2853087300372F87 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F07D2853087300372F87 /* EmptyView.swift */; };
+		CEC5F08128530EEA00372F87 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F08028530EEA00372F87 /* MeetingRoom.swift */; };
+		CEC5F0832853125600372F87 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F0822853125600372F87 /* Mission.swift */; };
+		CEC5F085285312D900372F87 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F084285312D900372F87 /* Review.swift */; };
+		CEC5F0872853133F00372F87 /* MeetingRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F0862853133F00372F87 /* MeetingRoomViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +36,14 @@
 		CE3DCF3628519B7700E048A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE4733EE2851D00B00DA45B7 /* RoleSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectView.swift; sourceTree = "<group>"; };
 		CE76059C2851BDDD00D647EE /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
-		CE76059E2851BE0000D647EE /* RoleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleListViewModel.swift; sourceTree = "<group>"; };
+		CE76059E2851BE0000D647EE /* RoleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleViewModel.swift; sourceTree = "<group>"; };
+		CEC5F0792851EC9500372F87 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CEC5F07B2851EE0B00372F87 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		CEC5F07D2853087300372F87 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		CEC5F08028530EEA00372F87 /* MeetingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoom.swift; sourceTree = "<group>"; };
+		CEC5F0822853125600372F87 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		CEC5F084285312D900372F87 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		CEC5F0862853133F00372F87 /* MeetingRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +51,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE7B51CC28519BC2004BCA89 /* FirebaseFirestore in Frameworks */,
+				CE79E21A2853357A005BA8CB /* FirebaseAnalytics in Frameworks */,
+				CE79E21C2853357A005BA8CB /* FirebaseFirestore in Frameworks */,
+				CE79E21E2853357A005BA8CB /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +103,7 @@
 			children = (
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				CE4733EE2851D00B00DA45B7 /* RoleSelectView.swift */,
+				CEC5F07D2853087300372F87 /* EmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -92,7 +111,9 @@
 		CE76059A2851BD6600D647EE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				CE76059E2851BE0000D647EE /* RoleListViewModel.swift */,
+				CE76059E2851BE0000D647EE /* RoleViewModel.swift */,
+				CEC5F07B2851EE0B00372F87 /* UserViewModel.swift */,
+				CEC5F0862853133F00372F87 /* MeetingRoomViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -101,6 +122,10 @@
 			isa = PBXGroup;
 			children = (
 				CE76059C2851BDDD00D647EE /* Role.swift */,
+				CEC5F0792851EC9500372F87 /* User.swift */,
+				CEC5F08028530EEA00372F87 /* MeetingRoom.swift */,
+				CEC5F0822853125600372F87 /* Mission.swift */,
+				CEC5F084285312D900372F87 /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,7 +147,9 @@
 			);
 			name = MeetingNMusae;
 			packageProductDependencies = (
-				CE7B51CB28519BC2004BCA89 /* FirebaseFirestore */,
+				CE79E2192853357A005BA8CB /* FirebaseAnalytics */,
+				CE79E21B2853357A005BA8CB /* FirebaseFirestore */,
+				CE79E21D2853357A005BA8CB /* FirebaseFirestoreSwift */,
 			);
 			productName = MeetingNMusae;
 			productReference = CE3DCF2528519B1F00E048A3 /* MeetingNMusae.app */;
@@ -153,7 +180,7 @@
 			);
 			mainGroup = CE3DCF1C28519B1F00E048A3;
 			packageReferences = (
-				CE7B51CA28519BC2004BCA89 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CE79E2182853357A005BA8CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = CE3DCF2628519B1F00E048A3 /* Products */;
 			projectDirPath = "";
@@ -182,10 +209,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE76059F2851BE0000D647EE /* RoleListViewModel.swift in Sources */,
+				CE76059F2851BE0000D647EE /* RoleViewModel.swift in Sources */,
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
+				CEC5F08128530EEA00372F87 /* MeetingRoom.swift in Sources */,
+				CEC5F07A2851EC9500372F87 /* User.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
+				CEC5F07E2853087300372F87 /* EmptyView.swift in Sources */,
+				CEC5F085285312D900372F87 /* Review.swift in Sources */,
+				CEC5F0872853133F00372F87 /* MeetingRoomViewModel.swift in Sources */,
 				CE76059D2851BDDD00D647EE /* Role.swift in Sources */,
+				CEC5F07C2851EE0B00372F87 /* UserViewModel.swift in Sources */,
+				CEC5F0832853125600372F87 /* Mission.swift in Sources */,
 				CE4733EF2851D00B00DA45B7 /* RoleSelectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,7 +423,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CE7B51CA28519BC2004BCA89 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		CE79E2182853357A005BA8CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -400,10 +434,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CE7B51CB28519BC2004BCA89 /* FirebaseFirestore */ = {
+		CE79E2192853357A005BA8CB /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CE7B51CA28519BC2004BCA89 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = CE79E2182853357A005BA8CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		CE79E21B2853357A005BA8CB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE79E2182853357A005BA8CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		CE79E21D2853357A005BA8CB /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE79E2182853357A005BA8CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
