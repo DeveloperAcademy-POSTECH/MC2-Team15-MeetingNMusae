@@ -4,17 +4,20 @@
 //
 //  Created by JiwKang on 2022/06/09.
 //
-
+import FirebaseFirestoreSwift
 import Foundation
 
-class Role: Identifiable {
+class Role: Codable, Identifiable {
     var id: Int
-    var roleName: String
-    var isSelected: Bool
+    let roleName: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case roleName = "role_name"
+    }
     
     init(id: Int, roleName: String) {
         self.id = id
         self.roleName = roleName
-        self.isSelected = false
     }
 }
