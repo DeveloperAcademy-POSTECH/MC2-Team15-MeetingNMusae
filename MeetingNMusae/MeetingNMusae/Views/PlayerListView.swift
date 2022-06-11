@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//temp
 struct CharacterBox: View {
     let width: CGFloat?
     let height: CGFloat?
@@ -27,56 +28,21 @@ struct CharacterBox: View {
             )
     }
 }
-//struct PlayerListView: View {
-//    let roomCode: String
-//    @State var users: [User] = []
-//    @ObservedObject var userViewModel = UserViewModel()
-//
-//    var body: some View {
-//        VStack(alignment: .leading) {
-//            Text("참여자 (\(userViewModel.users.count))")
-//                .font(.title3)
-//                .fontWeight(.heavy)
-//                .padding()
-//                .padding(.horizontal)
-//            Line()
-//                .stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
-//                .frame(height: 1)
-//            VStack(alignment: .leading, spacing: 0) {
-//                ForEach(userViewModel.users) { user in
-//                    Text("• " + user.nickname)
-//                        .fontWeight(.bold)
-//                        .padding()
-//                }
-//            }
-//            .padding(.all)
-//        }
-//        .background(CharacterBox())
-//        .frame(width: UIScreen.screenWidth * 0.9)
-//        .onAppear {
-//            self.userViewModel.fetchData(roomCode: roomCode)
-//        }
-//    }
-//}
 
 struct PlayerListView: View {
+
     let roomCode: String
-    @State var users: [String] = [
-        "Eunice",
-        "Cozy",
-        "Skipp",
-        "Sohni",
-        "Woggy",
-        "Nick"
-    ]
+    @State var users: [User] = []
+    @ObservedObject var userViewModel = UserViewModel()
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             ZStack {
                 Text(roomCode)
                     .fontWeight(.bold)
                     .underline()
-                    .padding()
+                    .padding(.vertical, UIScreen.screenHeight * 0.0178)
+                    .padding(.bottom, UIScreen.screenHeight * 0.0083)
             }
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .leading) {
@@ -84,44 +50,48 @@ struct PlayerListView: View {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
                             .foregroundColor(Color.black)
                     }
+                        .padding(.leading, UIScreen.screenHeight * 0.0284)
                 }
-            VStack(alignment: .leading) {
-                Text("참여자 (\(users.count))")
-                    .font(.title3)
-                    .fontWeight(.heavy)
-                    .padding()
-                    .padding(.horizontal)
-                Line()
-                    .stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
-                    .frame(height: 1)
+            VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
-                    ForEach(users, id: \.self) { user in
-                        Text("• " + user)
-                            .fontWeight(.bold)
-                            .padding()
+                    Text("참여자 (\(userViewModel.users.count))")
+                        .font(.title3)
+                        .fontWeight(.heavy)
+                        .padding(.all, UIScreen.screenHeight * 0.0284)
+                    Line()
+                        .stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
+                        .frame(height: 1)
+                    VStack(alignment: .leading, spacing: 0) {
+                        ForEach(userViewModel.users) { user in
+                            Text("• " + user.nickname)
+                                .fontWeight(.bold)
+                                .padding(.all, UIScreen.screenHeight * 0.0178)
+                        }
                     }
+                    .padding(.all, UIScreen.screenHeight * 0.0178)
                 }
-                .padding(.all)
-            }
                 .background(CharacterBox())
-            Spacer()
-            Button(action: action) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 12)
-                        .foregroundColor(.black)
-                    Text("회의 시작")
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
+                .onAppear {
+                    self.userViewModel.fetchData(roomCode: roomCode)
                 }
+                Spacer()
+                Button(action: action) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundColor(.black)
+                        Text("회의 시작")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }
                     .frame(height: UIScreen.screenHeight * 0.076)
-            }
+                }
                 .padding(.bottom, 8)
+            }
+                .frame(width: UIScreen.screenWidth * 0.84)
         }
-            .frame(width: UIScreen.screenWidth * 0.84)
     }
 
     func action() {
-        print(UIScreen.screenHeight)
     }
 }
 
