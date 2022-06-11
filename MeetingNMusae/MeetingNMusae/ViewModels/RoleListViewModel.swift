@@ -19,7 +19,7 @@ class RoleListViewModel: ObservableObject {
     private var db = Firestore.firestore()
 
     func fetchData() {
-        db.collection("roles").order(by: "id").addSnapshotListener { (querySnapshot, error) in
+        db.collection("roles").order(by: "id").addSnapshotListener { (querySnapshot, _) in
             guard let roleDocuments = querySnapshot?.documents else {
                 print("no documents")
                 return
