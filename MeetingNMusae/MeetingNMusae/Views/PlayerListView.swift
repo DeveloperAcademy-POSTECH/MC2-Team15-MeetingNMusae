@@ -50,7 +50,7 @@ struct PlayerListView: View {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
                             .foregroundColor(Color.black)
                     }
-                        .padding(.leading, UIScreen.screenHeight * 0.0284)
+                        .padding(.leading, UIScreen.screenHeight * 0.02843)
                 }
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
