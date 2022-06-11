@@ -1,15 +1,14 @@
 //
-//  RoleListViewModel.swift
+//  RoleViewModel.swift
 //  MeetingNMusae
 //
 //  Created by JiwKang on 2022/06/09.
 //
 
-import Foundation
-
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-class RoleListViewModel: ObservableObject {
+class RoleViewModel: ObservableObject {
     @Published var roles: [Role]
     
     init() {
@@ -25,12 +24,8 @@ class RoleListViewModel: ObservableObject {
                 return
             }
             
-            self.roles = roleDocuments.map { (queryDocumentSnapshot) -> Role in
-                let data = queryDocumentSnapshot.data()
-                let id = data["id"] as? Int ?? 0
-                let roleName = data["role_name"] as? String ?? ""
-                
-                return Role(id: id, roleName: roleName)
+            self.roles = roleDocuments.compactMap { (queryDocumentSnapshot) -> Role? in
+                return try? queryDocumentSnapshot.data(as: Role.self)
             }
         }
     }
