@@ -23,7 +23,7 @@ struct MeetingNMusaeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PlayerListView(roomCode: "9MCMPK")
         }
     }
 }
