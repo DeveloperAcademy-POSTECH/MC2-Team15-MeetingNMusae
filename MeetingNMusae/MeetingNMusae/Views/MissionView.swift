@@ -11,7 +11,7 @@ struct MissionView: View {
     let isFacilitator = true
 
     // 폰트 크기에 따라 수정 예정
-    let textheight = 40.0
+    let textheight = UIScreen.screenHeight * 0.06
 
     var body: some View {
         VStack {
@@ -67,7 +67,7 @@ func missionCardView(role: String, didMissions: Binding<[Bool]>) -> some View {
         // 코지의 라인 익스텐션 사용
         Line().stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
             .frame(height: 1)
-        
+
         HStack {
             Text("**미션**") // add font
             Spacer()
@@ -86,10 +86,8 @@ func missionCardView(role: String, didMissions: Binding<[Bool]>) -> some View {
     .padding()
     .padding(.bottom)
     .background(
-        RoundedRectangle(cornerRadius: 30.0)
-            .strokeBorder(
-                lineWidth: 5
-            )
+        // 임시 CharacterBox에서 height, width 자동 설정으로 수정
+        CharacterBox()
     )
 }
 
@@ -113,17 +111,3 @@ struct MissionView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.portrait)
     }
 }
-
-// ref: 이하 코지의 UIScreen+Extensions 파일 내용. 프로젝트에 합칠 때 삭제할 부분
-struct Line: Shape { func path(in rect: CGRect) -> Path {
-         var path = Path()
-         path.move(to: CGPoint(x: 0, y: 0))
-         path.addLine(to: CGPoint(x: rect.width, y: 0))
-         return path
-     }
- }
-extension UIScreen {
-     static let screenWidth: CGFloat = UIScreen.main.bounds.size.width
-     static let screenHeight: CGFloat = UIScreen.main.bounds.size.height
-     static let screenSize: CGSize = UIScreen.main.bounds.size
- }

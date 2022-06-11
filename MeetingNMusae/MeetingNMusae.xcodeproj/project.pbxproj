@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C518F3792854B551007A5496 /* OtherBranchesFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C518F3782854B551007A5496 /* OtherBranchesFiles.swift */; };
 		C5DBBC8B2851DC7C00124A07 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */; };
 		C5DBBCAA2854318800124A07 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C5DBBCA92854318800124A07 /* FirebaseAnalytics */; };
 		C5DBBCAC2854318800124A07 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C5DBBCAB2854318800124A07 /* FirebaseFirestore */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C518F3782854B551007A5496 /* OtherBranchesFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherBranchesFiles.swift; sourceTree = "<group>"; };
 		C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C5DBBCAF28544ECC00124A07 /* MissionProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionProgressCircleView.swift; sourceTree = "<group>"; };
 		C5DBBCB22854548900124A07 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C518F3772854B539007A5496 /* OtherBranchesFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C518F3782854B551007A5496 /* OtherBranchesFiles.swift */,
+			);
+			path = OtherBranchesFiles;
+			sourceTree = "<group>";
+		};
 		CE3DCF1C28519B1F00E048A3 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +79,7 @@
 		CE3DCF2728519B1F00E048A3 /* MeetingNMusae */ = {
 			isa = PBXGroup;
 			children = (
+				C518F3772854B539007A5496 /* OtherBranchesFiles */,
 				CE76059B2851BD6D00D647EE /* Models */,
 				CE76059A2851BD6600D647EE /* ViewModels */,
 				CE7605992851BD5400D647EE /* Views */,
@@ -218,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE76059F2851BE0000D647EE /* RoleListViewModel.swift in Sources */,
+				C518F3792854B551007A5496 /* OtherBranchesFiles.swift in Sources */,
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
 				C5DBBCB32854548900124A07 /* MissionView.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
