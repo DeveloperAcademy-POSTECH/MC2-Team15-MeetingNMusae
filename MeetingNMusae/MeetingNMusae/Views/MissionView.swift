@@ -7,6 +7,8 @@ struct MissionView: View {
     // 임시
     let roleName = "금고무새"
     @State var didMissions: [Bool] = [true, false, false]
+    // 진행자인지
+    let isFacilitator = true
 
     // 폰트 크기에 따라 수정 예정
     let textheight = 40.0
@@ -36,6 +38,13 @@ struct MissionView: View {
             missionCardView(role: roleName, didMissions: $didMissions)
                 .padding()
             Spacer()
+            if isFacilitator {
+                Button(action: {}){
+                    Text("회의 종료하기")
+                        // 폰트 추후 수정
+                        .foregroundColor(.pink)
+                }
+            }
         }
     }
 }
