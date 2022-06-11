@@ -55,6 +55,10 @@ func missionCardView(role: String, didMissions: Binding<[Bool]>) -> some View {
             .scaledToFit()
         Text(roleName)
 
+        // 코지의 라인 익스텐션 사용
+        Line().stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
+            .frame(height: 1)
+        
         HStack {
             Text("**미션**") // add font
             Spacer()
@@ -102,6 +106,13 @@ struct MissionView_Previews: PreviewProvider {
 }
 
 // ref: 이하 코지의 UIScreen+Extensions 파일 내용. 프로젝트에 합칠 때 삭제할 부분
+struct Line: Shape { func path(in rect: CGRect) -> Path {
+         var path = Path()
+         path.move(to: CGPoint(x: 0, y: 0))
+         path.addLine(to: CGPoint(x: rect.width, y: 0))
+         return path
+     }
+ }
 extension UIScreen {
      static let screenWidth: CGFloat = UIScreen.main.bounds.size.width
      static let screenHeight: CGFloat = UIScreen.main.bounds.size.height
