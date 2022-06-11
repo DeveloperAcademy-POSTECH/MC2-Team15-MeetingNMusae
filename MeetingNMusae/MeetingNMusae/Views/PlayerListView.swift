@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct Line: Shape { func path(in rect: CGRect) -> Path {
-        var path = Path()
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: rect.width, y: 0))
-        return path
-    }
-}
-
 struct PlayerListView: View {
     let num: Int = 6
     let players: [String] = [
@@ -44,11 +36,8 @@ struct PlayerListView: View {
                 }
             }
             .padding(.all)
-            
-            
         }
         .background(RoundedRectangle(cornerRadius: 20.0).stroke(Color.black))
-        .background(Color.green)
         .frame(width: UIScreen.screenWidth * 0.9)
     }
 }
@@ -56,7 +45,10 @@ struct PlayerListView: View {
 struct PlayerListView_Previews: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 0) {
+            Rectangle()
             PlayerListView()
+                .background(Color.green)
+            Rectangle()
         }
     }
 }

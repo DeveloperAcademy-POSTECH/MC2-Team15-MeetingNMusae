@@ -10,6 +10,7 @@
 		B5B1B53E28543178000DE126 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53D28543178000DE126 /* FirebaseAnalytics */; };
 		B5B1B54028543178000DE126 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53F28543178000DE126 /* FirebaseFirestore */; };
 		B5B1B54228543178000DE126 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B54128543178000DE126 /* FirebaseFirestoreSwift */; };
+		B5B1B54428545EFE000DE126 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1B54328545EFE000DE126 /* Line.swift */; };
 		B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */; };
 		B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */; };
 		C5DBBC8B2851DC7C00124A07 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5B1B54328545EFE000DE126 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
 		B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */,
+				B5B1B54328545EFE000DE126 /* Line.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				CE76059F2851BE0000D647EE /* RoleListViewModel.swift in Sources */,
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
+				B5B1B54428545EFE000DE126 /* Line.swift in Sources */,
 				CE76059D2851BDDD00D647EE /* Role.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
