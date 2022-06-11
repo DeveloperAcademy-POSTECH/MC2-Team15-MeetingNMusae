@@ -2,7 +2,7 @@ import SwiftUI
 
 // ref: https://sarunw.com/posts/swiftui-circular-progress-bar/
 
-struct CircleProgCircleView: View {
+struct MissionProgressCircleView: View {
     // 받을 데이터: 참여자별 역할, 닉네임, 미션 달성도
     // 받을 데이터: 프로그레스 바 두께 (혹은 전역변수에서 가져옴)
     @Binding var prog: Double
@@ -59,6 +59,6 @@ struct CircleProgCircleView: View {
 
 struct CircleProgBarView_Previews: PreviewProvider {
     static var previews: some View {
-        CircleProgCircleView(prog: .constant(0.6))
+        MissionProgressCircleView(prog: .constant(0.6))
     }
 }
