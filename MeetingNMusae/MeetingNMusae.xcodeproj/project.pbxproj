@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5B1B53E28543178000DE126 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53D28543178000DE126 /* FirebaseAnalytics */; };
+		B5B1B54028543178000DE126 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53F28543178000DE126 /* FirebaseFirestore */; };
+		B5B1B54228543178000DE126 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B54128543178000DE126 /* FirebaseFirestoreSwift */; };
+		B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */; };
+		B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */; };
 		C5DBBC8B2851DC7C00124A07 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */; };
 		CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCF2828519B1F00E048A3 /* MeetingNMusaeApp.swift */; };
 		CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCF2A28519B1F00E048A3 /* ContentView.swift */; };
@@ -15,10 +20,11 @@
 		CE3DCF3728519B7700E048A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF3628519B7700E048A3 /* GoogleService-Info.plist */; };
 		CE76059D2851BDDD00D647EE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76059C2851BDDD00D647EE /* Role.swift */; };
 		CE76059F2851BE0000D647EE /* RoleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76059E2851BE0000D647EE /* RoleListViewModel.swift */; };
-		CE7B51CC28519BC2004BCA89 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CE7B51CB28519BC2004BCA89 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
+		B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		CE3DCF2528519B1F00E048A3 /* MeetingNMusae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingNMusae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3DCF2828519B1F00E048A3 /* MeetingNMusaeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingNMusaeApp.swift; sourceTree = "<group>"; };
@@ -35,18 +41,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE7B51CC28519BC2004BCA89 /* FirebaseFirestore in Frameworks */,
+				B5B1B53E28543178000DE126 /* FirebaseAnalytics in Frameworks */,
+				B5B1B54028543178000DE126 /* FirebaseFirestore in Frameworks */,
+				B5B1B54228543178000DE126 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5B1B53728543093000DE126 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5FC08412851E46100EDC014 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CE3DCF1C28519B1F00E048A3 = {
 			isa = PBXGroup;
 			children = (
 				CE3DCF2728519B1F00E048A3 /* MeetingNMusae */,
 				CE3DCF2628519B1F00E048A3 /* Products */,
+				B5B1B53728543093000DE126 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +85,7 @@
 		CE3DCF2728519B1F00E048A3 /* MeetingNMusae */ = {
 			isa = PBXGroup;
 			children = (
+				B5FC08412851E46100EDC014 /* Extensions */,
 				CE76059B2851BD6D00D647EE /* Models */,
 				CE76059A2851BD6600D647EE /* ViewModels */,
 				CE7605992851BD5400D647EE /* Views */,
@@ -85,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
+				B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -123,7 +149,9 @@
 			);
 			name = MeetingNMusae;
 			packageProductDependencies = (
-				CE7B51CB28519BC2004BCA89 /* FirebaseFirestore */,
+				B5B1B53D28543178000DE126 /* FirebaseAnalytics */,
+				B5B1B53F28543178000DE126 /* FirebaseFirestore */,
+				B5B1B54128543178000DE126 /* FirebaseFirestoreSwift */,
 			);
 			productName = MeetingNMusae;
 			productReference = CE3DCF2528519B1F00E048A3 /* MeetingNMusae.app */;
@@ -155,6 +183,7 @@
 			mainGroup = CE3DCF1C28519B1F00E048A3;
 			packageReferences = (
 				CE7B51CA28519BC2004BCA89 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = CE3DCF2628519B1F00E048A3 /* Products */;
 			projectDirPath = "";
@@ -205,6 +234,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */,
+				B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */,
 				CE76059F2851BE0000D647EE /* RoleListViewModel.swift in Sources */,
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
@@ -337,7 +368,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeetingNMusae/Preview Content\"";
-				DEVELOPMENT_TEAM = 744MUUC77P;
+				DEVELOPMENT_TEAM = Y7G824SH3W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -363,10 +394,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeetingNMusae/Preview Content\"";
-				DEVELOPMENT_TEAM = 744MUUC77P;
+				DEVELOPMENT_TEAM = Y7G824SH3W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -381,6 +413,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jogeunjogeun.MeetingNMusae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -411,6 +444,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		CE7B51CA28519BC2004BCA89 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -422,10 +463,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CE7B51CB28519BC2004BCA89 /* FirebaseFirestore */ = {
+		B5B1B53D28543178000DE126 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CE7B51CA28519BC2004BCA89 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		B5B1B53F28543178000DE126 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		B5B1B54128543178000DE126 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
