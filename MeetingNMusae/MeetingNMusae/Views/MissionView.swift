@@ -56,6 +56,7 @@ func missionCardView(role: String, didMissions: Binding<[Bool]>) -> some View {
     let roleName = role
     let imageName = roleName
     let missions = ["미션1", "미션2", "미션3"]
+    let roleColor = Color.pink
 
     VStack {
         // 추후 이미지 크기 조정 필요
@@ -87,7 +88,7 @@ func missionCardView(role: String, didMissions: Binding<[Bool]>) -> some View {
     .padding(.bottom)
     .background(
         // 임시 CharacterBox에서 height, width 자동 설정으로 수정
-        CharacterBox()
+        CharacterBox(shadowColor: roleColor)
     )
 }
 
