@@ -73,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				B5B1B54328545EFE000DE126 /* Line.swift */,
+				90988FA028549568000711BE /* CharacterBox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -88,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */,
+				90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -139,8 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
-				90988FA028549568000711BE /* CharacterBox.swift */,
-				90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */,
 				B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */,
 			);
 			path = Views;
@@ -276,7 +276,6 @@
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
 				90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */,
 				90988FA128549568000711BE /* CharacterBox.swift in Sources */,
-				CE76059D2851BDDD00D647EE /* Role.swift in Sources */,
 				B57BB9D32854BEED007AFFAA /* User.swift in Sources */,
 				B5B1B54428545EFE000DE126 /* Line.swift in Sources */,
 			);
