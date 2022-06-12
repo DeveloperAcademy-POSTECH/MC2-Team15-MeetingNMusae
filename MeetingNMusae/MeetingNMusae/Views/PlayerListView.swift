@@ -30,11 +30,11 @@ struct CharacterBox: View {
 }
 
 struct PlayerListView: View {
-
+    
     let roomCode: String
     @State var users: [User] = []
     @ObservedObject var userViewModel = UserViewModel()
-
+    
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
@@ -44,14 +44,14 @@ struct PlayerListView: View {
                     .padding(.vertical, UIScreen.screenHeight * 0.0178)
                     .padding(.bottom, UIScreen.screenHeight * 0.0083)
             }
-                .frame(maxWidth: .infinity)
-                .overlay(alignment: .leading) {
-                    Button(action: action) {
-                        Image(systemName: "rectangle.portrait.and.arrow.right")
-                            .foregroundColor(Color.black)
-                    }
-                        .padding(.leading, UIScreen.screenHeight * 0.02843)
+            .frame(maxWidth: .infinity)
+            .overlay(alignment: .leading) {
+                Button(action: action) {
+                    Image(systemName: "rectangle.portrait.and.arrow.right")
+                        .foregroundColor(Color.black)
                 }
+                .padding(.leading, UIScreen.screenHeight * 0.02843)
+            }
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
                     Text("참여자 (\(userViewModel.users.count))")
@@ -68,11 +68,11 @@ struct PlayerListView: View {
                                 .padding(.all, UIScreen.screenHeight * 0.0178)
                         }
                     }
-                        .padding(.all, UIScreen.screenHeight * 0.0178)
+                    .padding(.all, UIScreen.screenHeight * 0.0178)
                 }
-                    .background(CharacterBox())
-                    .onAppear {
-                        self.userViewModel.fetchData(roomCode: roomCode)
+                .background(CharacterBox())
+                .onAppear {
+                    self.userViewModel.fetchData(roomCode: roomCode)
                 }
                 Spacer()
                 Button(action: action) {
@@ -83,14 +83,14 @@ struct PlayerListView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     }
-                        .frame(height: UIScreen.screenHeight * 0.076)
+                    .frame(height: UIScreen.screenHeight * 0.076)
                 }
                 .padding(.bottom, 8)
             }
-                .padding(.vertical, UIScreen.screenWidth * 0.08)
+            .frame(width: UIScreen.screenWidth * 0.84)
         }
     }
-
+    
     func action() {
     }
 }
