@@ -14,7 +14,7 @@ struct CharacterBox: View {
     let height: CGFloat?
     var roleIndex: Int
     
-    init(width: CGFloat? = nil, height: CGFloat? = nil, roleIndex:Int = 0) {
+    init(width: CGFloat? = nil, height: CGFloat? = nil, roleIndex: Int = 0) {
         self.width = width
         self.height = height
         self.roleIndex = 0...10 ~= roleIndex ? roleIndex : 0
