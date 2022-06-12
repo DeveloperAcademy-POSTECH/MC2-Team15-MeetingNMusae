@@ -12,19 +12,19 @@ struct CharacterBox: View {
                               .musaeSkyBlue, .musaePink, .musaeRed, .musaeMustard]
     let width: CGFloat?
     let height: CGFloat?
-    var roleIndex: Int?
+    var roleIndex: Int
     
     init(width: CGFloat? = nil, height: CGFloat? = nil, roleIndex:Int = 0) {
         self.width = width
         self.height = height
-        self.roleIndex = roleIndex
+        self.roleIndex = 0...10 ~= roleIndex ? roleIndex : 0
     }
     
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
             .foregroundColor(.white)
             .frame(width: width, height: height)
-            .shadow(color: colorList[roleIndex ?? 0], radius: 0, x: 8, y: 8)
+            .shadow(color: colorList[roleIndex], radius: 0, x: 8, y: 8)
             .overlay(RoundedRectangle(cornerRadius: 12)
                     .stroke(Color.black, lineWidth: 3)
             )
