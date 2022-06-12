@@ -18,9 +18,10 @@
 		CE79E21A2853357A005BA8CB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CE79E2192853357A005BA8CB /* FirebaseAnalytics */; };
 		CE79E21C2853357A005BA8CB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CE79E21B2853357A005BA8CB /* FirebaseFirestore */; };
 		CE79E21E2853357A005BA8CB /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE79E21D2853357A005BA8CB /* FirebaseFirestoreSwift */; };
+		CEAFD26928544E670065B991 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFD26828544E670065B991 /* HomeView.swift */; };
 		CEC5F07A2851EC9500372F87 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F0792851EC9500372F87 /* User.swift */; };
 		CEC5F07C2851EE0B00372F87 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F07B2851EE0B00372F87 /* UserViewModel.swift */; };
-		CEC5F07E2853087300372F87 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F07D2853087300372F87 /* EmptyView.swift */; };
+		CEC5F07E2853087300372F87 /* RoleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F07D2853087300372F87 /* RoleDetailView.swift */; };
 		CEC5F08128530EEA00372F87 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F08028530EEA00372F87 /* MeetingRoom.swift */; };
 		CEC5F0832853125600372F87 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F0822853125600372F87 /* Mission.swift */; };
 		CEC5F085285312D900372F87 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F084285312D900372F87 /* Review.swift */; };
@@ -37,9 +38,10 @@
 		CE4733EE2851D00B00DA45B7 /* RoleSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectView.swift; sourceTree = "<group>"; };
 		CE76059C2851BDDD00D647EE /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		CE76059E2851BE0000D647EE /* RoleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleViewModel.swift; sourceTree = "<group>"; };
+		CEAFD26828544E670065B991 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CEC5F0792851EC9500372F87 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CEC5F07B2851EE0B00372F87 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		CEC5F07D2853087300372F87 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		CEC5F07D2853087300372F87 /* RoleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleDetailView.swift; sourceTree = "<group>"; };
 		CEC5F08028530EEA00372F87 /* MeetingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoom.swift; sourceTree = "<group>"; };
 		CEC5F0822853125600372F87 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		CEC5F084285312D900372F87 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		CE3DCF2728519B1F00E048A3 /* MeetingNMusae */ = {
 			isa = PBXGroup;
 			children = (
+				CE9300A22855B0A40042912B /* Temp */,
 				CE76059B2851BD6D00D647EE /* Models */,
 				CE76059A2851BD6600D647EE /* ViewModels */,
 				CE7605992851BD5400D647EE /* Views */,
@@ -103,7 +106,7 @@
 			children = (
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				CE4733EE2851D00B00DA45B7 /* RoleSelectView.swift */,
-				CEC5F07D2853087300372F87 /* EmptyView.swift */,
+				CEC5F07D2853087300372F87 /* RoleDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +131,14 @@
 				CEC5F084285312D900372F87 /* Review.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CE9300A22855B0A40042912B /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+				CEAFD26828544E670065B991 /* HomeView.swift */,
+			);
+			path = Temp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,10 +222,11 @@
 			files = (
 				CE76059F2851BE0000D647EE /* RoleViewModel.swift in Sources */,
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
+				CEAFD26928544E670065B991 /* HomeView.swift in Sources */,
 				CEC5F08128530EEA00372F87 /* MeetingRoom.swift in Sources */,
 				CEC5F07A2851EC9500372F87 /* User.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
-				CEC5F07E2853087300372F87 /* EmptyView.swift in Sources */,
+				CEC5F07E2853087300372F87 /* RoleDetailView.swift in Sources */,
 				CEC5F085285312D900372F87 /* Review.swift in Sources */,
 				CEC5F0872853133F00372F87 /* MeetingRoomViewModel.swift in Sources */,
 				CE76059D2851BDDD00D647EE /* Role.swift in Sources */,

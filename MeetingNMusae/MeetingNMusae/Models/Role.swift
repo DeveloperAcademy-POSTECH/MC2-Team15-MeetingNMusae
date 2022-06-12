@@ -21,3 +21,18 @@ class Role: Codable, Identifiable {
         self.roleName = roleName
     }
 }
+
+extension Role {
+    static let roles: [Role] = [
+        Role(id: 1, roleName: "진행무새"),
+        Role(id: 2, roleName: "기록무새"),
+        Role(id: 3, roleName: "타임무새"),
+        Role(id: 4, roleName: "주제무새"),
+        Role(id: 5, roleName: "이해무새"),
+        Role(id: 6, roleName: "왜??무새"),
+        Role(id: 7, roleName: "삐딱무새"),
+        Role(id: 8, roleName: "좋아무새"),
+        Role(id: 9, roleName: "발언권무새"),
+        Role(id: 10, roleName: "금고무새")
+    ]
+}

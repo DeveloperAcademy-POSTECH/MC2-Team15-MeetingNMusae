@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 let imageWidthSize: CGFloat = 128
 let imageHeightSize: CGFloat = 86
@@ -17,26 +18,16 @@ struct RoleSelectView: View {
     ]
     
     @State var roomCode: String
+    @State var roles: [Role] = Role.roles
+    @State var user: User
     
-    @State var roles: [Role] = []
+    @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
     
-    @State var roleImages: [Image] = [
-        Image("진행무새"),
-        Image("기록무새"),
-        Image("타임무새"),
-        Image("주제무새"),
-        Image("이해무새"),
-        Image("왜무새"),
-        Image("삐딱무새"),
-        Image("좋아무새"),
-        Image("발언권무새"),
-        Image("금고무새")
-    ]
+    private var db = Firestore.firestore()
     
-    @ObservedObject var roleViewModel = RoleViewModel()
-    
-    init(roomCode: String) {
+    init(roomCode: String, nickname: String) {
         self.roomCode = roomCode
+        self.user = User(missionIds: [0, 1, 2], nickname: nickname, roomCode: roomCode)
     }
     
     var body: some View {
@@ -45,13 +36,6 @@ struct RoleSelectView: View {
             HStack{
                 Image(systemName: "star.circle.fill")
                 Text("필수 역할입니다")
-//                Button(action: {
-//                    for role in roles {
-//                        print("\(role.roleName)", terminator: " ")
-//                    }
-//                }, label: {
-//                    Text("show all roles")
-//                })
             }
             .padding(.leading)
             .font(.subheadline)
@@ -59,24 +43,24 @@ struct RoleSelectView: View {
             
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(roleViewModel.roles) { role in
-//                        roles.append(role)
-                        RoleItem(roles: $roles, role: role)
+                    ForEach(meetingRoomViewModel.meetingRooms) { meetingRoom in
+                        ForEach(0..<roles.count, id:\.self) {i in
+                            RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, nickname: user.nickname)
+                        }
                     }
-                }
-                .onAppear() {
-                    self.roleViewModel.fetchData()
+                }.onAppear() {
+                    self.meetingRoomViewModel.fetchData(roomCode: roomCode)
                 }
                 .padding()
             }
-            
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
-                    
+                    // TODO
+                    // 방 선택뷰로 이동하는 기능
                 }, label: {
                     Image(systemName: "rectangle.portrait.and.arrow.right").rotationEffect(.degrees(180))
                 })
@@ -87,18 +71,25 @@ struct RoleSelectView: View {
 }
 
 struct RoleItem: View {
-    @Binding var roles: [Role]
     @State var isModalShown = false
     @State var role: Role
+    @State var roleSelectUser: String
+    @State var roomCode: String
+    @State var nickname: String
     
     var body: some View {
         Button(action: {
-            roles.append(role)
             isModalShown = true
         }) {
             ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.black)
+                if roleSelectUser != "" {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.black)
+                }else {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.yellow)
+                }
+                
                 VStack {
                     Image("\(role.roleName)")
                         .resizable()
@@ -106,30 +97,27 @@ struct RoleItem: View {
                         .frame(width: imageWidthSize, height: imageHeightSize)
                     Text("\(role.roleName)").padding(.bottom).foregroundColor(.black)
                 }
-                if role.id < 3 {
-                    VStack {
-                        HStack {
+                VStack {
+                    HStack {
+                        if role.id <= 3 {
                             Image(systemName: "star.circle.fill")
-                                .foregroundColor(Color.black)
-                                .padding(10)
-                            Spacer()
                         }
+                        Text("\(roleSelectUser)")
+                            .foregroundColor(.white)
+                            .background(RoundedRectangle(cornerRadius: 20.0).fill(Color.black))
                         Spacer()
-                    }
+                    }.foregroundColor(Color.black)
+                        .padding(10)
+                    Spacer()
                 }
+                
             }
         }.sheet(isPresented: $isModalShown) {
             NavigationView {
-                EmptyView(role: role)
+                RoleDetailView(role: role, roomCode: roomCode, nickname: nickname, isModalShown: $isModalShown)
             }
         }
         .padding(.leading)
         .padding(.trailing)
     }
 }
-
-//struct RoleSelectView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RoleSelectView(roomCode: "1Q2W3E")
-//    }
-//}

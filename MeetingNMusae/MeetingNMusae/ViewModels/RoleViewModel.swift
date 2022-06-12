@@ -8,6 +8,10 @@
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+/**
+현재 있으나 쓰이지 않음
+ */
+
 class RoleViewModel: ObservableObject {
     @Published var roles: [Role]
     
@@ -19,12 +23,12 @@ class RoleViewModel: ObservableObject {
     
     func fetchData() {
         db.collection("roles").order(by: "id").addSnapshotListener { (querySnapshot, error) in
-            guard let roleDocuments = querySnapshot?.documents else {
+            guard let documents = querySnapshot?.documents else {
                 print("no documents")
                 return
             }
             
-            self.roles = roleDocuments.compactMap { (queryDocumentSnapshot) -> Role? in
+            self.roles = documents.compactMap { (queryDocumentSnapshot) -> Role? in
                 return try? queryDocumentSnapshot.data(as: Role.self)
             }
         }

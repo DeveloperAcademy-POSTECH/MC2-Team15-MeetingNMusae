@@ -4,7 +4,7 @@
 //
 //  Created by JiwKang on 2022/06/09.
 //
-
+import FirebaseFirestoreSwift
 import Foundation
 
 class User: Codable, Identifiable {
@@ -12,7 +12,7 @@ class User: Codable, Identifiable {
     let missionIds: [Int]
     var missionProgress: [Bool]
     let nickname: String
-    let roleId: Int
+    var roleId: Int
     let roomCode: String
 
     enum CodingKeys: String, CodingKey {
@@ -24,12 +24,12 @@ class User: Codable, Identifiable {
         case roomCode = "room_code"
     }
 
-    init(missionIds: [Int], missionProgress: [Bool], nickname: String, roleId: Int, roomCode: String) {
+    init(missionIds: [Int], nickname: String, roomCode: String) {
         self.isReady = false
         self.missionIds = missionIds
         self.missionProgress = [false, false, false]
         self.nickname = nickname
-        self.roleId = roleId
+        self.roleId = 0
         self.roomCode = roomCode
     }
 }

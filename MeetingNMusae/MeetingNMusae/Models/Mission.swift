@@ -4,8 +4,9 @@
 //
 //  Created by JiwKang on 2022/06/10.
 //
+import FirebaseFirestoreSwift
 
-class mission {
+class mission: Codable {
     private var content: String
     private var id: Int
     private var roleId: Int
