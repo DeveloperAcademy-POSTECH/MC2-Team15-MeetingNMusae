@@ -11,6 +11,7 @@
 		90956B50285431AF0087A245 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 90956B4F285431AF0087A245 /* FirebaseFirestore */; };
 		90956B52285431AF0087A245 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 90956B51285431AF0087A245 /* FirebaseFirestoreSwift */; };
 		90988FA128549568000711BE /* CharacterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90988FA028549568000711BE /* CharacterBox.swift */; };
+		90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */; };
 		C5DBBC8B2851DC7C00124A07 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */; };
 		CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCF2828519B1F00E048A3 /* MeetingNMusaeApp.swift */; };
 		CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCF2A28519B1F00E048A3 /* ContentView.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		90988FA028549568000711BE /* CharacterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBox.swift; sourceTree = "<group>"; };
+		90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		CE3DCF2528519B1F00E048A3 /* MeetingNMusae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingNMusae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3DCF2828519B1F00E048A3 /* MeetingNMusaeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingNMusaeApp.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				90988FA028549568000711BE /* CharacterBox.swift */,
+				90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				CE76059F2851BE0000D647EE /* RoleListViewModel.swift in Sources */,
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
+				90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */,
 				90988FA128549568000711BE /* CharacterBox.swift in Sources */,
 				CE76059D2851BDDD00D647EE /* Role.swift in Sources */,
 			);

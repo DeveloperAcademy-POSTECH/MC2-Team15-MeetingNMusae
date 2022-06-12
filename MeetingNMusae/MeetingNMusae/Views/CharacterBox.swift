@@ -13,15 +13,14 @@ struct CharacterBox: View {
         self.width = width
         self.height = height
     }
-    
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
             .foregroundColor(.white)
             .frame(width: width, height: height)
-            .shadow(color: .black, radius: 0,  x: 8, y: 8)
-            .overlay (
-                RoundedRectangle(cornerRadius: 12)
+            .shadow(color: .black, radius: 0, x: 8, y: 8)
+            .overlay(RoundedRectangle(cornerRadius: 12)
                     .stroke(Color.black, lineWidth: 3)
             )
     }
 }
+
