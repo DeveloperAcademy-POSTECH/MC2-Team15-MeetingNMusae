@@ -65,6 +65,14 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		B59CAC122855E2BE00C0FC98 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B5B1B54328545EFE000DE126 /* Line.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		B5B1B53728543093000DE126 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +109,7 @@
 		CE3DCF2728519B1F00E048A3 /* MeetingNMusae */ = {
 			isa = PBXGroup;
 			children = (
+				B59CAC122855E2BE00C0FC98 /* Components */,
 				B5FC08412851E46100EDC014 /* Extensions */,
 				CE76059B2851BD6D00D647EE /* Models */,
 				CE76059A2851BD6600D647EE /* ViewModels */,
@@ -127,7 +136,6 @@
 			children = (
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */,
-				B5B1B54328545EFE000DE126 /* Line.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

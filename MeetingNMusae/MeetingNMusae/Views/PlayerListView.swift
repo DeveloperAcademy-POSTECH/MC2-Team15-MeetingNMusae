@@ -68,11 +68,11 @@ struct PlayerListView: View {
                                 .padding(.all, UIScreen.screenHeight * 0.0178)
                         }
                     }
-                    .padding(.all, UIScreen.screenHeight * 0.0178)
+                        .padding(.all, UIScreen.screenHeight * 0.0178)
                 }
-                .background(CharacterBox())
-                .onAppear {
-                    self.userViewModel.fetchData(roomCode: roomCode)
+                    .background(CharacterBox())
+                    .onAppear {
+                        self.userViewModel.fetchData(roomCode: roomCode)
                 }
                 Spacer()
                 Button(action: action) {
@@ -83,11 +83,11 @@ struct PlayerListView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     }
-                    .frame(height: UIScreen.screenHeight * 0.076)
+                        .frame(height: UIScreen.screenHeight * 0.076)
                 }
                 .padding(.bottom, 8)
             }
-                .frame(width: UIScreen.screenWidth * 0.84)
+                .padding(.vertical, UIScreen.screenWidth * 0.08)
         }
     }
 
