@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90988FA128549568000711BE /* CharacterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90988FA028549568000711BE /* CharacterBox.swift */; };
+		90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */; };
 		B57BB9D32854BEED007AFFAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57BB9D22854BEED007AFFAA /* User.swift */; };
 		B5B1B53E28543178000DE126 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53D28543178000DE126 /* FirebaseAnalytics */; };
 		B5B1B54028543178000DE126 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53F28543178000DE126 /* FirebaseFirestore */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		90988FA028549568000711BE /* CharacterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBox.swift; sourceTree = "<group>"; };
+		90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B57BB9D22854BEED007AFFAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5B1B54328545EFE000DE126 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		B5B1B54528547DC6000DE126 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				B5B1B54328545EFE000DE126 /* Line.swift */,
+				90988FA028549568000711BE /* CharacterBox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -84,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */,
+				90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 				B5B1B55328547DD7000DE126 /* UserViewModel.swift in Sources */,
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
+				90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */,
+				90988FA128549568000711BE /* CharacterBox.swift in Sources */,
 				B57BB9D32854BEED007AFFAA /* User.swift in Sources */,
 				B5B1B54428545EFE000DE126 /* Line.swift in Sources */,
 			);
@@ -488,8 +496,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
