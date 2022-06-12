@@ -11,7 +11,7 @@ class Role: Identifiable {
     var id: Int
     var roleName: String
     var isSelected: Bool
-    
+
     init(id: Int, roleName: String) {
         self.id = id
         self.roleName = roleName
