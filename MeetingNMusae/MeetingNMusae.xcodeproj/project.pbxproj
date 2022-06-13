@@ -32,7 +32,6 @@
 		90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B57BB9D22854BEED007AFFAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5B1B54328545EFE000DE126 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
-		B5B1B54528547DC6000DE126 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5B1B54828547DC6000DE126 /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		B5B1B55028547DD7000DE126 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
@@ -61,14 +60,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B57BB9D12854BEC3007AFFAA /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				B5B1B54528547DC6000DE126 /* User.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		B59CAC122855E2BE00C0FC98 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,13 +67,6 @@
 				90988FA028549568000711BE /* CharacterBox.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		B5B1B53728543093000DE126 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B5FC08412851E46100EDC014 /* Extensions */ = {
@@ -99,8 +83,6 @@
 			children = (
 				CE3DCF2728519B1F00E048A3 /* MeetingNMusae */,
 				CE3DCF2628519B1F00E048A3 /* Products */,
-				B5B1B53728543093000DE126 /* Frameworks */,
-				B57BB9D12854BEC3007AFFAA /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
