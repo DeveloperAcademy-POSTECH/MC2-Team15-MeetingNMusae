@@ -27,6 +27,10 @@ struct TextInputBox: View {
                     TextField(description, text: $textInput)
                         .padding(.horizontal, 20)
                         .autocapitalization(UITextAutocapitalizationType.allCharacters)
+                        // cozytk
+                        .onChange(of: textInput) { newValue in
+                            textInput = newValue.replacingOccurrences(of: " ", with: "")
+                        }
                         .onReceive(Just(textInput),
                                    perform: {_ in limitText(textLimit)}
                                   )
