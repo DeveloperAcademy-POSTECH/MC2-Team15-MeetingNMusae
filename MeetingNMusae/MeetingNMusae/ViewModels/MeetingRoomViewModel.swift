@@ -28,6 +28,7 @@ class MeetingRoomViewModel: ObservableObject {
             }
         }
     }
+    
     func addMeetingRoom(meetingRoom: MeetingRoom) {
         do {
             _ = try db.collection("meeting_rooms").document("\(meetingRoom.roomCode)").setData(from: meetingRoom)
@@ -36,6 +37,7 @@ class MeetingRoomViewModel: ObservableObject {
             return
         }
     }
+
     func enterMeetingRoom(roomCode: String, user: User) {
         // todo
     }
