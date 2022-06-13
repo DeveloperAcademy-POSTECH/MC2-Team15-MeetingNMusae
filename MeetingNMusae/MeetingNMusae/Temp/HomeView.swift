@@ -22,14 +22,13 @@ struct HomeView: View {
                     guard let randomCharacter = str.randomElement() else { break }
                     roomCode.append(randomCharacter)
                 }
-                
                 let user: User = User(missionIds: [0, 1, 2], nickname: nickname, roomCode: roomCode)
                 MeetingRoomViewModel().addMeetingRoom(meetingRoom: MeetingRoom(owner: nickname, users: [nickname: user], roomCode: roomCode))
             }, label: {
-                Text("방 만들기")   
+                Text("방 만들기")
             })
             Button(action: {
-                // TODO
+                // todo
                 // 유저를 meeting_rooms의 room_code에 해당하는 users에 추가해야함
             }, label: {
                 Text("입장하기")
