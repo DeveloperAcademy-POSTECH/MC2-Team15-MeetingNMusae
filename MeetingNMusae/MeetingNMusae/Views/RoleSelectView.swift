@@ -16,15 +16,19 @@ struct RoleSelectView: View {
         GridItem(),
         GridItem()
     ]
+
     @State var roomCode: String
     @State var roles: [Role] = Role.roles
     @State var user: User
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
+
     private var db = Firestore.firestore()
+
     init(roomCode: String, nickname: String) {
         self.roomCode = roomCode
         self.user = User(missionIds: [0, 1, 2], nickname: nickname, roomCode: roomCode)
     }
+
     var body: some View {
         VStack(alignment: .leading) {
             Text("역할을 골라주세요").font(.headline).padding(.leading)
@@ -35,6 +39,7 @@ struct RoleSelectView: View {
             .padding(.leading)
             .font(.subheadline)
             .foregroundColor(Color.gray)
+
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(meetingRoomViewModel.meetingRooms) { meetingRoom in
@@ -70,6 +75,7 @@ struct RoleItem: View {
     @State var roleSelectUser: String
     @State var roomCode: String
     @State var nickname: String
+
     var body: some View {
         Button {
             isModalShown = true
@@ -82,6 +88,7 @@ struct RoleItem: View {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.yellow)
                 }
+
                 VStack {
                     Image("\(role.roleName)")
                         .resizable()
@@ -89,11 +96,13 @@ struct RoleItem: View {
                         .frame(width: imageWidthSize, height: imageHeightSize)
                     Text("\(role.roleName)").padding(.bottom).foregroundColor(.black)
                 }
+
                 VStack {
                     HStack {
                         if role.id <= 3 {
                             Image(systemName: "star.circle.fill")
                         }
+
                         Text("\(roleSelectUser)")
                             .foregroundColor(.white)
                             .background(RoundedRectangle(cornerRadius: 20.0).fill(Color.black))

@@ -16,10 +16,12 @@ struct RoleDetailView: View {
     @State var nickname: String
     @Binding var isModalShown: Bool
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
+
     var body: some View {
         NavigationView {
             VStack {
                 Image("\(role.roleName)").resizable().scaledToFit()
+
                 Button {
                     meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
                     isModalShown = false
@@ -29,6 +31,7 @@ struct RoleDetailView: View {
                         Text("선택하기").foregroundColor(.white)
                     }
                 }.padding()
+
                 Button {
                     meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: false)
                     isModalShown = false
