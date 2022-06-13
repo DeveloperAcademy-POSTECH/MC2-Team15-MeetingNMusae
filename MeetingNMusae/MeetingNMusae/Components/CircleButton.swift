@@ -5,4 +5,18 @@
 //  Created by 김태호 on 2022/06/13.
 //
 
-import Foundation
+import SwiftUI
+
+struct CircleButton: View {
+    @Binding var text: String
+    
+    var body: some View {
+        Circle()
+            .foregroundColor(text.isEmpty ? .gray : .black)
+            .frame(width: 64, height: 64)
+            .overlay(
+                Image(systemName: "arrow.right")
+                    .foregroundColor(.white)
+            )
+    }
+}

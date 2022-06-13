@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9029184F28572B70002D8D90 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029184E28572B70002D8D90 /* Home.swift */; };
+		9029185128572BDC002D8D90 /* RoomFindingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185028572BDC002D8D90 /* RoomFindingView.swift */; };
+		9029185328572BF1002D8D90 /* NicknameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185228572BF1002D8D90 /* NicknameSettingView.swift */; };
+		9029185528572F36002D8D90 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185428572F36002D8D90 /* CircleButton.swift */; };
+		9029185728573819002D8D90 /* TextInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185628573819002D8D90 /* TextInputBox.swift */; };
+		9029185928573BA5002D8D90 /* SelectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185828573BA5002D8D90 /* SelectBox.swift */; };
 		90988FA128549568000711BE /* CharacterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90988FA028549568000711BE /* CharacterBox.swift */; };
 		90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */; };
 		B57BB9D32854BEED007AFFAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57BB9D22854BEED007AFFAA /* User.swift */; };
@@ -35,6 +41,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9029184E28572B70002D8D90 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		9029185028572BDC002D8D90 /* RoomFindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFindingView.swift; sourceTree = "<group>"; };
+		9029185228572BF1002D8D90 /* NicknameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingView.swift; sourceTree = "<group>"; };
+		9029185428572F36002D8D90 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		9029185628573819002D8D90 /* TextInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputBox.swift; sourceTree = "<group>"; };
+		9029185828573BA5002D8D90 /* SelectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBox.swift; sourceTree = "<group>"; };
 		90988FA028549568000711BE /* CharacterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBox.swift; sourceTree = "<group>"; };
 		90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B57BB9D22854BEED007AFFAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -77,8 +89,11 @@
 		B59CAC122855E2BE00C0FC98 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9029185628573819002D8D90 /* TextInputBox.swift */,
 				B5B1B54328545EFE000DE126 /* Line.swift */,
+				9029185428572F36002D8D90 /* CircleButton.swift */,
 				90988FA028549568000711BE /* CharacterBox.swift */,
+				9029185828573BA5002D8D90 /* SelectBox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -133,6 +148,9 @@
 				CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */,
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */,
+				9029184E28572B70002D8D90 /* Home.swift */,
+				9029185228572BF1002D8D90 /* NicknameSettingView.swift */,
+				9029185028572BDC002D8D90 /* RoomFindingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,17 +291,23 @@
 				B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */,
 				B5B1B54D28547DC7000DE126 /* Role.swift in Sources */,
 				B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */,
+				9029185928573BA5002D8D90 /* SelectBox.swift in Sources */,
 				CEC7BE4B2856DEAF0072ACB0 /* Mission.swift in Sources */,
+				9029185728573819002D8D90 /* TextInputBox.swift in Sources */,
 				B5B1B55328547DD7000DE126 /* UserViewModel.swift in Sources */,
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
+				9029185328572BF1002D8D90 /* NicknameSettingView.swift in Sources */,
 				90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */,
 				CEC7BE522856DEE60072ACB0 /* RoleDetailView.swift in Sources */,
+				9029184F28572B70002D8D90 /* Home.swift in Sources */,
 				CEC7BE492856DEAF0072ACB0 /* MeetingRoom.swift in Sources */,
+				9029185128572BDC002D8D90 /* RoomFindingView.swift in Sources */,
 				CEC7BE4A2856DEAF0072ACB0 /* Review.swift in Sources */,
 				CEC7BE4D2856DECF0072ACB0 /* MeetingRoomViewModel.swift in Sources */,
 				90988FA128549568000711BE /* CharacterBox.swift in Sources */,
 				CEC7BE4F2856DED50072ACB0 /* RoleViewModel.swift in Sources */,
+				9029185528572F36002D8D90 /* CircleButton.swift in Sources */,
 				CEC7BE532856DEE60072ACB0 /* RoleSelectView.swift in Sources */,
 				CEC7BE452856DE9C0072ACB0 /* HomeView.swift in Sources */,
 				B57BB9D32854BEED007AFFAA /* User.swift in Sources */,
