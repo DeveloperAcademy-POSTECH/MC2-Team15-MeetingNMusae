@@ -16,6 +16,7 @@ class RoleListViewModel: ObservableObject {
         roles = [Role]()
     }
 
+    
     private var db = Firestore.firestore()
 
     func fetchData() {
