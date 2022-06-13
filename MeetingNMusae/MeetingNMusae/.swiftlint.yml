@@ -9,4 +9,4 @@ disabled_rules:
 - identifier_name
 
   # 개인적으로 추가할만한 것
-- trailing_whitespace: 주석처리한 코드 아래의 탭(4스페이스)에도 경고 띄움
+- trailing_whitespace #주석처리한 코드 아래의 탭(4스페이스)에도 경고 띄움
