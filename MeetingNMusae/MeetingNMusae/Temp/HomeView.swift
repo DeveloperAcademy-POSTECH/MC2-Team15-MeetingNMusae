@@ -19,7 +19,8 @@ struct HomeView: View {
                 let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
                 roomCode = ""
                 for _ in 0..<6 {
-                    roomCode.append(str.randomElement()!)
+                    guard let randomCharacter = str.randomElement() else { break }
+                    roomCode.append(randomCharacter)
                 }
                 print("\(roomCode)")
                 
