@@ -26,19 +26,17 @@ struct HomeView: View {
                 }
 
                 let user: User = User(missionIds: [0, 1, 2], nickname: nickname, roomCode: roomCode)
-                MeetingRoomViewModel().addMeetingRoom(meetingRoom: MeetingRoom(owner: nickname, roomCode: roomCode))
-                UserViewModel().addUser(roomCode: roomCode, user: user)
+                MeetingRoomViewModel().addMeetingRoom(meetingRoom: MeetingRoom(owner: nickname, users: [nickname: user], roomCode: roomCode))
             }, label: {
                 Text("방 만들기")
             })
-            
-            NavigationLink(destination: RoleSelectView(roomCode: roomCode, nickname: nickname)) {
+
+            Button(action: {
+                // todo
+                // 유저를 meeting_rooms의 room_code에 해당하는 users에 추가해야함
+            }, label: {
                 Text("입장하기")
-            }.simultaneousGesture(TapGesture().onEnded{
-                let user: User = User(missionIds: [0, 1, 2], nickname: nickname, roomCode: roomCode)
-                UserViewModel().addUser(roomCode: roomCode, user: user)
             })
         }
-        .navigationBarHidden(true)
     }
 }

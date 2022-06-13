@@ -30,9 +30,9 @@ class UserViewModel: ObservableObject {
         }
     }
 
-    func addUser(roomCode: String, user: User) {
+    func addUser(user: User) {
         do {
-            _ = try db.collection("meeting_rooms").document("\(roomCode)").collection("users").document("\(user.nickname)").setData(from: user)
+            _ = try db.collection("users").addDocument(from: user)
         } catch {
             print(error)
             return
