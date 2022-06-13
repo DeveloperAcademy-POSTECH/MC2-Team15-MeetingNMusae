@@ -42,6 +42,17 @@ struct RoleDetailView: View {
                     }
                 }.padding()
             }
+            //        .toolbar {
+            //            ToolbarItem(placement: .navigationBarLeading) {
+            //                Button(action: {
+            //                    // todo
+            //                    // 방 선택뷰로 이동하는 기능
+            //                }, label: {
+            //                    Image(systemName: "rectangle.portrait.and.arrow.right").rotationEffect(.degrees(180))
+            //                })
+            //                .foregroundColor(.black)
+            //            }
+            //        }
         }
         .navigationTitle("\(role.roleName)")
         .navigationBarTitleDisplayMode(.inline)
