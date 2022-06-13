@@ -12,7 +12,7 @@ class User: Codable, Identifiable {
     let missionIds: [Int]
     var missionProgress: [Bool]
     let nickname: String
-    var roleId: Int
+    let roleId: Int
     let roomCode: String
 
     enum CodingKeys: String, CodingKey {
@@ -24,12 +24,12 @@ class User: Codable, Identifiable {
         case roomCode = "room_code"
     }
 
-    init(missionIds: [Int], nickname: String, roomCode: String) {
+    init(missionIds: [Int], nickname: String, roleId: Int, roomCode: String) {
         self.isReady = false
         self.missionIds = missionIds
         self.missionProgress = [false, false, false]
         self.nickname = nickname
-        self.roleId = 0
+        self.roleId = roleId
         self.roomCode = roomCode
     }
 }
