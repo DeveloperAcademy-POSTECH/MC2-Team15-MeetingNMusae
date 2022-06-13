@@ -15,7 +15,7 @@ class Role: Codable, Identifiable {
         case id
         case roleName = "role_name"
     }
-
+    
     init(id: Int, roleName: String) {
         self.id = id
         self.roleName = roleName
