@@ -11,17 +11,18 @@ class User: Codable, Identifiable {
     var isReady: Bool
     let missionIds: [Int]
     var missionProgress: [Bool]
-    let nickname: String
     var roleId: Int
     let roomCode: String
+    var nickname: String
+    @DocumentID var id: String?
 
     enum CodingKeys: String, CodingKey {
         case isReady = "is_ready"
         case missionIds = "mission_ids"
         case missionProgress = "mission_progress"
-        case nickname
         case roleId = "role_id"
         case roomCode = "room_code"
+        case nickname
     }
 
     init(missionIds: [Int], nickname: String, roomCode: String) {
