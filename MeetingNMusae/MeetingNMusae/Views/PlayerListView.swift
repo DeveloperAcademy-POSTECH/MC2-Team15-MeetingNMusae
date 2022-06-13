@@ -7,34 +7,12 @@
 
 import SwiftUI
 
-//temp
-struct CharacterBox: View {
-    let width: CGFloat?
-    let height: CGFloat?
-
-    init(width: CGFloat? = nil, height: CGFloat? = nil) {
-        self.width = width
-        self.height = height
-    }
-
-    var body: some View {
-        RoundedRectangle(cornerRadius: 12)
-            .foregroundColor(.white)
-            .shadow(color: .black, radius: 0, x: 8, y: 8)
-            .frame(width: width, height: height)
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color.black, lineWidth: 3)
-            )
-    }
-}
-
 struct PlayerListView: View {
-    
+
     let roomCode: String
     @State var users: [User] = []
     @ObservedObject var userViewModel = UserViewModel()
-    
+
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
@@ -90,7 +68,7 @@ struct PlayerListView: View {
             .frame(width: UIScreen.screenWidth * 0.84)
         }
     }
-    
+
     func action() {
     }
 }

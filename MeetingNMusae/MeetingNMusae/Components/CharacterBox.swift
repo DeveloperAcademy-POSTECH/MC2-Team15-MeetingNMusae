@@ -13,13 +13,13 @@ struct CharacterBox: View {
     let width: CGFloat?
     let height: CGFloat?
     var roleIndex: Int
-    
+
     init(width: CGFloat? = nil, height: CGFloat? = nil, roleIndex: Int = 0) {
         self.width = width
         self.height = height
         self.roleIndex = 0...10 ~= roleIndex ? roleIndex : 0
     }
-    
+
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
             .foregroundColor(.white)

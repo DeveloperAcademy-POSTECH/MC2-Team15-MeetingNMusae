@@ -13,16 +13,16 @@ extension Color {
         let scanner = Scanner(string: hex)
         // # 제거하는 부분
         _ = scanner.scanString("#")
-        
+
         // 문자열을 Int64 타입으로 변환 후 rgb 변수 저장
         var rgb: UInt64 = 0
         scanner.scanHexInt64(&rgb)
-        
+
         // 문자열 추출 과정
-        let r = Double((rgb >> 16) & 0xFF) / 255.0
-        let g = Double((rgb >> 8) & 0xFF) / 255.0
-        let b = Double((rgb >> 0) & 0xFF) / 255.0
-        self.init(red: r, green: g, blue: b)
+        let red = Double((rgb >> 16) & 0xFF) / 255.0
+        let green = Double((rgb >> 8) & 0xFF) / 255.0
+        let blue = Double((rgb >> 0) & 0xFF) / 255.0
+        self.init(red: red, green: green, blue: blue)
     }
 }
 
