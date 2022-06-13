@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90988FA128549568000711BE /* CharacterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90988FA028549568000711BE /* CharacterBox.swift */; };
+		90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */; };
+		B57BB9D32854BEED007AFFAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57BB9D22854BEED007AFFAA /* User.swift */; };
+		B5B1B53E28543178000DE126 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53D28543178000DE126 /* FirebaseAnalytics */; };
+		B5B1B54028543178000DE126 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53F28543178000DE126 /* FirebaseFirestore */; };
+		B5B1B54228543178000DE126 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B54128543178000DE126 /* FirebaseFirestoreSwift */; };
+		B5B1B54428545EFE000DE126 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1B54328545EFE000DE126 /* Line.swift */; };
+		B5B1B54D28547DC7000DE126 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1B54828547DC6000DE126 /* Role.swift */; };
+		B5B1B55328547DD7000DE126 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1B55028547DD7000DE126 /* UserViewModel.swift */; };
+		B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */; };
+		B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */; };
+		C5DBBC8B2851DC7C00124A07 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */; };
 		CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCF2828519B1F00E048A3 /* MeetingNMusaeApp.swift */; };
 		CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCF2A28519B1F00E048A3 /* ContentView.swift */; };
 		CE3DCF2D28519B2000E048A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF2C28519B2000E048A3 /* Assets.xcassets */; };
@@ -29,6 +41,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		90988FA028549568000711BE /* CharacterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBox.swift; sourceTree = "<group>"; };
+		90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		B57BB9D22854BEED007AFFAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B5B1B54328545EFE000DE126 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		B5B1B54828547DC6000DE126 /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		B5B1B55028547DD7000DE126 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
+		B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
+		C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		CE3DCF2528519B1F00E048A3 /* MeetingNMusae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingNMusae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3DCF2828519B1F00E048A3 /* MeetingNMusaeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingNMusaeApp.swift; sourceTree = "<group>"; };
 		CE3DCF2A28519B1F00E048A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,15 +74,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE79E21A2853357A005BA8CB /* FirebaseAnalytics in Frameworks */,
-				CE79E21C2853357A005BA8CB /* FirebaseFirestore in Frameworks */,
-				CE79E21E2853357A005BA8CB /* FirebaseFirestoreSwift in Frameworks */,
+				B5B1B53E28543178000DE126 /* FirebaseAnalytics in Frameworks */,
+				B5B1B54028543178000DE126 /* FirebaseFirestore in Frameworks */,
+				B5B1B54228543178000DE126 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B59CAC122855E2BE00C0FC98 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B5B1B54328545EFE000DE126 /* Line.swift */,
+				90988FA028549568000711BE /* CharacterBox.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B5FC08412851E46100EDC014 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */,
+				90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CE3DCF1C28519B1F00E048A3 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +120,8 @@
 		CE3DCF2728519B1F00E048A3 /* MeetingNMusae */ = {
 			isa = PBXGroup;
 			children = (
+				B59CAC122855E2BE00C0FC98 /* Components */,
+				B5FC08412851E46100EDC014 /* Extensions */,
 				CE9300A22855B0A40042912B /* Temp */,
 				CE76059B2851BD6D00D647EE /* Models */,
 				CE76059A2851BD6600D647EE /* ViewModels */,
@@ -89,6 +130,7 @@
 				CE3DCF2828519B1F00E048A3 /* MeetingNMusaeApp.swift */,
 				CE3DCF2C28519B2000E048A3 /* Assets.xcassets */,
 				CE3DCF2E28519B2000E048A3 /* Preview Content */,
+				C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */,
 			);
 			path = MeetingNMusae;
 			sourceTree = "<group>";
@@ -107,6 +149,7 @@
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				CE4733EE2851D00B00DA45B7 /* RoleSelectView.swift */,
 				CEC5F07D2853087300372F87 /* RoleDetailView.swift */,
+				B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE3DCF3328519B2000E048A3 /* Build configuration list for PBXNativeTarget "MeetingNMusae" */;
 			buildPhases = (
+				C5DBBC872851DAB600124A07 /* Run SwiftLint */,
 				CE3DCF2128519B1F00E048A3 /* Sources */,
 				CE3DCF2228519B1F00E048A3 /* Frameworks */,
 				CE3DCF2328519B1F00E048A3 /* Resources */,
@@ -158,9 +202,9 @@
 			);
 			name = MeetingNMusae;
 			packageProductDependencies = (
-				CE79E2192853357A005BA8CB /* FirebaseAnalytics */,
-				CE79E21B2853357A005BA8CB /* FirebaseFirestore */,
-				CE79E21D2853357A005BA8CB /* FirebaseFirestoreSwift */,
+				B5B1B53D28543178000DE126 /* FirebaseAnalytics */,
+				B5B1B53F28543178000DE126 /* FirebaseFirestore */,
+				B5B1B54128543178000DE126 /* FirebaseFirestoreSwift */,
 			);
 			productName = MeetingNMusae;
 			productReference = CE3DCF2528519B1F00E048A3 /* MeetingNMusae.app */;
@@ -191,7 +235,8 @@
 			);
 			mainGroup = CE3DCF1C28519B1F00E048A3;
 			packageReferences = (
-				CE79E2182853357A005BA8CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CE7B51CA28519BC2004BCA89 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = CE3DCF2628519B1F00E048A3 /* Products */;
 			projectDirPath = "";
@@ -207,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5DBBC8B2851DC7C00124A07 /* .swiftlint.yml in Resources */,
 				CE3DCF3028519B2000E048A3 /* Preview Assets.xcassets in Resources */,
 				CE3DCF2D28519B2000E048A3 /* Assets.xcassets in Resources */,
 				CE3DCF3728519B7700E048A3 /* GoogleService-Info.plist in Resources */,
@@ -215,12 +261,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C5DBBC872851DAB600124A07 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CE3DCF2128519B1F00E048A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE76059F2851BE0000D647EE /* RoleViewModel.swift in Sources */,
+				B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */,
+				B5B1B54D28547DC7000DE126 /* Role.swift in Sources */,
+				B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */,
+				CE76059F2851BE0000D647EE /* RoleListViewModel.swift in Sources */,
+				B5B1B55328547DD7000DE126 /* UserViewModel.swift in Sources */,
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
 				CEAFD26928544E670065B991 /* HomeView.swift in Sources */,
 				CEC5F08128530EEA00372F87 /* MeetingRoom.swift in Sources */,
@@ -233,6 +304,10 @@
 				CEC5F07C2851EE0B00372F87 /* UserViewModel.swift in Sources */,
 				CEC5F0832853125600372F87 /* Mission.swift in Sources */,
 				CE4733EF2851D00B00DA45B7 /* RoleSelectView.swift in Sources */,
+				90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */,
+				90988FA128549568000711BE /* CharacterBox.swift in Sources */,
+				B57BB9D32854BEED007AFFAA /* User.swift in Sources */,
+				B5B1B54428545EFE000DE126 /* Line.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,14 +436,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeetingNMusae/Preview Content\"";
-				DEVELOPMENT_TEAM = 744MUUC77P;
+				DEVELOPMENT_TEAM = Y7G824SH3W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -387,17 +463,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeetingNMusae/Preview Content\"";
-				DEVELOPMENT_TEAM = 744MUUC77P;
+				DEVELOPMENT_TEAM = Y7G824SH3W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -405,6 +483,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jogeunjogeun.MeetingNMusae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -435,30 +514,38 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CE79E2182853357A005BA8CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		CE7B51CA28519BC2004BCA89 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CE79E2192853357A005BA8CB /* FirebaseAnalytics */ = {
+		B5B1B53D28543178000DE126 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CE79E2182853357A005BA8CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
-		CE79E21B2853357A005BA8CB /* FirebaseFirestore */ = {
+		B5B1B53F28543178000DE126 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CE79E2182853357A005BA8CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		CE79E21D2853357A005BA8CB /* FirebaseFirestoreSwift */ = {
+		B5B1B54128543178000DE126 /* FirebaseFirestoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CE79E2182853357A005BA8CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
