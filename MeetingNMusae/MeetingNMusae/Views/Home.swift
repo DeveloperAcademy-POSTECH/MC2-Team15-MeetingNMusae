@@ -19,20 +19,12 @@ struct Home: View {
                     .frame(width: 360, height: 360)
                     .padding(.bottom, 84)
                 VStack(alignment: .center, spacing: 16) {
-                    Button {
-                        print("방 만들어줘라!!")
-                    } label: {
-                        NavigationLink(destination: RoomFindingView()) {
-                            SelectBox(isDark: true, description: "방 만들기")
-                        }
-                    }// Button_RoomFindingView
-                    Button {
-                        print("입장을 할 것이다!! ")
-                    }label: {
-                        NavigationLink(destination: NicknameSettingView()) {
-                            SelectBox(isDark: false, description: "입장하기")
-                        }
-                    }// Button_Enterence
+                    NavigationLink(destination: RoomFindingView()) {
+                        SelectBox(isDark: true, description: "방 만들기")
+                    }
+                    NavigationLink(destination: NicknameSettingView()) {
+                        SelectBox(isDark: false, description: "입장하기")
+                    }
                 }// VStack
             }
             .navigationTitle("")

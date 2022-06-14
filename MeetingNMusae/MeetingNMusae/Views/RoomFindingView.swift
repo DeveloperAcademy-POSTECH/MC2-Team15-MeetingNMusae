@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct RoomFindingView: View {
-    @State var roomCode: String
-    @State var isRoomCodeEmpty: Bool
+    @Environment(\.presentationMode) var presentationMode
+    @State var roomCode: String = ""
+    let textUpperLimit: Int = 6
     
-    init(roomCode: String = "", isRoomCodeEmpty: Bool = false) {
-        self.roomCode = roomCode
-        self.isRoomCodeEmpty = isRoomCodeEmpty
-    }
+    func isTextEmpty(text: String) -> Bool {
+        if text.count == self.textUpperLimit {
+            return false
+        } else {
+            return true
+        }
+    }// isTextEmpty
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -25,14 +29,20 @@ struct RoomFindingView: View {
             Spacer()
             HStack {
                 Spacer()
-                Button { print("닉네임 입력으로") } label: {
-                    //                    NavigationLink
-                    CircleButton(text: $roomCode)
+                NavigationLink(destination: NicknameSettingView()) {
+                    CircleButton(text: $roomCode, upperLimit: 6)
                 }
-                .disabled(isRoomCodeEmpty)
+                .simultaneousGesture(TapGesture()
+                    .onEnded {
+                        UserDefaults.standard.set(self.roomCode, forKey: "roomCode")
+                    }
+                )
+                .disabled(isTextEmpty(text: roomCode))
+                
             }// HStack
         }// VStack
-        .padding(28)
+        .navigationTitle("")
+        .padding([.leading, .bottom, .trailing], 28)
     }
 }
 
