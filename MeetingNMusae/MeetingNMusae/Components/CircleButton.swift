@@ -9,10 +9,19 @@ import SwiftUI
 
 struct CircleButton: View {
     @Binding var text: String
+    var upperLimit: Int
+    
+    func isTextEmpty(text: String) -> Bool {
+        if text.count >= upperLimit {
+            return false
+        } else {
+            return true
+        }
+    }
     
     var body: some View {
         Circle()
-            .foregroundColor(text.isEmpty ? .gray : .black)
+            .foregroundColor(isTextEmpty(text: text) ? .gray : .black)
             .frame(width: 64, height: 64)
             .overlay(
                 Image(systemName: "arrow.right")
