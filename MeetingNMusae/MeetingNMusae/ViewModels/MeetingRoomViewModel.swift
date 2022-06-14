@@ -39,7 +39,7 @@ class MeetingRoomViewModel: ObservableObject {
     }
 
     func enterMeetingRoom(roomCode: String, user: User) {
-        // todo
+        UserViewModel().addUser(roomCode: roomCode, user: user)
     }
 
     // isSelect가 true인 경우 해당 역할 선택
@@ -69,15 +69,13 @@ class MeetingRoomViewModel: ObservableObject {
 
                     path.document("\(roomCode)").updateData(["role_select_users": data])
 
-                    guard var data = document["users"] as? [String: [String: Any]] else { return }
-
                     if isSelect { // 역할 선택인 경우
-                        data[nickname]?["role_id"] = roleId // 유저의 역할 번호 지정
+                        path.document("\(roomCode)").collection("users").document("\(nickname)").updateData(["role_id": roleId]) // 유저의 역할 번호 지정
                     } else { // 역할 선택 해제인 경우
-                        data[nickname]?["role_id"] = 0 // 유저의 역할 번호 0으로 초기화
+                        path.document("\(roomCode)").collection("users").document("\(nickname)").updateData(["role_id": 0]) // 유저의 역할 번호 0으로 초기화
                     }
 
-                    path.document("\(roomCode)").updateData(["users": data])
+                    
                 }
             }
         }
