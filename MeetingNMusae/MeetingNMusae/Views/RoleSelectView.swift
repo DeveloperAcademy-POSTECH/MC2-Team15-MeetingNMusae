@@ -32,10 +32,7 @@ struct RoleSelectView: View {
         VStack(alignment: .center) {
             ZStack {
                 HStack {
-                    Button(action: {
-                        // todo
-                        // 방 선택뷰로 이동하는 기능
-                    }, label: {
+                    NavigationLink(destination: HomeView(), label: {
                         Image(systemName: "rectangle.portrait.and.arrow.right").rotationEffect(.degrees(180))
                     })
                     .foregroundColor(.black)
