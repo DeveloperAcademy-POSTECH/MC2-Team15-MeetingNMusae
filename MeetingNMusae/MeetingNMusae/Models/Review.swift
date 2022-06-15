@@ -6,11 +6,11 @@
 //
 import FirebaseFirestoreSwift
 
-class Review: Codable {
+class Review: Codable, Identifiable {
     private var content: String
     private var from: String
     private var to: String
-    private var roomCode: String
+    var roomCode: String
 
     enum CodingKeys: String, CodingKey {
         case content

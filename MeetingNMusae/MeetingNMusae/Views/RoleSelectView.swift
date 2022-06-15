@@ -111,7 +111,7 @@ struct RoleItem: View {
                                 .foregroundColor(.white)
                                 .background(RoundedRectangle(cornerRadius: 6.0).fill(Color.black))
                         }
-                        
+                        NameBox(user: roleSelectUser)
                         Spacer()
                     }
                     .foregroundColor(Color.black)
