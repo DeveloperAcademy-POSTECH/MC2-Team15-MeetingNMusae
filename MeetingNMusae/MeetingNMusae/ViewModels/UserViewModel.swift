@@ -38,4 +38,12 @@ class UserViewModel: ObservableObject {
             return
         }
     }
+    
+    func getUser( _ nickname: String) -> User? {
+        for user in users where user.nickname == nickname {
+            return user
+        }
+        print("user does not exist")
+        return nil // should not happen
+    }
 }

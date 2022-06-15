@@ -6,6 +6,7 @@
 //
 import FirebaseFirestoreSwift
 import Foundation
+import SwiftUI
 
 class Role: Codable, Identifiable {
     var id: Int
@@ -35,4 +36,22 @@ extension Role {
         Role(id: 9, roleName: "발언권무새"),
         Role(id: 10, roleName: "금고무새")
     ]
+    
+    // id 시작을 어떻게 할지 (0인지 1인지) 확인 필요
+    static func getRoleColor(roleId: Int)->Color {
+        switch(roleId) {
+        case 0: return .musaeBlue
+        case 1: return .musaeOrange
+        case 2: return .musaeMint
+        case 3: return .musaeGreen
+        case 4: return .musaeLightGreen
+        case 5: return .musaePurple
+        case 6: return .musaeSkyBlue
+        case 7: return .musaePink
+        case 8: return .musaeRed
+        case 9: return .musaeMustard
+        default: return .black
+        }
+    }
+
 }

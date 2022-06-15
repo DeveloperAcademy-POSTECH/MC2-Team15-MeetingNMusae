@@ -22,4 +22,8 @@ class Mission: Codable {
         self.content = content
         self.roleId = roleId
     }
+    
+    func getMission() -> String {
+        return content
+    }
 }

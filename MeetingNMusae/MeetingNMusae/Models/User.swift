@@ -33,4 +33,15 @@ class User: Codable, Identifiable {
         self.roleId = 0
         self.roomCode = roomCode
     }
+    
+    func getMissionProgress()->Double {
+        var progress: Double = 0
+        for didMission in missionProgress{
+            if didMission {
+                progress += 1
+            }
+        }
+        // 미션 수 달라지면 Double(missionProgress.count)로 나누기
+        return progress/3.0
+    }
 }
