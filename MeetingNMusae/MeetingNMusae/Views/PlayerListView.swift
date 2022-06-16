@@ -10,8 +10,15 @@ import SwiftUI
 struct PlayerListView: View {
 
     let roomCode: String
+    let isOwner: Bool
     @State var users: [User] = []
     @ObservedObject var userViewModel = UserViewModel()
+    
+    init(roomCode: String, isOwner: Bool) {
+        self.roomCode = roomCode
+        self.isOwner = isOwner
+        self.userViewModel.fetchData(roomCode: roomCode)
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -51,21 +58,23 @@ struct PlayerListView: View {
                     .padding(.all, UIScreen.screenHeight * 0.0178)
                 }
                 .background(CharacterBox())
-                .onAppear {
-                    self.userViewModel.fetchData(roomCode: roomCode)
-                }
                 Spacer()
-                Button(action: action) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 12)
-                            .foregroundColor(.black)
-                        Text("회의 시작")
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
+                
+                if isOwner {
+                    Button(action: action) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 12)
+                                .foregroundColor(.black)
+                            Text("회의 시작")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                        }
+                        .frame(height: UIScreen.screenHeight * 0.076)
                     }
-                    .frame(height: UIScreen.screenHeight * 0.076)
+                    .padding(.bottom, 8)
+                } else {
+                    EmptyView()
                 }
-                .padding(.bottom, 8)
             }
         }// VStack
         .frame(width: UIScreen.screenWidth * 0.84)
@@ -73,18 +82,6 @@ struct PlayerListView: View {
     }
 
     func action() {
-    }
-}
-
-struct PlayerListView_Previews: PreviewProvider {
-    static var previews: some View {
-//        PlayerListView(roomCode: "9MCMPK")
-//            .previewDevice("iPhone 13 (mini)")
-//        PlayerListView(roomCode: "9MCMPK")
-//            .previewDevice("iPhone 13 Pro Max")
-        PlayerListView(roomCode: "9MCMPK")
-            .previewDevice("iPhone 13")
-//        PlayerListView(roomCode: "9MCMPK")
-//            .previewDevice("iPad Air (5th generation)")
+        MeetingRoomViewModel().startMeeting(roomCode: roomCode)
     }
 }
