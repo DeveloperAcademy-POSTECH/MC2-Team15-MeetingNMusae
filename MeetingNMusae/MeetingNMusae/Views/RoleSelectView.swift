@@ -18,15 +18,19 @@ struct RoleSelectView: View {
 
     @State var roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
     @State var nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
+    @State var roleId = UserDefaults.standard.integer(forKey: "roleId")
+    
     @State var owner: String = ""
     @State var roles: [Role] = Role.roles
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
+    @ObservedObject var userViewModel = UserViewModel()
 
     private var db = Firestore.firestore()
 
     var body: some View {
         VStack(alignment: .center) {
             Text("역할을 골라주세요").font(.title2).bold()
+            Text("\(roomCode)")
             
             HStack {
                 Image(systemName: "star.circle.fill")
@@ -40,7 +44,7 @@ struct RoleSelectView: View {
                     ScrollView {
                         LazyVGrid(columns: columns) {
                             ForEach(0..<roles.count, id: \.self) { i in
-                                RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, nickname: nickname)
+                                RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, nickname: nickname, meetingRoomViewModel: meetingRoomViewModel)
                                     .background(meetingRoom.roleSelectUsers[i] != "" ? CharacterBox(roleIndex: 0) : CharacterBox(roleIndex: roles[i].id))
                                     .padding(.leading)
                                     .padding(.bottom)
@@ -57,6 +61,7 @@ struct RoleSelectView: View {
                             // 유니스 화면으로 이동
                             // 회의 전체에 시작함 이라는 변수 넣기
                             meetingRoomViewModel.completedRoleSelect(roomCode: roomCode)
+                            userViewModel.updateUserRole(roomCode: roomCode, roleId: UserDefaults.standard.integer(forKey: "roleId"), nickname: nickname, isSelect: true)
                         }, label: {
                             // nick의 SelectBox가 나오면 주석 해제
 //                            SelectBox(isDark: true, description: "선택 완료")
@@ -80,6 +85,7 @@ struct RoleItem: View {
     @State var roleSelectUser: String
     var roomCode: String
     @State var nickname: String
+    @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
 
     var body: some View {
         Button {
@@ -123,8 +129,11 @@ struct RoleItem: View {
             }
         }.sheet(isPresented: $isModalShown) {
             NavigationView {
-                RoleDetailView(role: role, isModalShown: $isModalShown)
+                RoleDetailView(role: role, isModalShown: $isModalShown, meetingRoomViewModel: meetingRoomViewModel)
                     .ignoresSafeArea()
+                    .onDisappear {
+                        self.meetingRoomViewModel.fetchData(roomCode: roomCode)
+                    }
             }.navigationBarHidden(true)
         }
     }

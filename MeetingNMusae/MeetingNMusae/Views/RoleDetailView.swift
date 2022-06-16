@@ -15,7 +15,7 @@ struct RoleDetailView: View {
     @State var roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
     @State var nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
     @Binding var isModalShown: Bool
-    @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
+    @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
     @ObservedObject var userViewModel = UserViewModel()
 
     var body: some View {
@@ -49,9 +49,9 @@ struct RoleDetailView: View {
                 Spacer()
                 
                 Button {
-                    userViewModel.updateUserRole(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
+                    UserDefaults.standard.set(role.id, forKey: "roleId")
                     meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
-                    isModalShown = false
+                    
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 12).foregroundColor(.black).frame(height: 64)
@@ -68,9 +68,7 @@ struct RoleDetailView: View {
                 Button(action: {
                     // todo
                     // 방 선택뷰로 이동하는 기능
-                    userViewModel.updateUserRole(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: false)
                     meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: false)
-                    isModalShown = false
                 }, label: {
                     Image(systemName: "xmark").rotationEffect(.degrees(180))
                 })

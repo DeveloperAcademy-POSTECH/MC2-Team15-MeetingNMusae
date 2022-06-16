@@ -6,6 +6,7 @@
 //
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import SwiftUI
 
 class MeetingRoomViewModel: ObservableObject {
     @Published var meetingRooms: [MeetingRoom]
@@ -22,18 +23,15 @@ class MeetingRoomViewModel: ObservableObject {
                 print("no documents")
                 return
             }
-        
+
             self.meetingRooms = documents.compactMap { (queryDocumentSnapshot) -> MeetingRoom? in
                 return try? queryDocumentSnapshot.data(as: MeetingRoom.self)
             }
         }
-        
-        
-    }
-    
+    }    
     func addMeetingRoom(meetingRoom: MeetingRoom) {
         do {
-            _ = try db.collection("meeting_rooms").document("\(meetingRoom.roomCode)").setData(from: meetingRoom)
+            _ = try db.collection("meeting_rooms").document(meetingRoom.roomCode).setData(from: meetingRoom)
         } catch {
             print(error)
             return
