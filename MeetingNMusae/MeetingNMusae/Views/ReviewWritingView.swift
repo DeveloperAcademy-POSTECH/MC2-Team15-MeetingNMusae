@@ -16,36 +16,40 @@ struct ReviewWritingView: View {
     @State var from: String = ""
     @State var content: String = ""
     @ObservedObject var reviewViewModel = ReviewViewModel()
-    @ObservedObject var userViewModel = UserViewModel()
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            // TODO: Component를 만들 예정
             Text("랜덤 피드백!")
-            Text("모두가 피드백을 받을 수 있도록")
-            Text("한 마디를 써주세요")
-            // MARK: 이거 왜 이미지 크기 이상함?
-            // TODO: firstore 에서 가져오기
+                .font(.system(size: 24))
+                .fontWeight(.heavy)
+                .padding(.top, UIScreen.screenHeight * 0.0332)
+                .padding(.bottom, UIScreen.screenHeight * 0.0095)
+            Text("모두가 피드백을 받을 수 있도록\n한 마디를 써주세요")
+                .font(.system(size: 16))
+                .fontWeight(.medium)
+                .foregroundColor(Color(hex: "6C6C6C"))
+                .multilineTextAlignment(.center)
+                .padding(.bottom, 8)
             ForEach(self.reviewViewModel.reviews) { review in
-                Image("주제무새")
-                    .resizable()
-                    .frame(width: 118, height: 118)
-                // TODO: frame to padding
-                VStack(alignment: .leading) {
-                    // TODO: firstore 에서 가져오기
-                    NameBox(user: review.to)
-                    // TODO: 버튼위에 딱 맞추기
+                Image(Role.roles[review.revieweeRoleId - 1].roleName + "_피드백작성")
+                VStack(alignment: .leading, spacing: 16) {
+                    HStack(spacing: 8) {
+                        NameBox(user: review.to)
+                        Text(Role.roles[review.revieweeRoleId - 1].roleName)
+                            .font(.system(size: 17))
+                            .fontWeight(.bold)
+                    }
                     TextField("OO해서 회의에 도움이 되었어요!", text: $content)
-                        .font(Font.headline.weight(.bold))
+                        .font(.system(size: 16))
                     Spacer()
                 }
-                .padding()
-                .frame(width: 311, height: 173)
+                .padding(28)
+                .frame(width: 326, height: 144)
                 .background(CharacterBox())
                 .padding(.bottom, 180)
             }
             Button {
-                self.reviewViewModel.addReview(review: Review(content: content, from: from, to: to, roomCode: roomCode))
+                self.reviewViewModel.addReview(review: Review(content: content, from: from, to: to, roomCode: roomCode, revieweeRoleId: 2))
                 content = ""
                 to = ""
                 from = ""
@@ -59,13 +63,11 @@ struct ReviewWritingView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                 }
-                Spacer()
-                
             }
-            .onAppear {
-                self.reviewViewModel.getReviewee(roomCode: self.roomCode, nickname: self.nickname)
-                self.userViewModel.fetchData(roomCode: self.roomCode)
-            }
+            Spacer()
+        }
+        .onAppear {
+            self.reviewViewModel.getReviewee(roomCode: self.roomCode, nickname: self.nickname)
         }
     }
     
