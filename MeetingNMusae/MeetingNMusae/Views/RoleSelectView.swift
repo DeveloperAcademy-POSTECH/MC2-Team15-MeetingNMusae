@@ -30,7 +30,6 @@ struct RoleSelectView: View {
     var body: some View {
         VStack(alignment: .center) {
             Text("역할을 골라주세요").font(.title2).bold()
-            Text("\(roomCode)")
             
             HStack {
                 Image(systemName: "star.circle.fill")

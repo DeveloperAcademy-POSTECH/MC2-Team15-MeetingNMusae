@@ -45,11 +45,11 @@ class MeetingRoomViewModel: ObservableObject {
     }
 
     func completedRoleSelect(roomCode: String) {
-        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_role_select_completed": true])
+        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_started": false, "is_role_select_completed": true])
     }
 
     func endMeeting(roomCode: String) {
-        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_ended": true])
+        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_role_select_completed": false, "is_ended": true])
     }
 
     func enterMeetingRoom(roomCode: String, user: User) {
@@ -87,7 +87,7 @@ class MeetingRoomViewModel: ObservableObject {
 
     // 룸코드 중복을 위해 fireStore에서 룸코드를 Set으로 가져오는 메소드입니다
     func getRoomCodeList() {
-        db.collection("meeting_rooms").getDocuments() { (querySnapshot, _ ) in
+        db.collection("meeting_rooms").getDocuments { (querySnapshot, _ ) in
             for document in querySnapshot!.documents {
                 guard let anotherRoomCode = document.data()["room_code"] as? String else {
                     print("No room")

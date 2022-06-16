@@ -41,7 +41,7 @@ struct NicknameSettingView: View {
             Spacer()
             HStack {
                 Spacer()
-                NavigationLink(destination: PlayerListView(roomCode: roomCode)) {
+                NavigationLink(destination: SwitchView(roomCode: roomCode, isOwner: isOwner)) {
                     CircleButton(text: $nickname, upperLimit: 1)
                 }
                 .simultaneousGesture(TapGesture()
