@@ -26,19 +26,7 @@ struct RoleSelectView: View {
 
     var body: some View {
         VStack(alignment: .center) {
-            ZStack {
-                HStack {
-                    NavigationLink(destination: HomeView(), label: {
-                        Image(systemName: "rectangle.portrait.and.arrow.right").rotationEffect(.degrees(180))
-                    })
-                    .foregroundColor(.black)
-                    .padding(.leading)
-                    
-                    Spacer()
-                }
-                
-                Text("역할을 골라주세요").font(.title2).bold()
-            }.padding(.top)
+            Text("역할을 골라주세요").font(.title2).bold()
             
             HStack {
                 Image(systemName: "star.circle.fill")
@@ -63,21 +51,14 @@ struct RoleSelectView: View {
                     }
                     .padding(.trailing, 8)
                     
-//                    if nickname == meetingRoom.getOwner() {
-//                        Text("\(nickname)")
-//                    }
-                    
-//                    if meetingRoom.owner == nickname {
-//                        Text("")
-//                    }
-                    
                     if meetingRoom.owner == nickname {
                         Button(action: {
                             // todo
                             // 유니스 화면으로 이동
                             // 회의 전체에 시작함 이라는 변수 넣기
                         }, label: {
-                            Text("회의 시작").background(RoundedRectangle(cornerRadius: 12).fill(Color.black)).foregroundColor(.white)
+                            // nick의 SelectBox가 나오면 주석 해제
+//                            SelectBox(isDark: true, description: "회의 시작")
                         })
                     } else {}
                 }
