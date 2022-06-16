@@ -9,14 +9,18 @@ import SwiftUI
 
 struct Home: View {
     @State var roomCode: String = ""
+    @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
     
     private func MakeRoomCode() {
         let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         self.roomCode = ""
-        
         for _ in 0..<6 {
             guard let randomCharacter = str.randomElement() else { break }
             roomCode.append(randomCharacter)
+        }
+        
+        for storeRoomCode in meetingRoomViewModel.roomCodeList where self.roomCode == storeRoomCode {
+            MakeRoomCode()
         }
     }
     
@@ -46,6 +50,9 @@ struct Home: View {
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .padding(.top)
+            .onAppear {
+                self.meetingRoomViewModel.getRoomCodeList()
+            }
         }// NavigationView
     }
 }
