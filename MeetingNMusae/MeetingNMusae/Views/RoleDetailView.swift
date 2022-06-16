@@ -12,8 +12,8 @@ import SwiftUI
 
 struct RoleDetailView: View {
     @State var role: Role
-    @State var roomCode: String
-    @State var nickname: String
+    @State var roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
+    @State var nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
     @Binding var isModalShown: Bool
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
 
@@ -42,17 +42,26 @@ struct RoleDetailView: View {
                     }
                 }.padding()
             }
-            //        .toolbar {
-            //            ToolbarItem(placement: .navigationBarLeading) {
-            //                Button(action: {
-            //                    // todo
-            //                    // 방 선택뷰로 이동하는 기능
-            //                }, label: {
-            //                    Image(systemName: "rectangle.portrait.and.arrow.right").rotationEffect(.degrees(180))
-            //                })
-            //                .foregroundColor(.black)
-            //            }
-            //        }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        // todo
+                        // 방 선택뷰로 이동하는 기능
+                    }, label: {
+                        Image(systemName: "rectangle.portrait.and.arrow.right").rotationEffect(.degrees(180))
+                    })
+                    .foregroundColor(.black)
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    
+                }
+            }
         }
         .navigationTitle("\(role.roleName)")
         .navigationBarTitleDisplayMode(.inline)

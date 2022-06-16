@@ -16,17 +16,13 @@ struct RoleSelectView: View {
         GridItem()
     ]
 
-    @State var roomCode: String
+    @State var roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
+    @State var nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
+    @State var owner: String = ""
     @State var roles: [Role] = Role.roles
-    @State var user: User
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
 
     private var db = Firestore.firestore()
-
-    init(roomCode: String, nickname: String) {
-        self.roomCode = roomCode
-        self.user = User(missionIds: [0, 1, 2], nickname: nickname, roomCode: roomCode)
-    }
 
     var body: some View {
         VStack(alignment: .center) {
@@ -50,26 +46,47 @@ struct RoleSelectView: View {
             }
             .font(.subheadline)
             .foregroundColor(Color.gray)
-
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(meetingRoomViewModel.meetingRooms) { meetingRoom in
-                        ForEach(0..<roles.count, id: \.self) { i in
-                            RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, nickname: user.nickname)
-                                .background(meetingRoom.roleSelectUsers[i] != "" ? CharacterBox(roleIndex: 0) : CharacterBox(roleIndex: roles[i].id))
-                                .padding(.leading)
-                                .padding(.bottom)
+            
+            ForEach(meetingRoomViewModel.meetingRooms) { meetingRoom in
+                VStack {
+                    ScrollView {
+                        LazyVGrid(columns: columns) {
+                            ForEach(0..<roles.count, id: \.self) { i in
+                                RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, nickname: nickname)
+                                    .background(meetingRoom.roleSelectUsers[i] != "" ? CharacterBox(roleIndex: 0) : CharacterBox(roleIndex: roles[i].id))
+                                    .padding(.leading)
+                                    .padding(.bottom)
+                            }
                         }
+                        .padding(.top)
+                        .padding(.trailing)
                     }
-                }.onAppear {
-                    self.meetingRoomViewModel.fetchData(roomCode: roomCode)
+                    .padding(.trailing, 8)
+                    
+//                    if nickname == meetingRoom.getOwner() {
+//                        Text("\(nickname)")
+//                    }
+                    
+//                    if meetingRoom.owner == nickname {
+//                        Text("")
+//                    }
+                    
+                    if meetingRoom.owner == nickname {
+                        Button(action: {
+                            // todo
+                            // 유니스 화면으로 이동
+                            // 회의 전체에 시작함 이라는 변수 넣기
+                        }, label: {
+                            Text("회의 시작").background(RoundedRectangle(cornerRadius: 12).fill(Color.black)).foregroundColor(.white)
+                        })
+                    } else {}
                 }
-                .padding(.top)
-                .padding(.trailing)
             }
-            .padding(.trailing, 8)
         }
         .navigationBarHidden(true)
+        .onAppear {
+            self.meetingRoomViewModel.fetchData(roomCode: roomCode)
+        }
     }
 }
 
