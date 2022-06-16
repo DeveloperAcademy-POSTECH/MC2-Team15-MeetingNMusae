@@ -8,28 +8,44 @@
 import SwiftUI
 
 struct Home: View {
+    @State var roomCode: String = ""
+    
+    private func MakeRoomCode() {
+        let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        self.roomCode = ""
+        
+        for _ in 0..<6 {
+            guard let randomCharacter = str.randomElement() else { break }
+            roomCode.append(randomCharacter)
+        }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
                 Text("회의하는 N무새")
-                    .font(.custom("Apple SD Gothic Neo", size: 28))
+                    . font(.title)
                     .fontWeight(.heavy)
                     .padding(.bottom, 46)
                 Image("회의하는N무새")
                     .frame(width: 360, height: 360)
-                    .padding(.bottom, 84)
-                VStack(alignment: .center, spacing: 16) {
-                    NavigationLink(destination: RoomFindingView()) {
+                    .padding(.bottom, 88)
+                VStack(alignment: .center, spacing: 20) {
+                    NavigationLink(destination: NicknameSettingView(roomCode: roomCode, isOwner: true)) {
                         SelectBox(isDark: true, description: "방 만들기")
                     }
-                    NavigationLink(destination: NicknameSettingView()) {
+                    .simultaneousGesture(TapGesture().onEnded {
+                        MakeRoomCode()
+                        UserDefaults.standard.set(self.roomCode, forKey: "roomCode")
+                    })
+                    NavigationLink(destination: RoomFindingView()) {
                         SelectBox(isDark: false, description: "입장하기")
                     }
                 }// VStack
             }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarHidden(true)
+            .padding(.top)
         }// NavigationView
     }
 }

@@ -12,7 +12,7 @@ struct RoomFindingView: View {
     @State var roomCode: String = ""
     let textUpperLimit: Int = 6
     
-    func isTextEmpty(text: String) -> Bool {
+    private func isTextEmpty(text: String) -> Bool {
         if text.count == self.textUpperLimit {
             return false
         } else {
@@ -22,14 +22,25 @@ struct RoomFindingView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            HStack {
+                Button(action: {
+                                presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                Image(systemName: "arrow.backward")
+                                    .font(.system(size: 18, weight: .semibold))
+                                    .padding(.bottom)
+                                    .tint(.black)
+                            })
+            }// HStack_BackButton
             Text("방 코드를 입력해주세요")
                 .font(.custom("Apple SD Gothic Neo", size: 24))
                 .fontWeight(.bold)
-            TextInputBox(textInput: $roomCode, description: "방코드 6자", textLimit: 6)
+                .padding(.bottom)
+            TextInputBox(textInput: $roomCode, description: "방코드 6자", textLimit: textUpperLimit)
             Spacer()
             HStack {
                 Spacer()
-                NavigationLink(destination: NicknameSettingView()) {
+                NavigationLink(destination: NicknameSettingView(roomCode: roomCode, isOwner: false)) {
                     CircleButton(text: $roomCode, upperLimit: 6)
                 }
                 .simultaneousGesture(TapGesture()
@@ -38,11 +49,11 @@ struct RoomFindingView: View {
                     }
                 )
                 .disabled(isTextEmpty(text: roomCode))
-                
-            }// HStack
+            }// HStack_CircleButton
         }// VStack
         .navigationTitle("")
-        .padding([.leading, .bottom, .trailing], 28)
+        .padding(28)
+        .navigationBarHidden(true)
     }
 }
 

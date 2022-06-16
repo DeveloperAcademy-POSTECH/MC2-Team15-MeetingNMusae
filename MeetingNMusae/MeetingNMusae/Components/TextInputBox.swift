@@ -14,8 +14,8 @@ struct TextInputBox: View {
     var textLimit: Int
     
     // 입력 글자수 제한
-    func limitText(_ upper: Int) {
-        if textInput.count > upper {
+    func LimitText(_ upper: Int) {
+        if textInput.count >= upper {
             textInput = String(textInput.prefix(upper))
         }
     } // limitText
@@ -25,6 +25,7 @@ struct TextInputBox: View {
             CharacterBox(width: 137, height: 56)
                 .overlay(
                     TextField(description, text: $textInput)
+                        .font(.system(size: 18, weight: .bold))
                         .padding(.horizontal, 20)
                         .autocapitalization(UITextAutocapitalizationType.allCharacters)
                         // cozytk
@@ -32,7 +33,7 @@ struct TextInputBox: View {
                             textInput = newValue.replacingOccurrences(of: " ", with: "")
                         }
                         .onReceive(Just(textInput),
-                                   perform: {_ in limitText(textLimit)}
+                                   perform: {_ in LimitText(textLimit)}
                                   )
                 )
             Spacer()
