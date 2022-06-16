@@ -38,8 +38,9 @@ extension Role {
     ]
     
     // id 시작을 어떻게 할지 (0인지 1인지) 확인 필요
-    static func getRoleColor(roleId: Int)->Color {
-        switch(roleId) {
+    // swiftlint:disable cyclomatic_complexity
+    static func getRoleColor(roleId: Int) -> Color {
+        switch roleId {
         case 0: return .musaeBlue
         case 1: return .musaeOrange
         case 2: return .musaeMint
@@ -53,5 +54,6 @@ extension Role {
         default: return .black
         }
     }
+    // swiftlint:enable cyclomatic_complexity
 
 }

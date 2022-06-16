@@ -7,49 +7,67 @@ class MissionViewModel: ObservableObject {
     
     init() {
         missions = [Mission]()
+        roleId = 0 // default
+        
+        print("mVM init before fetchData")
+        
+        self.fetchData(roleId: roleId)
+        
+        print("mVM init out")
     }
 
     private var db = Firestore.firestore()
 
     func fetchData(roleId: Int) {
+        print("mVM fetchdata in")
+        print("mVM missions.count \(missions.count)")
         db.collection("missions")
             .whereField(
                 "role_id", isEqualTo: roleId)
-            .addSnapshotListener { (querySnapshot, _) in
+            .addSnapshotListener { (querySnapshot, err) in
+                
+                print("mVM fetchdata query in")
+                
             guard let documents = querySnapshot?.documents else {
                 print("no documents")
                 return
             }
 
+                print("test mVM.fetchData")
+                
             self.missions = documents.compactMap { (queryDocumentSnapshot) -> Mission? in
+                
+                print("missions init. missions.count: \(self.missions.count)")
+                print("missions init. missions[0]: \(self.missions[0])")
+
                 return try? queryDocumentSnapshot.data(as: Mission.self)
             }
+            print("mVM err: \(err)")
         }
+        print("mVM missions.count \(missions.count)")
+        print("mVM fetchdata out")
     }
     
-    func updateMissionProgress(roomCode: String, nickname: String, missionId: Int)->() {
-        do {
-            // update 어떡하지
-            _ = try db.collection("meeting_rooms").document("\(roomCode)").collection("users").document("\(nickname)").setData(["missionprogress":[true,-,-]]) // <- 인덱스 접근 필요함.. missionId 해당하는 애만 토클하기
-        } catch {
-            print(error)
-            return
-        }
-    }
+    func updateMissionProgress(missionId: Int) {
 
-    // 파베 문서 특정 필드 업데이트 레퍼런스 복붙해옴
-//    guard let key = ref.child("posts").childByAutoId().key else { return }
-//    let post = ["uid": userID,
-//                "author": username,
-//                "title": title,
-//                "body": body]
-//    let childUpdates = ["/posts/\(key)": post,
-//                        "/user-posts/\(userID)/\(key)/": post]
-//    ref.updateChildValues(childUpdates)
+        db.collection("meeting_rooms").document("\(roomCode)").collection("users").document("\(nickname)")
+            .addSnapshotListener { DocumentSnapshot, error in
+                guard let document = DocumentSnapshot else {
+                    print("Error fetching document: \(String(describing: error))")
+                    return
+                }
+                guard var data = document["mission_progress"] as? [Bool] else {
+                    return
+                }
+                data[missionId] = !data[missionId]
+            }
+    }
     
-    func getMissionsStr(roleId: Int)->[String]{
+    func getMissionsStr(roleId: Int) -> [String] {
+        self.fetchData(roleId: roleId)
         var missionsStr: [String] = []
-        for mission in missions {
+        print("missions count: \(self.missions.count)")
+        for mission in self.missions {
             missionsStr.append(mission.getMission())
         }
         return missionsStr

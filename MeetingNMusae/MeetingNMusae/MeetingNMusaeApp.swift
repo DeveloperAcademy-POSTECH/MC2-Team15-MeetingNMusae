@@ -23,7 +23,8 @@ struct MeetingNMusaeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MissionView()
+//            ContentView()
         }
     }
 }
