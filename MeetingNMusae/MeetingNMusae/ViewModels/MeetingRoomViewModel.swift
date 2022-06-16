@@ -10,9 +10,11 @@ import SwiftUI
 
 class MeetingRoomViewModel: ObservableObject {
     @Published var meetingRooms: [MeetingRoom]
+    @Published var roomCodeList: Set<String>
 
     init() {
         meetingRooms = [MeetingRoom]()
+        roomCodeList = Set<String>()
     }
 
     private var db = Firestore.firestore()
@@ -28,7 +30,7 @@ class MeetingRoomViewModel: ObservableObject {
                 return try? queryDocumentSnapshot.data(as: MeetingRoom.self)
             }
         }
-    }    
+    }
     func addMeetingRoom(meetingRoom: MeetingRoom) {
         do {
             _ = try db.collection("meeting_rooms").document(meetingRoom.roomCode).setData(from: meetingRoom)
@@ -37,15 +39,15 @@ class MeetingRoomViewModel: ObservableObject {
             return
         }
     }
-    
+
     func startMeeting(roomCode: String) {
         db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_started": true])
     }
-    
+
     func completedRoleSelect(roomCode: String) {
         db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_role_select_completed": true])
     }
-    
+
     func endMeeting(roomCode: String) {
         db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_ended": true])
     }
@@ -80,6 +82,20 @@ class MeetingRoomViewModel: ObservableObject {
                     path.document("\(roomCode)").updateData(["role_select_users": data])
                 }
             }
+        }
+    }
+
+    // 룸코드 중복을 위해 fireStore에서 룸코드를 Set으로 가져오는 메소드입니다
+    func getRoomCodeList() {
+        db.collection("meeting_rooms").getDocuments() { (querySnapshot, _ ) in
+            for document in querySnapshot!.documents {
+                guard let anotherRoomCode = document.data()["room_code"] as? String else {
+                    print("No room")
+                    return
+                }
+                self.roomCodeList.insert(anotherRoomCode)
+            }
+
         }
     }
 }

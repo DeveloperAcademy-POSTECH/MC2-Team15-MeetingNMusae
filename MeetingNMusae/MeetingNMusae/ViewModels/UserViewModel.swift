@@ -43,3 +43,4 @@ class UserViewModel: ObservableObject {
         db.collection("meeting_rooms").document("\(roomCode)").collection("users").document(nickname).updateData(["role_id": isSelect ? roleId : 0])
     }
 }
+

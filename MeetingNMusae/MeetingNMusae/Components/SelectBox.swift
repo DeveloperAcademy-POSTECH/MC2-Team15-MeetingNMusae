@@ -10,20 +10,20 @@ import SwiftUI
 struct SelectBox: View {
     let isDark: Bool
     var description: String
-    
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
                 .foregroundColor(isDark ? .black : .white)
             Text(description)
-                .font(.system(size: 18))
+                .font(.headline)
+                .fontWeight(.bold)
                 .foregroundColor(isDark ? .white : .black)
             RoundedRectangle(cornerRadius: 12)
                 .stroke(Color.black, lineWidth: 3)
             
         }
         .frame(height: 65)
-        .padding(.horizontal, 24)
-        
+        .padding(.horizontal, 28)
     }
 }
