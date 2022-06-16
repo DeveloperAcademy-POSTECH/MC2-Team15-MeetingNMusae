@@ -14,6 +14,7 @@ class User: Codable, Identifiable {
     var roleId: Int
     let roomCode: String
     var nickname: String
+    var reviewee: String
     @DocumentID var id: String?
 
     enum CodingKeys: String, CodingKey {
@@ -23,6 +24,7 @@ class User: Codable, Identifiable {
         case roleId = "role_id"
         case roomCode = "room_code"
         case nickname
+        case reviewee
     }
 
     init(missionIds: [Int], nickname: String, roomCode: String) {
@@ -32,5 +34,12 @@ class User: Codable, Identifiable {
         self.nickname = nickname
         self.roleId = 0
         self.roomCode = roomCode
+        self.reviewee = ""
     }
+    
+//    func getRole(nickname: String) {
+//        for idx, missionId in missionIds.enumerated() {
+//
+//        }
+//    }
 }
