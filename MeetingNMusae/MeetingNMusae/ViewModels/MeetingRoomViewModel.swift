@@ -9,9 +9,11 @@ import FirebaseFirestoreSwift
 
 class MeetingRoomViewModel: ObservableObject {
     @Published var meetingRooms: [MeetingRoom]
+    @Published var roomCodeList: Set<String>
 
     init() {
         meetingRooms = [MeetingRoom]()
+        roomCodeList = Set<String>()
     }
 
     private var db = Firestore.firestore()
@@ -22,7 +24,6 @@ class MeetingRoomViewModel: ObservableObject {
                 print("no documents")
                 return
             }
-        
             self.meetingRooms = documents.compactMap { (queryDocumentSnapshot) -> MeetingRoom? in
                 return try? queryDocumentSnapshot.data(as: MeetingRoom.self)
             }
@@ -78,6 +79,20 @@ class MeetingRoomViewModel: ObservableObject {
                     
                 }
             }
+        }
+    }
+    
+    // 룸코드 중복을 위해 fireStore에서 룸코드를 Set으로 가져오는 메소드입니다
+    func getRoomCodeList() {
+        db.collection("meeting_rooms").getDocuments() { (querySnapshot, _ ) in
+            for document in querySnapshot!.documents {
+                guard let anotherRoomCode = document.data()["room_code"] as? String else {
+                    print("No room")
+                    return
+                }
+                self.roomCodeList.insert(anotherRoomCode)
+            }
+            
         }
     }
 }
