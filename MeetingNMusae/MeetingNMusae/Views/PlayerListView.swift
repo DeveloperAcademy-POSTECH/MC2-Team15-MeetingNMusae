@@ -18,17 +18,19 @@ struct PlayerListView: View {
             ZStack {
                 Text(roomCode)
                     .fontWeight(.bold)
-                    .underline()
-                    .padding(.vertical, UIScreen.screenHeight * 0.0178)
-                    .padding(.bottom, UIScreen.screenHeight * 0.0083)
-            }
-            .frame(maxWidth: .infinity)
-            .overlay(alignment: .leading) {
-                Button(action: action) {
-                    Image(systemName: "rectangle.portrait.and.arrow.right")
-                        .foregroundColor(Color.black)
+                    .padding(.vertical, UIScreen.screenHeight * 0.0237)
+                HStack {
+                    Button(action: action) {
+                        Image("나가기")
+                            .resizable()
+                            .frame(width: 28, height: 28)
+                            .offset(x: -4, y: 0)
+                    }
+                    Spacer()
                 }
-                .padding(.leading, UIScreen.screenHeight * 0.02843)
+            }// ZStack_RoomCodeBox
+            .overlay(alignment: .leading) {
+                
             }
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
@@ -65,8 +67,9 @@ struct PlayerListView: View {
                 }
                 .padding(.bottom, 8)
             }
-            .frame(width: UIScreen.screenWidth * 0.84)
-        }
+        }// VStack
+        .frame(width: UIScreen.screenWidth * 0.84)
+        .navigationBarHidden(true)
     }
 
     func action() {
