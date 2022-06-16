@@ -50,17 +50,20 @@ struct RoleSelectView: View {
                         .padding(.trailing)
                     }
                     .padding(.trailing, 8)
-                    
+
                     if meetingRoom.owner == nickname {
                         Button(action: {
                             // todo
                             // 유니스 화면으로 이동
                             // 회의 전체에 시작함 이라는 변수 넣기
+                            meetingRoomViewModel.completedRoleSelect(roomCode: roomCode)
                         }, label: {
                             // nick의 SelectBox가 나오면 주석 해제
-//                            SelectBox(isDark: true, description: "회의 시작")
+//                            SelectBox(isDark: true, description: "선택 완료")
                         })
-                    } else {}
+                    } else {
+                        EmptyView()
+                    }
                 }
             }
         }
@@ -120,8 +123,9 @@ struct RoleItem: View {
             }
         }.sheet(isPresented: $isModalShown) {
             NavigationView {
-                RoleDetailView(role: role, roomCode: roomCode, nickname: nickname, isModalShown: $isModalShown)
-            }
+                RoleDetailView(role: role, isModalShown: $isModalShown)
+                    .ignoresSafeArea()
+            }.navigationBarHidden(true)
         }
     }
 }

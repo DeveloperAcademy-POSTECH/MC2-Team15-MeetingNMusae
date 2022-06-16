@@ -27,6 +27,8 @@ class MeetingRoomViewModel: ObservableObject {
                 return try? queryDocumentSnapshot.data(as: MeetingRoom.self)
             }
         }
+        
+        
     }
     
     func addMeetingRoom(meetingRoom: MeetingRoom) {
@@ -36,6 +38,18 @@ class MeetingRoomViewModel: ObservableObject {
             print(error)
             return
         }
+    }
+    
+    func startMeeting(roomCode: String) {
+        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_started": true])
+    }
+    
+    func completedRoleSelect(roomCode: String) {
+        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_role_select_completed": true])
+    }
+    
+    func endMeeting(roomCode: String) {
+        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_ended": true])
     }
 
     func enterMeetingRoom(roomCode: String, user: User) {
@@ -61,21 +75,11 @@ class MeetingRoomViewModel: ObservableObject {
                                 data[i] = "" // 만약 이전에 다른 역할을 선택했었다면 해당 역할을 선택한 nickname 지우기
                             }
                         }
-
                         data[roleId - 1] = nickname // 해당 역할에 nickname 지정
                     } else { // 역할 선택 해제인 경우
                         data[roleId - 1] = "" // 해당 역할에 지정되어 있는 nickname 지우기
                     }
-
                     path.document("\(roomCode)").updateData(["role_select_users": data])
-
-                    if isSelect { // 역할 선택인 경우
-                        path.document("\(roomCode)").collection("users").document("\(nickname)").updateData(["role_id": roleId]) // 유저의 역할 번호 지정
-                    } else { // 역할 선택 해제인 경우
-                        path.document("\(roomCode)").collection("users").document("\(nickname)").updateData(["role_id": 0]) // 유저의 역할 번호 0으로 초기화
-                    }
-
-                    
                 }
             }
         }
