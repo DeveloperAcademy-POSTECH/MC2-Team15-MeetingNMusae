@@ -64,7 +64,7 @@ struct RoleSelectView: View {
                             userViewModel.updateUserRole(roomCode: roomCode, roleId: UserDefaults.standard.integer(forKey: "roleId"), nickname: nickname, isSelect: true)
                         }, label: {
                             // nick의 SelectBox가 나오면 주석 해제
-//                            SelectBox(isDark: true, description: "선택 완료")
+                            SelectBox(isDark: true, description: "선택 완료")
                         })
                     } else {
                         EmptyView()

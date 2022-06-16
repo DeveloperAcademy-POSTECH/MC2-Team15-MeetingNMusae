@@ -11,7 +11,7 @@ struct Home: View {
     @State var roomCode: String = ""
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
     
-    private func MakeRoomCode() {
+    private func makeRoomCode() {
         let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         self.roomCode = ""
         for _ in 0..<6 {
@@ -20,7 +20,7 @@ struct Home: View {
         }
         
         for storeRoomCode in meetingRoomViewModel.roomCodeList where self.roomCode == storeRoomCode {
-            MakeRoomCode()
+            makeRoomCode()
         }
     }
     
@@ -39,7 +39,7 @@ struct Home: View {
                         SelectBox(isDark: true, description: "방 만들기")
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                        MakeRoomCode()
+                        makeRoomCode()
                         UserDefaults.standard.set(self.roomCode, forKey: "roomCode")
                     })
                     NavigationLink(destination: RoomFindingView()) {
