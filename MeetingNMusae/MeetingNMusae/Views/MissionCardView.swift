@@ -11,21 +11,24 @@ import SwiftUI
 struct MissionCardView: View {
     // 서버에서 받을 데이터: 현재 역할, 미션, 미션 수행 했는지
     // 서버에 보낼 데이터: 미션 수행 했는지
+
+    // roleId가 1애서 시작 (0은 미선택용)
+    //var roleId: Int // 순서 때문에 위에 둠
     @ObservedObject var userViewModel = UserViewModel()
+    var missionViewModel = MissionViewModel() // fetch까지.
+    //@State var didMissions: [Bool] = [false, false, false]
+    // roleId가 1애서 시작 (0은 미선택용)
+    @State var isChanged = false
     
-    var missionViewModel = MissionViewModel()
-
-    // roleId가 0 이상인지, 1에서 시작할 것ㅕㄴㄷㄱ 인지.. 파이어스토어에 0 있음
-    var roleId: Int
-    @State var didMissions: [Bool] // state 필요한가?
-
     var body: some View {
+        let roleId: Int = userViewModel.getUser(nickname)?.roleId ?? 0
         let roleName: String =  Role.roles[roleId].roleName
         let imageName: String = roleName
-        let _ = missionViewModel.fetchData(roleId: roleId)
-        let missions: [String] = missionViewModel.getMissionsStr(roleId: roleId)
 
         VStack {
+            let _ = missionViewModel.fetchData(roleId: roleId)
+            let missions: [String] = missionViewModel.getMissionsStr()
+            
             // 추후 이미지 크기 조정 필요
             Image(imageName)
                 .resizable()
@@ -41,14 +44,18 @@ struct MissionCardView: View {
                 Spacer()
             }
             .padding()
-            ForEach(0...2, id: \.self) { mission in
+            ForEach(0...2, id: \.self) { ind in
                 HStack {
-                    CheckBoxView(missionId: mission, checked: didMissions[mission], roleId: roleId)
-                    // 컬러만 바껴도 온체인지 걸리나?
-//                        .onChange{
-//
-//                    }
-                    Text(missions[mission])
+                    CheckBoxView(missionId: ind, progress: userViewModel.getUser(nickname)?.missionProgress ?? [false, false, false], roleId: roleId ?? 0)
+//                        .onChange(of: userViewModel.getUser(nickname), perform: { isChanged.toggle() })
+//                    CheckBoxView(missionId: mission, checked: didMissions[mission], roleId: roleId, missionViewModel: missionViewModel)
+                    
+                    if missions.count > ind {
+                        Text(missions[ind])
+                    } else {
+                        
+                        Text("mcnt: \(missions.count)")
+                    }
                     // 폰트 추가
                     Spacer()
                 }
@@ -56,11 +63,12 @@ struct MissionCardView: View {
             }
         }
         .onAppear{
-            userViewModel.fetchData(roomCode: roomCode)
+            userViewModel.fetchDatum(roomCode: roomCode)
 //            roleId = userViewModel.getUser(nickname)?.roleId ?? 0
             missionViewModel.fetchData(roleId: roleId)
-            didMissions = userViewModel.getUser(nickname)?.missionProgress as? [Bool] ?? [false, false, false]
+            //didMissions = userViewModel.getUser(nickname)?.missionProgress as? [Bool] ?? [false, false, false]
         }
+//        .onChange(of: userViewModel.users, perform: <#T##(V) -> Void#>)
         .padding()
         .padding(.bottom)
         .background(
@@ -73,17 +81,20 @@ struct MissionCardView: View {
 struct CheckBoxView: View {
 //    @Binding var checked: Bool
     let missionId: Int
-    var checked: Bool
+    @State var progress: [Bool]
+//    @State var checked: Bool
     let roleId: Int
-    @ObservedObject var missionViewModel = MissionViewModel()
+//    @ObservedObject var missionViewModel: MissionViewModel
+    let missionViewModel = MissionViewModel()
 
     var body: some View {
-        Image(systemName: checked ? "checkmark.square.fill" : "square")
+        Image(systemName: progress[missionId] ? "checkmark.square.fill" : "square")
             .foregroundColor(
-                checked ? Color(UIColor.black) : Color.secondary)
+                progress[missionId] ? Color(UIColor.black) : Color.secondary)
             .onTapGesture {
+                progress[missionId].toggle()
                 // MARK: 파이어베이스 update 하기
-                missionViewModel.fetchData(roleId: roleId)
+                // missionViewModel.fetchData(roleId: roleId)
                 missionViewModel.updateMissionProgress(missionId: missionId)
             }
     }

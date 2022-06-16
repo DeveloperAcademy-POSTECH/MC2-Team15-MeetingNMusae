@@ -7,7 +7,7 @@ struct MissionProgressCircleView: View {
     // 받을 데이터: 프로그레스 바 두께 (혹은 전역변수에서 가져옴)
     
     // MARK: 뷰 리프레시 어쩌라고 싶다.. 파이어베이스쪽에서 바뀌는데!
-    @State var user: User
+    /*@State */var user: User
     var lineWidth: CGFloat
 //    @State var progress: Double
 //    var progress: Double = user.getMissionProgress()
@@ -69,7 +69,7 @@ struct MissionProgressCircleView: View {
         }
     }
 }
-
+//
 //struct CircleProgBarView_Previews: PreviewProvider {
 //    let user = User(missionIds: [0,1,2], nickname: "e", roomCode: roomCode)
 //    static var previews: some View {

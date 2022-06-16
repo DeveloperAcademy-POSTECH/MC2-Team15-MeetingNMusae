@@ -2,74 +2,75 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class MissionViewModel: ObservableObject {
-    var missions: [Mission]
+    var missions: [Mission] // published 사실 불필요. 변경 없어.. 한 번 불러오면 끝인 건데. 굳이 필요한가? 사실 필요 없긴 한데.
     let roleId: Int
     
     init() {
         missions = [Mission]()
-        roleId = 0 // default
-        
-        print("mVM init before fetchData")
-        
+        roleId = 1 // default
         self.fetchData(roleId: roleId)
-        
-        print("mVM init out")
     }
 
     private var db = Firestore.firestore()
 
     func fetchData(roleId: Int) {
-        print("mVM fetchdata in")
-        print("mVM missions.count \(missions.count)")
-        db.collection("missions")
-            .whereField(
-                "role_id", isEqualTo: roleId)
-            .addSnapshotListener { (querySnapshot, err) in
-                
-                print("mVM fetchdata query in")
-                
+        print("mVM fD in")
+        let _ = db.collection("missions").whereField("role_id", isEqualTo: roleId)
+            .addSnapshotListener { (querySnapshot, _ ) in
+                print("mVM listener in")
             guard let documents = querySnapshot?.documents else {
-                print("no documents")
+                print("No documents")
                 return
             }
-
-                print("test mVM.fetchData")
-                
+                print("mVM listener mid")
             self.missions = documents.compactMap { (queryDocumentSnapshot) -> Mission? in
-                
-                print("missions init. missions.count: \(self.missions.count)")
-                print("missions init. missions[0]: \(self.missions[0])")
-
+                print("mVM listener good")
                 return try? queryDocumentSnapshot.data(as: Mission.self)
             }
-            print("mVM err: \(err)")
+                print("mVM missions.count: \(self.missions.count)")
+//                print("\(String(describing: data["content"]))")
+                print("mVM listener what")
         }
-        print("mVM missions.count \(missions.count)")
-        print("mVM fetchdata out")
+        print("mVM listener out")
     }
     
     func updateMissionProgress(missionId: Int) {
-
-        db.collection("meeting_rooms").document("\(roomCode)").collection("users").document("\(nickname)")
-            .addSnapshotListener { DocumentSnapshot, error in
+        // 임시 (이대로 하면 취소 안 되고 이상해짐)
+        var didMissions: [Bool] = [false, false, false]
+        let doc =
+        db.collection("test_meeting_room").document("\(roomCode)").collection("test_users").document("TESTUSER1")
+        
+        doc.addSnapshotListener { DocumentSnapshot, error in
                 guard let document = DocumentSnapshot else {
                     print("Error fetching document: \(String(describing: error))")
                     return
                 }
                 guard var data = document["mission_progress"] as? [Bool] else {
+                    print("mVM updateMProgress doc as bool fail")
                     return
                 }
-                data[missionId] = !data[missionId]
+                // 비동기 처리 필요한 듯.. 이상하게 됨
+                if data.count > missionId {
+                    didMissions = data
+//                    didMissions[missionId].toggle()
+                }
             }
+        didMissions[missionId].toggle()
+
+        doc.updateData(["mission_progress":didMissions])
+        
     }
     
-    func getMissionsStr(roleId: Int) -> [String] {
-        self.fetchData(roleId: roleId)
+    func getMissionsStr() -> [String] {
+        print("getMissionStr in")
+//        let _ = self.fetchData(roleId: roleId)
         var missionsStr: [String] = []
-        print("missions count: \(self.missions.count)")
+        print("missions.count: \(missions.count)")
+        print("missions.getMission(): \(missions.first?.getMission())")
         for mission in self.missions {
             missionsStr.append(mission.getMission())
         }
+        print("missionStr: \(missionsStr)")
         return missionsStr
     }
 

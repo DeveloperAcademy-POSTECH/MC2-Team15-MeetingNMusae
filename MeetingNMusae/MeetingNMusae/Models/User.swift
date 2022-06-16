@@ -14,7 +14,6 @@ class User: Codable, Identifiable {
     var roleId: Int
     let roomCode: String
     var nickname: String
-    @DocumentID var id: String?
 
     enum CodingKeys: String, CodingKey {
         case isReady = "is_ready"

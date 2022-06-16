@@ -21,6 +21,7 @@ struct RoleSelectView: View {
     @State var user: User
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
 
+    // ? <- 이거 필요해요?
     private var db = Firestore.firestore()
 
     init(roomCode: String, nickname: String) {

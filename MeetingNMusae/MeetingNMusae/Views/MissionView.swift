@@ -13,8 +13,6 @@ struct MissionView: View {
     // 진행자가 회의 종료를 선택하면 참가자도 자동으로 다음 뷰로 넘어가기 위해 필요
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
 
-    @State var didMissions: [Bool] = [false, false, false]
-
     // 임시
     @State var isEnded: Bool = false
     // 이거 어쩌지
@@ -36,6 +34,12 @@ struct MissionView: View {
                 // 다른 사람 역할 미션 프로필 보기
                 ScrollView(.horizontal) {
                     HStack {
+                        if userViewModel.users.count == 0 {
+                            Text("uVM.users.cnt: \(userViewModel.users.count)")
+                                .onAppear{
+                                    userViewModel.fetchData(roomCode: roomCode)
+                                }
+                        }
                         ForEach(userViewModel.users) { user in
                             // 넘길 데이터: 참여자별 역할, 닉네임, 미션 달성도
                             // MARK: 넘길 데이터: 화면비 해당 프로그레스 바 두께
@@ -70,8 +74,7 @@ struct MissionView: View {
 //                // state 쓰는 게 맞나..? 바인딩은 돼야하는데
 //                didMissions = userViewModel.getUser(nickname).missionProgress
                 
-                // 이거 아님
-                MissionCardView(roleId: myRoleId, didMissions: [false,false,false])
+                MissionCardView()
                 .padding()
 
                 Spacer()
@@ -81,7 +84,7 @@ struct MissionView: View {
                   // 일단 If로 돌릴 생각인데
                   // 아니면 파이어베이스 미팅룸에서 뷰 단계 저장해도 될 듯ㅋ
                 
-                if userViewModel.getUser(nickname)?.roleId == 0 {
+                if userViewModel.getUser(nickname)?.roleId == 1 {
                     Button {
                         // 파이어베이스에 회의종료 set하기
                         

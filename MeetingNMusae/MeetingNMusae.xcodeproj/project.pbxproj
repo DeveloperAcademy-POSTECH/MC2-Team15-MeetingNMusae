@@ -19,6 +19,7 @@
 		B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */; };
 		B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */; };
 		C5320298285A151200A54E68 /* MissionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5320297285A151200A54E68 /* MissionCardView.swift */; };
+		C532029A285B1BAA00A54E68 /* FireTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5320299285B1BAA00A54E68 /* FireTestView.swift */; };
 		C58B4E272858EEF000F388B8 /* MissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58B4E262858EEF000F388B8 /* MissionViewModel.swift */; };
 		C5DBBC8B2851DC7C00124A07 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */; };
 		C5E93F0528581927001C1DB9 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E93F0328581927001C1DB9 /* MissionView.swift */; };
@@ -48,6 +49,7 @@
 		B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
 		B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		C5320297285A151200A54E68 /* MissionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardView.swift; sourceTree = "<group>"; };
+		C5320299285B1BAA00A54E68 /* FireTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireTestView.swift; sourceTree = "<group>"; };
 		C58B4E262858EEF000F388B8 /* MissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewModel.swift; sourceTree = "<group>"; };
 		C5DBBC8A2851DC7C00124A07 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C5E93F0328581927001C1DB9 /* MissionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */,
 				C5320297285A151200A54E68 /* MissionCardView.swift */,
+				C5320299285B1BAA00A54E68 /* FireTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				C58B4E272858EEF000F388B8 /* MissionViewModel.swift in Sources */,
 				C5E93F0628581927001C1DB9 /* MissionProgressCircleView.swift in Sources */,
 				B5B1B54428545EFE000DE126 /* Line.swift in Sources */,
+				C532029A285B1BAA00A54E68 /* FireTestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

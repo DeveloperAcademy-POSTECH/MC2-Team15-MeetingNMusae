@@ -7,7 +7,7 @@
 import FirebaseFirestoreSwift
 
 class Mission: Codable {
-    private var content: String
+    /*private*/ var content: String
     private var id: Int
     private var roleId: Int
 
@@ -24,6 +24,7 @@ class Mission: Codable {
     }
     
     func getMission() -> String {
+        
         return content
     }
 }

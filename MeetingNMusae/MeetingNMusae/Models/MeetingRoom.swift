@@ -11,7 +11,7 @@ class MeetingRoom: Codable, Identifiable {
     var roomCode: String
     var roleSelectUsers: [String]
     private var readyCount: Int
-    private var owner: String
+    /*private */var owner: String
 
     enum CodingKeys: String, CodingKey {
         case roleSelectUsers = "role_select_users"
