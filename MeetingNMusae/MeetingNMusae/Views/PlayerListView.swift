@@ -18,7 +18,6 @@ struct PlayerListView: View {
             ZStack {
                 Text(roomCode)
                     .fontWeight(.bold)
-                    .underline()
                     .padding(.vertical, UIScreen.screenHeight * 0.0178)
                     .padding(.bottom, UIScreen.screenHeight * 0.0083)
             }
@@ -27,6 +26,7 @@ struct PlayerListView: View {
                 Button(action: action) {
                     Image(systemName: "rectangle.portrait.and.arrow.right")
                         .foregroundColor(Color.black)
+                        .rotationEffect(.degrees(180))
                 }
                 .padding(.leading, UIScreen.screenHeight * 0.02843)
             }
@@ -53,7 +53,9 @@ struct PlayerListView: View {
                     self.userViewModel.fetchData(roomCode: roomCode)
                 }
                 Spacer()
-                Button(action: action) {
+                Button {
+                    action()
+                } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 12)
                             .foregroundColor(.black)
