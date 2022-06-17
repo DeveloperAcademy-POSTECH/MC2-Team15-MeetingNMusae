@@ -9,9 +9,11 @@ import FirebaseFirestoreSwift
 
 class MeetingRoomViewModel: ObservableObject {
     @Published var meetingRooms: [MeetingRoom]
+    @Published var isEnded: Bool
 
     init() {
         meetingRooms = [MeetingRoom]()
+        isEnded = false
     }
 
     private var db = Firestore.firestore()
@@ -79,6 +81,17 @@ class MeetingRoomViewModel: ObservableObject {
                     
                 }
             }
+        }
+    }
+    
+    func updateIsEnded(roomCode: String) {
+        do {
+            _ = try
+        db.collection("test_meeting_room").document("ROOMCODE1").collection("test_users").document("TESTUSER1").updateData(["is_ended": true])
+            isEnded = true
+        } catch {
+            print(error)
+            return
         }
     }
 }

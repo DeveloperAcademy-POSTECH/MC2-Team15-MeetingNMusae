@@ -14,14 +14,14 @@ struct MissionView: View {
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
 
     // 임시 -> 파이어스토어 연결 추가 예정
-    @State var isEnded: Bool = false
+    // @State var isEnded: Bool = false
 
     // 폰트 크기에 따라 수정 예정
     let textheight = UIScreen.screenHeight * 0.06
     
     var body: some View {
         
-        if isEnded {
+        if meetingRoomViewModel.isEnded {
 //        if meetingRoomViewModel.isEnded {
             // 임시
             Text("회의 종료 임시 뷰")
@@ -59,7 +59,7 @@ struct MissionView: View {
                 // 작동안함
                 let roleId = userViewModel.user?.roleId ?? 0
                 MissionCardView(userViewModel: userViewModel, roleId: roleId)
-                .padding()
+                .padding(28)
 
                 Spacer()
                 
@@ -67,15 +67,20 @@ struct MissionView: View {
                 if roleId == 1 {
                     Button {
                         // 파이어베이스에 회의종료 set하기
-                        
+                        meetingRoomViewModel.updateIsEnded(roomCode: roomCode)
                     } label: {
                         Text("회의 종료하기")
-                            .bold()
-                            .foregroundColor(.gray)
+                        //                .font(.title).bold() // 이런 류는 나중에 시간 있으면
+                            .font(.system(size: 18, weight: .bold))
+                            .foregroundColor(.buttonGray)
                         // 색 추후 수정
                     }
                 } else {
+                    // 임시
                     Text("roleId: \(roleId)")
+                        .onTapGesture {
+                            meetingRoomViewModel.updateIsEnded(roomCode: roomCode)
+                        }
                 }
             }
             .onAppear {

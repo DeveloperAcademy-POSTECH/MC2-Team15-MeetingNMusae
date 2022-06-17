@@ -21,12 +21,10 @@ class UserViewModel: ObservableObject {
     // 좀 자주 불림
     func fetchData(roomCode: String) {
         db.collection("test_meeting_room").document(roomCode).collection("test_users").addSnapshotListener { (querySnapshot, _) in
-            print("uVM fD2 .")
             guard let documents = querySnapshot?.documents else {
                 print("no documents")
                 return
             }
-            print("uVM fD2 ..")
             self.users = documents.compactMap { (queryDocumentSnapshot) -> User? in
                 print("\(String(describing: queryDocumentSnapshot.data()["nickname"]))----------------------------")
                 return try? queryDocumentSnapshot.data(as: User.self)
@@ -38,7 +36,7 @@ class UserViewModel: ObservableObject {
                 }
             }
         }
-        print("uVM fD2 users.count: \(users.count)")
+        print("uVM fD2 out ")
     }
     
     func addUser(roomCode: String, user: User) {

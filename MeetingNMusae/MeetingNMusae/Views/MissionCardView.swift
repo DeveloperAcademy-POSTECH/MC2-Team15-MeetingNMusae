@@ -14,6 +14,7 @@ struct MissionCardView: View {
     @ObservedObject var userViewModel = UserViewModel()
     @ObservedObject var missionViewModel = MissionViewModel()
     @State var isChanged = false
+    @State var missions: [String] = []
 //    @State var progress: [Bool] = userViewModel.user?.missionProgress ?? [false, false,false]
     let roleId: Int
     
@@ -23,37 +24,42 @@ struct MissionCardView: View {
         VStack {
 //            let roleId = userViewModel.user?.roleId ?? 0
             // var progress = userViewModel.user?.missionProgress ?? [false, false, false]
-            let _ = print("test@@@")
-            let missions: [String] = missionViewModel.getMissionsStr()
-            let _ = print("test@@@@")
+            //missions = missionViewModel.getMissionsStr()
 
             // 추후 이미지 크기 조정 필요
             Image(imageName)
                 .resizable()
                 .scaledToFit()
             Text(roleName)
+//                .font(.largeTitle).bold() // 이런 류는 나중에 시간 있으면
+                .font(.system(size: 24, weight: .bold))
+                .padding(20)
+
 
             // 코지의 라인 익스텐션 사용
             Line().stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
                 .frame(height: 1)
+                .padding(16)
             
             // 아래부분 회색 넣기는 나중에..? checkbox에 foreground로 하거나 clipped로 될까?
             
             HStack {
                 Text("**미션**") // add font later
+//                .font(.title).extraBold() // 이런 류는 나중에 시간 있으면
+                    .font(.system(size: 18, weight: .bold)) // MARK: here (extrabold 여야함)
+
                 Spacer()
             }
-            .padding()
+            .padding(.vertical, 12.735)
+            .padding(.horizontal)
             
             ForEach(0...2, id: \.self) { ind in
                 HStack {
                     CheckBoxView(missionId: ind, progress: userViewModel.user?.missionProgress ?? [false, false, false], roleId: roleId)
                     
-                    if missions.count > ind {
-                        Text(missions[ind])
-                    } else {
-                        Text("mcnt")
-                    }
+                        Text((missions.count > ind) ? missions[ind] : "mcnt")
+//                .font(.title3).medium() // 이런 류는 나중에 시간 있으면
+                        .font(.system(size: 16, weight: .medium))
                     
 //                    for mission in missionViewModel.missions where mission.id == ind {
 //                        Text(mission.getMission())
@@ -61,17 +67,28 @@ struct MissionCardView: View {
                     // 폰트 추가
                     Spacer()
                 }
-                    .padding()
+                .padding(.vertical, 6.105)
+                .padding(.horizontal)
             }
         }
         .onAppear {
             self.userViewModel.fetchData(roomCode: roomCode)
             self.missionViewModel.fetchData(roleId: roleId)
+            missions = missionViewModel.getMissionsStr()
         }
         .padding()
         .padding(.bottom)
         .background(
             CharacterBox(roleIndex: roleId)
+            // 회색 넣는 용도
+            // 추후 검색 해보자
+//                .overlay(
+//                    VStack {
+//                        Color.white//.frame(height: UIScreen.screenHeight*0.5)
+//                        Color.bgGray
+//                    }
+//                        .clipShape(RoundedRectangle(cornerRadius: 12))
+//                )
         )
     }
 }
@@ -91,14 +108,10 @@ struct CheckBoxView: View {
                 progress[missionId].toggle()
                 // MARK: 파이어베이스 update 하기
                 // missionViewModel.fetchData(roleId: roleId)
-                cnt+=1
-                print("debug cnt: \(cnt)")
                 missionViewModel.updateMissionProgress(missionId: missionId)
             }
     }
 }
-
-var checkboxcnt = [0, 0, 0] // debug cnt
 
 // struct MissionCardView_Previews: PreviewProvider {
 //    static var previews: some View {

@@ -21,7 +21,7 @@ struct MissionProgressCircleView: View {
             ZStack {
                 Circle()
                     .stroke(
-                        Color(.systemGray5),
+                        Color.circleGray,
                         lineWidth: lineWidth
                     )
                 Circle()
@@ -37,7 +37,7 @@ struct MissionProgressCircleView: View {
                     // easeOut: 시작과 끝 천천히 <-> easeIn(시작과 끝 빨리), linear(등속)
                     .animation(.easeOut, value: progress)
 
-                Image(roleName)
+                Image("원_\(roleName)")
                     .resizable()
                     .scaledToFit()
                     .clipShape(Circle())
@@ -47,11 +47,14 @@ struct MissionProgressCircleView: View {
 
             // 역할
             Text(roleName)
-                // 폰트 추가 예정
+//                .font(.title3).bold() // 이런 류는 나중에 시간 있으면
+                .font(.system(size: 14, weight: .bold))
 
             // 닉네임
             Text(nickname)
-                // 폰트 추가 예정
+//                .font(.title3).medium() // 이런 류는 나중에 시간 있으면
+                .font(.system(size: 14, weight: .medium))
+                .foregroundColor(.subTextGray)
 
         }
     }

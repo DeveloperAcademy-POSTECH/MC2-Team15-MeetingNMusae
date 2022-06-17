@@ -11,13 +11,15 @@ class MeetingRoom: Codable, Identifiable {
     var roomCode: String
     var roleSelectUsers: [String]
     private var readyCount: Int
-    /*private */var owner: String
+    var owner: String
+    var isEnded: Bool
 
     enum CodingKeys: String, CodingKey {
         case roleSelectUsers = "role_select_users"
         case readyCount = "ready_count"
         case owner = "owner"
         case roomCode = "room_code"
+        case isEnded = "is_ended"
     }
 
     init(owner: String, roomCode: String) {
@@ -25,5 +27,6 @@ class MeetingRoom: Codable, Identifiable {
         self.readyCount = 0
         self.owner = owner
         self.roomCode = roomCode
+        self.isEnded = false
     }
 }
