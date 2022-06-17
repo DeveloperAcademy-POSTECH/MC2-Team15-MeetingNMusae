@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseFirestore
 
-// 임시
+
 //let roomCode = "WP3LX4"
 //let nickname = "Sohni"
 
@@ -20,45 +20,32 @@ struct BestPlayerShowingView: View {
     @ObservedObject var userViewModel = UserViewModel()
     
     
-    var votedCntArr:[Int] = [1,3,2,5,1,7,2,3]
-    
     private var db = Firestore.firestore()
     
     init(roomCode: String) {
         self.roomCode = roomCode
     }
-    
-    let imageName = "금고무새"
     var body: some View {
         ZStack {
-            LottieView(name: "confetti", loopMode: .loop)
-                .scaledToFill()
-                .ignoresSafeArea(edges:.top)
+            
             VStack {
-                
-                
                 Image("celebratemusae")
                     .frame(width:344,height:219)
                     .padding(.top,68)
                     .padding(.bottom,33)
                 VStack {
+                    BestPlayerCheck(role: roles[userViewModel.user.roleId], nickname: userViewModel.user.nickname)
+                        .background(CharacterBox(roleIndex: userViewModel.user.roleId))
+                    //           Text("\(userViewModel.user.nickname)")
+                    //            Text("\(userViewModel.user.roleId)")
                     
-                    Text("\(userViewModel.user.nickname)")
-                    Text("\(userViewModel.user.roleId)")
-                    
-                    if let (maxIndex, maxValue) = votedCntArr.enumerated().max(by: { $0.element < $1.element }) {
-                        Text("max is \(maxValue) at index \(maxIndex)")
-                    }
                 }
-                Button(action: {
-                    self.userViewModel.getMaxVotedCount(roomCode: roomCode)
-                }, label: {
-                    Text("가져오기")
-                })
                 Spacer()
             }
             
-            
+            LottieView(name: "confetti", loopMode: .loop)
+                .scaledToFill()
+                .ignoresSafeArea(edges:.top)
         }
         .onAppear() {
             self.userViewModel.getMaxVotedCount(roomCode: roomCode)
@@ -67,10 +54,8 @@ struct BestPlayerShowingView: View {
 }
 
 
-///fb 데이터 불러오는거까지 성공 MAX(count) 하면됨
 struct BestPlayerCheck: View {
     @State var role: Role
-    //   @State var roleSelectUser: String
     @State var nickname: String
     
     var body: some View {
@@ -79,23 +64,21 @@ struct BestPlayerCheck: View {
                 
                 Image("\(role.roleName)")
                     .resizable()
-                    .scaledToFit()
-                    .padding(.top)
-                    .frame(height:characterSize)
+                    .scaledToFill()
+                    .frame(width:120, height: 120)
+                
                 Text("\(role.roleName)")
+                    .fontWeight(.bold)
                     .padding(.bottom)
                     .foregroundColor(.black)
-                Text("\(nickname)")
-                    .padding(.bottom)
-                    .foregroundColor(.black)
+                
+
             }
+            .frame(width:153,height: 160)
         }
         
     }
 }
-
-
-
 
 
 //struct BestPlayerShowingView_Previews: PreviewProvider {
