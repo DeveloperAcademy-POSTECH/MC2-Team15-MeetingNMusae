@@ -23,7 +23,7 @@ struct MeetingNMusaeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ReviewShowingView()
+            Home()
         }
     }
 }
