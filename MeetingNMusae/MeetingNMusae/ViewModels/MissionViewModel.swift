@@ -2,20 +2,21 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class MissionViewModel: ObservableObject {
-    var missions: [Mission] // published 사실 불필요. 변경 없어.. 한 번 불러오면 끝인 건데. 굳이 필요한가? 사실 필요 없긴 한데.
-    let roleId: Int
+    @Published var missions: [Mission] // 리스너로 받으려면 published 필요
+    // @Published var roleId: Int
     
     init() {
-        missions = [Mission]()
-        roleId = 1 // default
-        self.fetchData(roleId: roleId)
+        self.missions = [Mission]()
+        // self.roleId = 0
+        // self.fetchData(roleId: roleId)
     }
 
     private var db = Firestore.firestore()
 
     func fetchData(roleId: Int) {
+//        self.roleId = roleId
         print("mVM fD in")
-        let _ = db.collection("missions").whereField("role_id", isEqualTo: roleId)
+        db.collection("missions").whereField("role_id", isEqualTo: roleId)
             .addSnapshotListener { (querySnapshot, _ ) in
                 print("mVM listener in")
             guard let documents = querySnapshot?.documents else {
@@ -28,36 +29,47 @@ class MissionViewModel: ObservableObject {
                 return try? queryDocumentSnapshot.data(as: Mission.self)
             }
                 print("mVM missions.count: \(self.missions.count)")
-//                print("\(String(describing: data["content"]))")
                 print("mVM listener what")
         }
         print("mVM listener out")
     }
     
     func updateMissionProgress(missionId: Int) {
-        // 임시 (이대로 하면 취소 안 되고 이상해짐)
-        var didMissions: [Bool] = [false, false, false]
+        print("updateMP called")
+        var isChanged = false
+
         let doc =
         db.collection("test_meeting_room").document("\(roomCode)").collection("test_users").document("TESTUSER1")
         
         doc.addSnapshotListener { DocumentSnapshot, error in
-                guard let document = DocumentSnapshot else {
-                    print("Error fetching document: \(String(describing: error))")
-                    return
-                }
-                guard var data = document["mission_progress"] as? [Bool] else {
-                    print("mVM updateMProgress doc as bool fail")
-                    return
-                }
-                // 비동기 처리 필요한 듯.. 이상하게 됨
-                if data.count > missionId {
-                    didMissions = data
-//                    didMissions[missionId].toggle()
-                }
+            
+            checkboxcnt[0] += 1
+            
+            guard let document = DocumentSnapshot else {
+                print("Error fetching document: \(String(describing: error))")
+                return
             }
-        didMissions[missionId].toggle()
 
-        doc.updateData(["mission_progress":didMissions])
+            checkboxcnt[1] += 1
+
+            guard var data = document["mission_progress"] as? [Bool] else {
+                print("mVM updateMProgress doc as bool fail")
+                return
+            }
+
+            checkboxcnt[2] += 1
+
+            if !isChanged && (data.count > missionId) {
+                isChanged = true
+                data[missionId].toggle()
+                doc.updateData(["mission_progress": data])
+            }
+            
+            // 결과 계속 카운트 올라감 (숫자 셋은 동일)
+            print("checkboxcnt: \(checkboxcnt[0]), \(checkboxcnt[1]), \(checkboxcnt[2])")
+        }
+        // 결과 모두 0으로 1번만 일어남
+        print("uMP out checboxcnt: \(checkboxcnt[0]), \(checkboxcnt[1]), \(checkboxcnt[2])")
         
     }
     
@@ -66,7 +78,7 @@ class MissionViewModel: ObservableObject {
 //        let _ = self.fetchData(roleId: roleId)
         var missionsStr: [String] = []
         print("missions.count: \(missions.count)")
-        print("missions.getMission(): \(missions.first?.getMission())")
+        print("missions.getMission(): \(String(describing: missions.first?.getMission()))")
         for mission in self.missions {
             missionsStr.append(mission.getMission())
         }

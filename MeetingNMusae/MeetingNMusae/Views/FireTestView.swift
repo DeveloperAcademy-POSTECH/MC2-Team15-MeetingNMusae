@@ -18,12 +18,12 @@ struct FireTestView: View {
         
         let _ = missionViewModel.fetchData(roleId: 1)
         
-        VStack{
+        VStack {
             Text("count: \(missionViewModel.missions.count)")
 //                .onChange(of: userViewModel.ifChange){
 //                    //refresh
 //                }
-                .onAppear{
+                .onAppear {
                     missionViewModel.fetchData(roleId: 1)
                 }
             Text("content: \(missionViewModel.missions.first?.content ?? "nil")")

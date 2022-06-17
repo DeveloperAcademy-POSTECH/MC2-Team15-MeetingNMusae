@@ -8,8 +8,8 @@ import FirebaseFirestoreSwift
 
 class Mission: Codable {
     /*private*/ var content: String
-    private var id: Int
-    private var roleId: Int
+    var id: Int
+    var roleId: Int
 
     enum CodingKeys: String, CodingKey {
         case content
