@@ -15,6 +15,7 @@
 		9029185928573BA5002D8D90 /* SelectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185828573BA5002D8D90 /* SelectBox.swift */; };
 		90988FA128549568000711BE /* CharacterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90988FA028549568000711BE /* CharacterBox.swift */; };
 		90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */; };
+		90DF2CFF285C1A61007D4542 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF2CFE285C1A61007D4542 /* SwitchView.swift */; };
 		B57BB9D32854BEED007AFFAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57BB9D22854BEED007AFFAA /* User.swift */; };
 		B5B1B53E28543178000DE126 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53D28543178000DE126 /* FirebaseAnalytics */; };
 		B5B1B54028543178000DE126 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53F28543178000DE126 /* FirebaseFirestore */; };
@@ -49,6 +50,7 @@
 		9029185828573BA5002D8D90 /* SelectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBox.swift; sourceTree = "<group>"; };
 		90988FA028549568000711BE /* CharacterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBox.swift; sourceTree = "<group>"; };
 		90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		90DF2CFE285C1A61007D4542 /* SwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
 		B57BB9D22854BEED007AFFAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5B1B54328545EFE000DE126 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		B5B1B54828547DC6000DE126 /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		CE7605992851BD5400D647EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				90DF2CFE285C1A61007D4542 /* SwitchView.swift */,
 				CEC7BE502856DEE60072ACB0 /* RoleDetailView.swift */,
 				CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */,
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
@@ -291,6 +294,7 @@
 				B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */,
 				B5B1B54D28547DC7000DE126 /* Role.swift in Sources */,
 				B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */,
+				90DF2CFF285C1A61007D4542 /* SwitchView.swift in Sources */,
 				9029185928573BA5002D8D90 /* SelectBox.swift in Sources */,
 				CEC7BE4B2856DEAF0072ACB0 /* Mission.swift in Sources */,
 				9029185728573819002D8D90 /* TextInputBox.swift in Sources */,
