@@ -15,6 +15,10 @@
 		9029185928573BA5002D8D90 /* SelectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185828573BA5002D8D90 /* SelectBox.swift */; };
 		90988FA128549568000711BE /* CharacterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90988FA028549568000711BE /* CharacterBox.swift */; };
 		90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */; };
+		90DF2CF7285B99F9007D4542 /* ReviewShowingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF2CF6285B99F9007D4542 /* ReviewShowingView.swift */; };
+		90DF2CF9285BA032007D4542 /* NameBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF2CF8285BA032007D4542 /* NameBox.swift */; };
+		90DF2CFB285BA472007D4542 /* TitleBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF2CFA285BA472007D4542 /* TitleBox.swift */; };
+		90DF2CFD285C106D007D4542 /* ReviewBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF2CFC285C106D007D4542 /* ReviewBox.swift */; };
 		B57BB9D32854BEED007AFFAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57BB9D22854BEED007AFFAA /* User.swift */; };
 		B5B1B53E28543178000DE126 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53D28543178000DE126 /* FirebaseAnalytics */; };
 		B5B1B54028543178000DE126 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53F28543178000DE126 /* FirebaseFirestore */; };
@@ -49,6 +53,10 @@
 		9029185828573BA5002D8D90 /* SelectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBox.swift; sourceTree = "<group>"; };
 		90988FA028549568000711BE /* CharacterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBox.swift; sourceTree = "<group>"; };
 		90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		90DF2CF6285B99F9007D4542 /* ReviewShowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewShowingView.swift; sourceTree = "<group>"; };
+		90DF2CF8285BA032007D4542 /* NameBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameBox.swift; sourceTree = "<group>"; };
+		90DF2CFA285BA472007D4542 /* TitleBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBox.swift; sourceTree = "<group>"; };
+		90DF2CFC285C106D007D4542 /* ReviewBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewBox.swift; sourceTree = "<group>"; };
 		B57BB9D22854BEED007AFFAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5B1B54328545EFE000DE126 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		B5B1B54828547DC6000DE126 /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
@@ -94,6 +102,9 @@
 				9029185428572F36002D8D90 /* CircleButton.swift */,
 				90988FA028549568000711BE /* CharacterBox.swift */,
 				9029185828573BA5002D8D90 /* SelectBox.swift */,
+				90DF2CF8285BA032007D4542 /* NameBox.swift */,
+				90DF2CFA285BA472007D4542 /* TitleBox.swift */,
+				90DF2CFC285C106D007D4542 /* ReviewBox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -145,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				CEC7BE502856DEE60072ACB0 /* RoleDetailView.swift */,
+				90DF2CF6285B99F9007D4542 /* ReviewShowingView.swift */,
 				CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */,
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */,
@@ -304,14 +316,18 @@
 				CEC7BE492856DEAF0072ACB0 /* MeetingRoom.swift in Sources */,
 				9029185128572BDC002D8D90 /* RoomFindingView.swift in Sources */,
 				CEC7BE4A2856DEAF0072ACB0 /* Review.swift in Sources */,
+				90DF2CF7285B99F9007D4542 /* ReviewShowingView.swift in Sources */,
+				90DF2CFD285C106D007D4542 /* ReviewBox.swift in Sources */,
 				CEC7BE4D2856DECF0072ACB0 /* MeetingRoomViewModel.swift in Sources */,
 				90988FA128549568000711BE /* CharacterBox.swift in Sources */,
 				CEC7BE4F2856DED50072ACB0 /* RoleViewModel.swift in Sources */,
+				90DF2CF9285BA032007D4542 /* NameBox.swift in Sources */,
 				9029185528572F36002D8D90 /* CircleButton.swift in Sources */,
 				CEC7BE532856DEE60072ACB0 /* RoleSelectView.swift in Sources */,
 				CEC7BE452856DE9C0072ACB0 /* HomeView.swift in Sources */,
 				B57BB9D32854BEED007AFFAA /* User.swift in Sources */,
 				B5B1B54428545EFE000DE126 /* Line.swift in Sources */,
+				90DF2CFB285BA472007D4542 /* TitleBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
