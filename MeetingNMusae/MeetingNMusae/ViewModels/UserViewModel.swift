@@ -18,7 +18,7 @@ class UserViewModel: ObservableObject {
     private var db = Firestore.firestore()
 
     func fetchData(roomCode: String) {
-        db.collection("users").whereField("room_code", isEqualTo: roomCode).addSnapshotListener { (querySnapshot, _) in
+        db.collection("meeting_rooms").document(roomCode).collection("users").addSnapshotListener { (querySnapshot, _) in
             guard let documents = querySnapshot?.documents else {
                 print("no documents")
                 return
@@ -32,10 +32,15 @@ class UserViewModel: ObservableObject {
 
     func addUser(roomCode: String, user: User) {
         do {
-            _ = try db.collection("meeting_rooms").document("\(roomCode)").collection("users").document("\(user.nickname)").setData(from: user)
+            _ = try db.collection("meeting_rooms").document(roomCode).collection("users").document("\(user.nickname)").setData(from: user)
         } catch {
             print(error)
             return
         }
     }
+    
+    func updateUserRole(roomCode: String, roleId: Int, nickname: String, isSelect: Bool) {
+        db.collection("meeting_rooms").document("\(roomCode)").collection("users").document(nickname).updateData(["role_id": isSelect ? roleId : 0])
+    }
 }
+

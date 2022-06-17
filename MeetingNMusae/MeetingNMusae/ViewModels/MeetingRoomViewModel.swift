@@ -6,12 +6,15 @@
 //
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import SwiftUI
 
 class MeetingRoomViewModel: ObservableObject {
     @Published var meetingRooms: [MeetingRoom]
+    @Published var roomCodeList: Set<String>
 
     init() {
         meetingRooms = [MeetingRoom]()
+        roomCodeList = Set<String>()
     }
 
     private var db = Firestore.firestore()
@@ -23,8 +26,7 @@ class MeetingRoomViewModel: ObservableObject {
                 print("no documents")
                 return
             }
-        
-     //test       print("111")
+
             self.meetingRooms = documents.compactMap { (queryDocumentSnapshot) -> MeetingRoom? in
                 
      //test           print("222")
@@ -33,14 +35,25 @@ class MeetingRoomViewModel: ObservableObject {
         }
    //test     print("mrVM fd out")
     }
-    
     func addMeetingRoom(meetingRoom: MeetingRoom) {
         do {
-            _ = try db.collection("meeting_rooms").document("\(meetingRoom.roomCode)").setData(from: meetingRoom)
+            _ = try db.collection("meeting_rooms").document(meetingRoom.roomCode).setData(from: meetingRoom)
         } catch {
             print(error)
             return
         }
+    }
+
+    func startMeeting(roomCode: String) {
+        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_started": true])
+    }
+
+    func completedRoleSelect(roomCode: String) {
+        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_started": false, "is_role_select_completed": true])
+    }
+
+    func endMeeting(roomCode: String) {
+        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_role_select_completed": false, "is_ended": true])
     }
 
     func enterMeetingRoom(roomCode: String, user: User) {
@@ -66,23 +79,27 @@ class MeetingRoomViewModel: ObservableObject {
                                 data[i] = "" // 만약 이전에 다른 역할을 선택했었다면 해당 역할을 선택한 nickname 지우기
                             }
                         }
-
                         data[roleId - 1] = nickname // 해당 역할에 nickname 지정
                     } else { // 역할 선택 해제인 경우
                         data[roleId - 1] = "" // 해당 역할에 지정되어 있는 nickname 지우기
                     }
-
                     path.document("\(roomCode)").updateData(["role_select_users": data])
-
-                    if isSelect { // 역할 선택인 경우
-                        path.document("\(roomCode)").collection("users").document("\(nickname)").updateData(["role_id": roleId]) // 유저의 역할 번호 지정
-                    } else { // 역할 선택 해제인 경우
-                        path.document("\(roomCode)").collection("users").document("\(nickname)").updateData(["role_id": 0]) // 유저의 역할 번호 0으로 초기화
-                    }
-
-                    
                 }
             }
+        }
+    }
+
+    // 룸코드 중복을 위해 fireStore에서 룸코드를 Set으로 가져오는 메소드입니다
+    func getRoomCodeList() {
+        db.collection("meeting_rooms").getDocuments { (querySnapshot, _ ) in
+            for document in querySnapshot!.documents {
+                guard let anotherRoomCode = document.data()["room_code"] as? String else {
+                    print("No room")
+                    return
+                }
+                self.roomCodeList.insert(anotherRoomCode)
+            }
+
         }
     }
 }
