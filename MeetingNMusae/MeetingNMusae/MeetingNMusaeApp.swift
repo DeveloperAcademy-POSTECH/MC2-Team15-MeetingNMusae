@@ -14,6 +14,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     FirebaseApp.configure()
     return true
   }
+
+
 }
 
 @main
@@ -23,8 +25,8 @@ struct MeetingNMusaeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MissionView()
-//            ContentView()
+//            MissionView()
+            Home()
         }
     }
 }

@@ -24,15 +24,11 @@ struct HomeView: View {
                     guard let randomCharacter = str.randomElement() else { break }
                     roomCode.append(randomCharacter)
                 }
-
-                let user: User = User(missionIds: [0, 1, 2], nickname: nickname, roomCode: roomCode)
-                MeetingRoomViewModel().addMeetingRoom(meetingRoom: MeetingRoom(owner: nickname, roomCode: roomCode))
-                UserViewModel().addUser(roomCode: roomCode, user: user)
             }, label: {
                 Text("방 만들기")
             })
             
-            NavigationLink(destination: RoleSelectView(roomCode: roomCode, nickname: nickname)) {
+            NavigationLink(destination: RoleSelectView()) {
                 Text("입장하기")
             }.simultaneousGesture(TapGesture().onEnded{
                 let user: User = User(missionIds: [0, 1, 2], nickname: nickname, roomCode: roomCode)

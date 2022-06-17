@@ -13,9 +13,6 @@ struct MissionView: View {
     // 진행자가 회의 종료를 선택하면 참가자도 자동으로 다음 뷰로 넘어가기 위해 필요
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
 
-    // 임시 -> 파이어스토어 연결 추가 예정
-    // @State var isEnded: Bool = false
-
     // 폰트 크기에 따라 수정 예정
     let textheight = UIScreen.screenHeight * 0.06
     

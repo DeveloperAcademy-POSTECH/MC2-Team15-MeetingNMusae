@@ -20,7 +20,8 @@ class UserViewModel: ObservableObject {
     
     // 좀 자주 불림
     func fetchData(roomCode: String) {
-        db.collection("test_meeting_room").document(roomCode).collection("test_users").addSnapshotListener { (querySnapshot, _) in
+//        db.collection("test_meeting_room").document(roomCode).collection("test_users").addSnapshotListener { (querySnapshot, _) in
+        db.collection("meeting_rooms").document(roomCode).collection("users").addSnapshotListener { (querySnapshot, _) in
             guard let documents = querySnapshot?.documents else {
                 print("no documents")
                 return
@@ -41,7 +42,8 @@ class UserViewModel: ObservableObject {
     
     func addUser(roomCode: String, user: User) {
         do {
-            _ = try db.collection("test_meeting_room").document("\(roomCode)").collection("users").document("\(user.nickname)").setData(from: user)
+//            _ = try db.collection("test_meeting_room").document("\(roomCode)").collection("users").document("\(user.nickname)").setData(from: user)
+            _ = try db.collection("meeting_rooms").document(roomCode).collection("users").document("\(user.nickname)").setData(from: user)
         } catch {
             print(error)
             return
@@ -64,4 +66,9 @@ class UserViewModel: ObservableObject {
 //            }
 //        }
 //    }
+
+    func updateUserRole(roomCode: String, roleId: Int, nickname: String, isSelect: Bool) {
+        db.collection("meeting_rooms").document("\(roomCode)").collection("users").document(nickname).updateData(["role_id": isSelect ? roleId : 0])
+    }
 }
+
