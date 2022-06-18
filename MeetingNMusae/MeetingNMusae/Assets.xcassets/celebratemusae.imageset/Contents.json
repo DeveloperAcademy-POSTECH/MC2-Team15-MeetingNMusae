@@ -1,11 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "좋아무새.png",
+      "filename" : "celebratemusae.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "celebratemusae@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
