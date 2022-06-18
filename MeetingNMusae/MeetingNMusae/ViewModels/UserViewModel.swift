@@ -10,9 +10,11 @@ import FirebaseFirestoreSwift
 
 class UserViewModel: ObservableObject {
     @Published var users: [User]
+    @Published var user: User
 
     init() {
         users = [User]()
+        user = User(missionIds: [], nickname: "", roomCode: "")
     }
 
     private var db = Firestore.firestore()
@@ -45,6 +47,28 @@ class UserViewModel: ObservableObject {
     
     func voteUser(roomCode: String, nickname: String) {
         db.collection("meeting_rooms").document(roomCode).collection("users").document(nickname).updateData(["voted_count": FieldValue.increment(Int64(1))])
+    }
+    
+    func getBestPlayer(roomCode: String) {
+        var maxVotedCount: Int = 0
+        
+        db.collection("meeting_rooms").document(roomCode).collection("users").addSnapshotListener { (querySnapshot, _) in
+            guard let documents = querySnapshot?.documents else {
+                print("no documents")
+                return
+            }
+
+            self.users = documents.compactMap { (queryDocumentSnapshot) -> User? in
+                let data = try? queryDocumentSnapshot.data(as: User.self)
+                
+                if maxVotedCount < data!.votedCount {
+                    maxVotedCount = data!.votedCount
+                    self.user = data!
+                }
+                
+                return try? queryDocumentSnapshot.data(as: User.self)
+            }
+        }
     }
 }
 

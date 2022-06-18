@@ -30,7 +30,8 @@ struct SwitchView: View {
                 } else if meetingRoom.isEnded {
                     BestPlayerSelectView()
                 } else if meetingRoom.isBestRoleSelected {
-                    Text("베스트 플레이어~")
+                    BestPlayerShowingView(roomCode: roomCode)
+                        .navigationBarHidden(true)
                 } else {
                     PlayerListView(roomCode: roomCode, isOwner: isOwner)
                 }
