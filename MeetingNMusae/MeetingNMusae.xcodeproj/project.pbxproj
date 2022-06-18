@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		45DF5FDE28581F4A007DE145 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF5FDD28581F4A007DE145 /* LottieView.swift */; };
+		45DF5FE028582004007DE145 /* BestPlayerShowingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF5FDF28582004007DE145 /* BestPlayerShowingView.swift */; };
+		45DF5FE2285820C4007DE145 /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 45DF5FE1285820C4007DE145 /* confetti.json */; };
+		45DF5FE5285821E3007DE145 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 45DF5FE4285821E3007DE145 /* Lottie */; };
 		9029184F28572B70002D8D90 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029184E28572B70002D8D90 /* Home.swift */; };
 		9029185128572BDC002D8D90 /* RoomFindingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185028572BDC002D8D90 /* RoomFindingView.swift */; };
 		9029185328572BF1002D8D90 /* NicknameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185228572BF1002D8D90 /* NicknameSettingView.swift */; };
 		9029185528572F36002D8D90 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185428572F36002D8D90 /* CircleButton.swift */; };
 		9029185728573819002D8D90 /* TextInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185628573819002D8D90 /* TextInputBox.swift */; };
 		9029185928573BA5002D8D90 /* SelectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185828573BA5002D8D90 /* SelectBox.swift */; };
+
 		90988FA128549568000711BE /* CharacterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90988FA028549568000711BE /* CharacterBox.swift */; };
 		90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */; };
+		90DF2CFF285C1A61007D4542 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF2CFE285C1A61007D4542 /* SwitchView.swift */; };
 		B57BB9D32854BEED007AFFAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57BB9D22854BEED007AFFAA /* User.swift */; };
 		B5B1B53E28543178000DE126 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53D28543178000DE126 /* FirebaseAnalytics */; };
 		B5B1B54028543178000DE126 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53F28543178000DE126 /* FirebaseFirestore */; };
@@ -41,14 +48,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
+		45DF5FDD28581F4A007DE145 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		45DF5FDF28582004007DE145 /* BestPlayerShowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestPlayerShowingView.swift; sourceTree = "<group>"; };
+		45DF5FE1285820C4007DE145 /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = confetti.json; path = ../../../../../../Downloads/confetti.json; sourceTree = "<group>"; };
+
 		9029184E28572B70002D8D90 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		9029185028572BDC002D8D90 /* RoomFindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFindingView.swift; sourceTree = "<group>"; };
 		9029185228572BF1002D8D90 /* NicknameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingView.swift; sourceTree = "<group>"; };
 		9029185428572F36002D8D90 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		9029185628573819002D8D90 /* TextInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputBox.swift; sourceTree = "<group>"; };
 		9029185828573BA5002D8D90 /* SelectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBox.swift; sourceTree = "<group>"; };
+
 		90988FA028549568000711BE /* CharacterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBox.swift; sourceTree = "<group>"; };
 		90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		90DF2CFE285C1A61007D4542 /* SwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
 		B57BB9D22854BEED007AFFAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5B1B54328545EFE000DE126 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		B5B1B54828547DC6000DE126 /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
@@ -80,6 +94,7 @@
 				B5B1B53E28543178000DE126 /* FirebaseAnalytics in Frameworks */,
 				B5B1B54028543178000DE126 /* FirebaseFirestore in Frameworks */,
 				B5B1B54228543178000DE126 /* FirebaseFirestoreSwift in Frameworks */,
+				45DF5FE5285821E3007DE145 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +133,7 @@
 		CE3DCF2728519B1F00E048A3 /* MeetingNMusae */ = {
 			isa = PBXGroup;
 			children = (
+				45DF5FE1285820C4007DE145 /* confetti.json */,
 				CEC7BE432856DE900072ACB0 /* Temp */,
 				B59CAC122855E2BE00C0FC98 /* Components */,
 				B5FC08412851E46100EDC014 /* Extensions */,
@@ -144,13 +160,19 @@
 		CE7605992851BD5400D647EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				90DF2CFE285C1A61007D4542 /* SwitchView.swift */,
 				CEC7BE502856DEE60072ACB0 /* RoleDetailView.swift */,
 				CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */,
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */,
+
+				45DF5FDD28581F4A007DE145 /* LottieView.swift */,
+				45DF5FDF28582004007DE145 /* BestPlayerShowingView.swift */,
+
 				9029184E28572B70002D8D90 /* Home.swift */,
 				9029185228572BF1002D8D90 /* NicknameSettingView.swift */,
 				9029185028572BDC002D8D90 /* RoomFindingView.swift */,
+
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +228,7 @@
 				B5B1B53D28543178000DE126 /* FirebaseAnalytics */,
 				B5B1B53F28543178000DE126 /* FirebaseFirestore */,
 				B5B1B54128543178000DE126 /* FirebaseFirestoreSwift */,
+				45DF5FE4285821E3007DE145 /* Lottie */,
 			);
 			productName = MeetingNMusae;
 			productReference = CEC7BE412856DE460072ACB0 /* MeetingNMusae.app */;
@@ -238,6 +261,7 @@
 			packageReferences = (
 				CE7B51CA28519BC2004BCA89 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				45DF5FE3285821E3007DE145 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = CE3DCF1C28519B1F00E048A3;
 			projectDirPath = "";
@@ -253,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45DF5FE2285820C4007DE145 /* confetti.json in Resources */,
 				C5DBBC8B2851DC7C00124A07 /* .swiftlint.yml in Resources */,
 				CE3DCF3028519B2000E048A3 /* Preview Assets.xcassets in Resources */,
 				CE3DCF2D28519B2000E048A3 /* Assets.xcassets in Resources */,
@@ -289,13 +314,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */,
+				45DF5FDE28581F4A007DE145 /* LottieView.swift in Sources */,
 				B5B1B54D28547DC7000DE126 /* Role.swift in Sources */,
 				B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */,
+				90DF2CFF285C1A61007D4542 /* SwitchView.swift in Sources */,
 				9029185928573BA5002D8D90 /* SelectBox.swift in Sources */,
 				CEC7BE4B2856DEAF0072ACB0 /* Mission.swift in Sources */,
 				9029185728573819002D8D90 /* TextInputBox.swift in Sources */,
 				B5B1B55328547DD7000DE126 /* UserViewModel.swift in Sources */,
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
+				45DF5FE028582004007DE145 /* BestPlayerShowingView.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
 				9029185328572BF1002D8D90 /* NicknameSettingView.swift in Sources */,
 				90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */,
@@ -449,6 +477,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,6 +509,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,6 +548,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		45DF5FE3285821E3007DE145 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -537,6 +575,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		45DF5FE4285821E3007DE145 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45DF5FE3285821E3007DE145 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		B5B1B53D28543178000DE126 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B5B1B53C28543178000DE126 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

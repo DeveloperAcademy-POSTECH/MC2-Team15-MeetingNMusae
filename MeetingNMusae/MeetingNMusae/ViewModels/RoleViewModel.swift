@@ -17,7 +17,19 @@ class RoleViewModel: ObservableObject {
 
     init() {
         roles = [Role]()
-    } 
+    }
 
     private var db = Firestore.firestore()
+//
+//    func fetchData() {
+//        db.collection("roles").order(by: "id").addSnapshotListener { (querySnapshot, _) in
+//            guard let documents = querySnapshot?.documents else {
+//                print("no documents")
+//                return
+//            }
+//            self.roles = documents.compactMap { (queryDocumentSnapshot) -> Role? in
+//                return try? queryDocumentSnapshot.data(as: Role.self)
+//            }
+//        }
+//    }
 }
