@@ -42,5 +42,9 @@ class UserViewModel: ObservableObject {
     func updateUserRole(roomCode: String, roleId: Int, nickname: String, isSelect: Bool) {
         db.collection("meeting_rooms").document("\(roomCode)").collection("users").document(nickname).updateData(["role_id": isSelect ? roleId : 0])
     }
+    
+    func voteUser(roomCode: String, nickname: String) {
+        db.collection("meeting_rooms").document(roomCode).collection("users").document(nickname).updateData(["voted_count": FieldValue.increment(Int64(1))])
+    }
 }
 

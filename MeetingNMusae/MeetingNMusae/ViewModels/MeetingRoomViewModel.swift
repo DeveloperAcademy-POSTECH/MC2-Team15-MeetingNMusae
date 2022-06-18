@@ -51,6 +51,10 @@ class MeetingRoomViewModel: ObservableObject {
     func endMeeting(roomCode: String) {
         db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_role_select_completed": false, "is_ended": true])
     }
+    
+    func bestRoleSelected(roomCode: String) {
+        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_ended": false, "is_best_role_selected": true])
+    }
 
     func enterMeetingRoom(roomCode: String, user: User) {
         UserViewModel().addUser(roomCode: roomCode, user: user)
