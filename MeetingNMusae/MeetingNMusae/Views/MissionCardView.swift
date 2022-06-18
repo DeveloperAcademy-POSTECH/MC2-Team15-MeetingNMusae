@@ -14,12 +14,14 @@ struct MissionCardView: View {
     @ObservedObject var userViewModel = UserViewModel()
     @ObservedObject var missionViewModel = MissionViewModel()
     @State var isChanged = false
-    @State var missions: [String] = []
+//    @State var missions: [String] = []
 //    @State var progress: [Bool] = userViewModel.user?.missionProgress ?? [false, false,false]
-    let roleId: Int
+    let roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
+    let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
+    let roleId = UserDefaults.standard.integer(forKey: "roleId")
     
     var body: some View {
-        let roleName: String =  Role.roles[roleId].roleName
+        let roleName: String = Role.getRoleName(roleId: roleId)
         let imageName: String = roleName
         VStack {
 //            let roleId = userViewModel.user?.roleId ?? 0
@@ -53,29 +55,25 @@ struct MissionCardView: View {
             .padding(.vertical, 12.735)
             .padding(.horizontal)
             
+            // MARK: 따로 뷰로 빼서 CheckBoxView와 옆에 텍스트 같이 두자
             ForEach(0...2, id: \.self) { ind in
                 HStack {
                     CheckBoxView(missionId: ind, progress: userViewModel.user?.missionProgress ?? [false, false, false], roleId: roleId)
-                    
-                        Text((missions.count > ind) ? missions[ind] : "mcnt")
+
+                    Text((self.missionViewModel.missionStrs.count > ind) ? self.missionViewModel.missionStrs[ind] : "mcnt: \(self.missionViewModel.missionStrs.count)")
 //                .font(.title3).medium() // 이런 류는 나중에 시간 있으면
                         .font(.system(size: 16, weight: .medium))
-                    
-//                    for mission in missionViewModel.missions where mission.id == ind {
-//                        Text(mission.getMission())
-//                    }
-                    // 폰트 추가
                     Spacer()
                 }
                 .padding(.vertical, 6.105)
                 .padding(.horizontal)
+
             }
         }
-        .onAppear {
-            self.userViewModel.fetchData(roomCode: roomCode)
-            self.missionViewModel.fetchData(roleId: roleId)
-            missions = missionViewModel.getMissionsStr()
-        }
+//        .onAppear {
+//            self.userViewModel.fetchData(roomCode: roomCode, nickname: nickname)
+//            self.missionViewModel.fetchMissions(roleId: roleId)
+//        }
         .padding()
         .padding(.bottom)
         .background(
@@ -98,7 +96,11 @@ struct CheckBoxView: View {
     let missionId: Int
     @State var progress: [Bool]
     let roleId: Int
-    let missionViewModel = MissionViewModel()
+//    let missionViewModel = MissionViewModel()
+    let userViewModel = UserViewModel()
+
+    let roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
+    let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
 
     var body: some View {
         Text("\(Image(systemName: progress[missionId] ? "checkmark.square.fill" : "square"))")
@@ -108,7 +110,7 @@ struct CheckBoxView: View {
                 progress[missionId].toggle()
                 // MARK: 파이어베이스 update 하기
                 // missionViewModel.fetchData(roleId: roleId)
-                missionViewModel.updateMissionProgress(missionId: missionId)
+                userViewModel.updateMissionProgress(roomCode: roomCode, missionId: missionId, nickname: nickname)
             }
     }
 }

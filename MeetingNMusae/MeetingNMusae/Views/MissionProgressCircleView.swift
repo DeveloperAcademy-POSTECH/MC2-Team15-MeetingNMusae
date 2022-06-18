@@ -14,7 +14,7 @@ struct MissionProgressCircleView: View {
     var body: some View {
         let progress = user.getMissionProgress()
         let roleId = user.roleId
-        let roleName = Role.roles[roleId].roleName
+        let roleName = Role.getRoleName(roleId: roleId)
         let roleColor = Role.getRoleColor(roleId: roleId)//
 
         VStack {
@@ -51,7 +51,7 @@ struct MissionProgressCircleView: View {
                 .font(.system(size: 14, weight: .bold))
 
             // 닉네임
-            Text(nickname)
+            Text(user.nickname)
 //                .font(.title3).medium() // 이런 류는 나중에 시간 있으면
                 .font(.system(size: 14, weight: .medium))
                 .foregroundColor(.subTextGray)
