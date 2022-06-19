@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SwitchView: View {
+    @State var remainTime = 2
     
     @State var roomCode: String
     @State var isOwner: Bool
@@ -38,12 +39,16 @@ struct SwitchView: View {
                         }
                     }
                 } else if meetingRoom.isEnded {
-                    BestPlayerSelectView()
+                    if remainTime != 0 {
+                        MeetingEndingView().task(timer)
+                    } else {
+                        BestPlayerSelectView()
+                    }
                 } else if meetingRoom.isBestRoleSelected {
                     BestPlayerShowingView(roomCode: roomCode)
                         .navigationBarHidden(true)
                 } else if meetingRoom.isReviewStarted {
-                    ReviewShowingView(roomCode: "1SMZON")
+                    ReviewShowingView(roomCode: roomCode)
                         .navigationBarHidden(true)
                 } else {
                     PlayerListView(roomCode: roomCode, isOwner: isOwner)
@@ -51,5 +56,12 @@ struct SwitchView: View {
             }
         }
         .navigationBarHidden(true)
+    }
+    
+    func timer() async {
+        while remainTime > 0 {
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            remainTime -= 1
+        }
     }
 }

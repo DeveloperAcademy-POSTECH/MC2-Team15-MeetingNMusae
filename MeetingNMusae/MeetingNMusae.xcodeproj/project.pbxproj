@@ -49,6 +49,7 @@
 		CEC7BE532856DEE60072ACB0 /* RoleSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */; };
 		CED51658285F5B9D00EA16FF /* BestPlayerSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED51657285F5B9D00EA16FF /* BestPlayerSelectView.swift */; };
 		CED5165C285F965E00EA16FF /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5165B285F965E00EA16FF /* ReviewViewModel.swift */; };
+		CED5165E285FAB0C00EA16FF /* MeetingEndingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5165D285FAB0C00EA16FF /* MeetingEndingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleSelectView.swift; sourceTree = "<group>"; };
 		CED51657285F5B9D00EA16FF /* BestPlayerSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestPlayerSelectView.swift; sourceTree = "<group>"; };
 		CED5165B285F965E00EA16FF /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		CED5165D285FAB0C00EA16FF /* MeetingEndingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingEndingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				9029184E28572B70002D8D90 /* Home.swift */,
 				9029185228572BF1002D8D90 /* NicknameSettingView.swift */,
 				9029185028572BDC002D8D90 /* RoomFindingView.swift */,
+				CED5165D285FAB0C00EA16FF /* MeetingEndingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				9029185328572BF1002D8D90 /* NicknameSettingView.swift in Sources */,
 				90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */,
 				CEC7BE522856DEE60072ACB0 /* RoleDetailView.swift in Sources */,
+				CED5165E285FAB0C00EA16FF /* MeetingEndingView.swift in Sources */,
 				CED51658285F5B9D00EA16FF /* BestPlayerSelectView.swift in Sources */,
 				9029184F28572B70002D8D90 /* Home.swift in Sources */,
 				CEC7BE492856DEAF0072ACB0 /* MeetingRoom.swift in Sources */,

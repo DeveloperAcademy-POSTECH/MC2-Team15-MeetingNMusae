@@ -14,7 +14,7 @@ struct BestPlayerShowingView: View {
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
     @ObservedObject var userViewModel = UserViewModel()
     
-    @State var remainTime: Int = 3
+    @State var remainTime: Int = 4
     
     private var db = Firestore.firestore()
     

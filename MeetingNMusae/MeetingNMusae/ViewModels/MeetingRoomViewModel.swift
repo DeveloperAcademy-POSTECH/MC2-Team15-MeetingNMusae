@@ -11,6 +11,7 @@ import SwiftUI
 class MeetingRoomViewModel: ObservableObject {
     @Published var meetingRooms: [MeetingRoom]
     @Published var roomCodeList: Set<String>
+    @Published var usersCount = 0
 
     init() {
         meetingRooms = [MeetingRoom]()
@@ -108,6 +109,24 @@ class MeetingRoomViewModel: ObservableObject {
                 self.roomCodeList.insert(anotherRoomCode)
             }
 
+        }
+    }
+    
+    func getUsersCount(roomCode: String) {
+        db.collection("meeting_rooms").document(roomCode).collection("users").getDocuments { (querySnapshot, _ ) in
+            for document in querySnapshot!.documents {
+                self.usersCount += 1
+            }
+        }
+    }
+    
+    func deleteMeetingRoom(roomCode: String) {
+        db.collection("meeting_rooms").document(roomCode).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
         }
     }
 }

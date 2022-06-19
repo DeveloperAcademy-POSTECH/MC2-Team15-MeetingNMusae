@@ -28,4 +28,17 @@ class ReviewViewModel: ObservableObject {
             }
         }
     }
+    
+    func deleteReviews(roomCode: String) {
+        db.collection("reviews").whereField("room_code", isEqualTo: roomCode).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    document.reference.delete()
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+    }
 }
