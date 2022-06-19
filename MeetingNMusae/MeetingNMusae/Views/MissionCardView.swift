@@ -15,7 +15,7 @@ struct MissionCardView: View {
     @ObservedObject var missionViewModel = MissionViewModel()
     @State var isChanged = false
 //    @State var missions: [String] = []
-//    @State var progress: [Bool] = userViewModel.user?.missionProgress ?? [false, false,false]
+//    @State var progress: [Bool] = userViewModel.deviceUser?.missionProgress ?? [false, false,false]
     let roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
     let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
     let roleId = UserDefaults.standard.integer(forKey: "roleId")
@@ -24,8 +24,8 @@ struct MissionCardView: View {
         let roleName: String = Role.getRoleName(roleId: roleId)
         let imageName: String = roleName
         VStack {
-//            let roleId = userViewModel.user?.roleId ?? 0
-            // var progress = userViewModel.user?.missionProgress ?? [false, false, false]
+//            let roleId = userViewModel.deviceUser?.roleId ?? 0
+            // var progress = userViewModel.deviceUser?.missionProgress ?? [false, false, false]
             // missions = missionViewModel.getMissionsStr()
 
             // 추후 이미지 크기 조정 필요
@@ -57,8 +57,8 @@ struct MissionCardView: View {
             // 따로 뷰로 빼서 CheckBoxView와 옆에 텍스트 같이 뒀더니 미션이 안 보여서 되돌림
             ForEach(0...2, id: \.self) { ind in
                 HStack {
-                    // MARK: 모르겠음: userViewModel.user?가 항상 nil이 나옴
-                    CheckBoxView(missionId: ind, progress: userViewModel.user?.missionProgress ?? [false, false, false], roleId: roleId)
+                    // MARK: 모르겠음: userViewModel.deviceUser?가 항상 nil이 나옴
+                    CheckBoxView(missionId: ind, progress: userViewModel.deviceUser?.missionProgress ?? [false, false, false], roleId: roleId)
 
                     Text((self.missionViewModel.missionStrs.count > ind) ? self.missionViewModel.missionStrs[ind] : "mcnt: \(self.missionViewModel.missionStrs.count)")
                         .font(.system(size: 16, weight: .medium))

@@ -10,7 +10,7 @@ import FirebaseFirestoreSwift
 
 class UserViewModel: ObservableObject {
     @Published var users: [User]
-    @Published var user: User?
+    @Published var deviceUser: User?
     
     init() {
         users = [User]()
@@ -18,7 +18,7 @@ class UserViewModel: ObservableObject {
 
     private var db = Firestore.firestore()
     
-    // nickname 입력시 users를 roleID에 따라 정렬하고, user에 해당 닉네임의 User 구조체도 저장함
+    // nickname 입력시 users를 roleID에 따라 정렬하고, deviceUser에 해당 닉네임의 User 구조체도 저장함
     func fetchData(roomCode: String, nickname: String? = nil, sort: Bool = false) {
         db.collection("meeting_rooms").document(roomCode).collection("users").addSnapshotListener { (querySnapshot, _) in
             guard let documents = querySnapshot?.documents else {
@@ -43,7 +43,7 @@ class UserViewModel: ObservableObject {
             if nickname != nil {
                 if self.users.count > 0 {
                     for us in self.users where us.nickname == nickname {
-                        self.user = us
+                        self.deviceUser = us
                     }
                 }
             }
