@@ -43,7 +43,7 @@ struct RoleSelectView: View {
                     ScrollView {
                         LazyVGrid(columns: columns) {
                             ForEach(0..<roles.count, id: \.self) { i in
-                                RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, nickname: nickname, meetingRoomViewModel: meetingRoomViewModel)
+                                RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, meetingRoomViewModel: meetingRoomViewModel)
                                     .background(meetingRoom.roleSelectUsers[i] != "" ? CharacterBox(roleIndex: 0) : CharacterBox(roleIndex: roles[i].id))
                                     .padding(.leading)
                                     .padding(.bottom)
@@ -59,8 +59,8 @@ struct RoleSelectView: View {
                             // todo
                             // 유니스 화면으로 이동
                             // 회의 전체에 시작함 이라는 변수 넣기
+                            // reviews의 reviewee_role_id 에 랜덤 값으로 중복 없이 넣어주기
                             meetingRoomViewModel.completedRoleSelect(roomCode: roomCode)
-                            userViewModel.updateUserRole(roomCode: roomCode, roleId: UserDefaults.standard.integer(forKey: "roleId"), nickname: nickname, isSelect: true)
                         }, label: {
                             // nick의 SelectBox가 나오면 주석 해제
                             SelectBox(isDark: true, description: "선택 완료")
@@ -74,6 +74,7 @@ struct RoleSelectView: View {
         .navigationBarHidden(true)
         .onAppear {
             self.meetingRoomViewModel.fetchData(roomCode: roomCode)
+            userViewModel.updateUserRole(roomCode: roomCode, roleId: roleId, nickname: nickname, isSelect: true)
         }
     }
 }
@@ -83,7 +84,6 @@ struct RoleItem: View {
     @State var role: Role
     @State var roleSelectUser: String
     var roomCode: String
-    @State var nickname: String
     @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
 
     var body: some View {
@@ -130,9 +130,6 @@ struct RoleItem: View {
             NavigationView {
                 RoleDetailView(role: role, isModalShown: $isModalShown, meetingRoomViewModel: meetingRoomViewModel)
                     .ignoresSafeArea()
-                    .onDisappear {
-                        self.meetingRoomViewModel.fetchData(roomCode: roomCode)
-                    }
             }.navigationBarHidden(true)
         }
     }
