@@ -11,11 +11,13 @@ import SwiftUI
 class MeetingRoomViewModel: ObservableObject {
     @Published var meetingRooms: [MeetingRoom]
     @Published var roomCodeList: Set<String>
+    @Published var isEnded: Bool // me
     @Published var usersCount = 0
 
     init() {
         meetingRooms = [MeetingRoom]()
         roomCodeList = Set<String>()
+        isEnded = false // 다른 방법을 찾습니다
     }
 
     private var db = Firestore.firestore()
@@ -97,7 +99,19 @@ class MeetingRoomViewModel: ObservableObject {
             }
         }
     }
-
+    
+    // 정말 필요한지 확인하기 (roleselectview에서)
+    func updateIsEnded(roomCode: String) {
+        do {
+            _ = try
+        db.collection("test_meeting_room").document("ROOMCODE1").collection("test_users").document("TESTUSER1").updateData(["is_ended": true])
+            isEnded = true
+        } catch {
+            print(error)
+            return
+        }
+    }
+            
     // 룸코드 중복을 위해 fireStore에서 룸코드를 Set으로 가져오는 메소드입니다
     func getRoomCodeList() {
         db.collection("meeting_rooms").getDocuments { (querySnapshot, _ ) in
@@ -108,7 +122,6 @@ class MeetingRoomViewModel: ObservableObject {
                 }
                 self.roomCodeList.insert(anotherRoomCode)
             }
-
         }
     }
     
