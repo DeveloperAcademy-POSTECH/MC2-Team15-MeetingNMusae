@@ -127,7 +127,7 @@ class MeetingRoomViewModel: ObservableObject {
     
     func getUsersCount(roomCode: String) {
         db.collection("meeting_rooms").document(roomCode).collection("users").getDocuments { (querySnapshot, _ ) in
-            for document in querySnapshot!.documents {
+            for _ in querySnapshot!.documents {
                 self.usersCount += 1
             }
         }

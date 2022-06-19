@@ -27,17 +27,8 @@ struct SwitchView: View {
                     RoleSelectView()
                 } else if meetingRoom.isRoleSelectCompleted {
                     // 회의 진행 화면으로 전환
-                    VStack {
-                        Text("회의 진행중")
-                        
-                        if isOwner {
-                            Button(action: {
-                                meetingRoomViewModel.endMeeting(roomCode: roomCode)
-                            }, label: {
-                                Text("회의 종료")
-                            })
-                        }
-                    }
+                    MissionView()
+                        .navigationBarHidden(true)
                 } else if meetingRoom.isEnded {
                     if remainTime != 0 {
                         MeetingEndingView().task(timer)
