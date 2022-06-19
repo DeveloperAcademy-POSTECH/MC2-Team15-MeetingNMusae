@@ -7,15 +7,15 @@
 import FirebaseFirestoreSwift
 import Foundation
 
-class User: Codable, Identifiable {
+class User: Codable, Identifiable, Comparable {
     var isReady: Bool
     let missionIds: [Int]
     var missionProgress: [Bool]
     var roleId: Int
     let roomCode: String
     var nickname: String
+    var votedCount: Int
     var reviewee: String
-    @DocumentID var id: String?
 
     enum CodingKeys: String, CodingKey {
         case isReady = "is_ready"
@@ -24,6 +24,7 @@ class User: Codable, Identifiable {
         case roleId = "role_id"
         case roomCode = "room_code"
         case nickname
+        case votedCount = "voted_count"
         case reviewee
     }
 
@@ -34,12 +35,25 @@ class User: Codable, Identifiable {
         self.nickname = nickname
         self.roleId = 0
         self.roomCode = roomCode
+        self.votedCount = 0
         self.reviewee = ""
     }
     
-//    func getRole(nickname: String) {
-//        for idx, missionId in missionIds.enumerated() {
-//
-//        }
-//    }
+    // users: [User] 어레이를 userID에 따라 sort() 하기 위해 추가 (프로토콜 Comparable)
+    // ref: https://babbab2.tistory.com/150
+    static func < (lhs: User, rhs: User) -> Bool {
+        return lhs.roleId < rhs.roleId
+    }
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.roleId == rhs.roleId
+    }
+    
+    func getMissionProgress() -> Double {
+        var progress: Double = 0
+        for didMission in missionProgress where didMission {
+            progress += 1
+        }
+        // 미션 수 달라지면 Double(missionProgress.count)로 나누기
+        return progress/3.0
+    }
 }

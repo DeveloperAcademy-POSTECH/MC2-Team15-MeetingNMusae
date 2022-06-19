@@ -6,10 +6,10 @@
 //
 import FirebaseFirestoreSwift
 
-class Mission: Codable {
-    private var content: String
-    private var id: Int
-    private var roleId: Int
+class Mission: Codable, Comparable {
+    /*private*/ var content: String
+    var id: Int
+    var roleId: Int
 
     enum CodingKeys: String, CodingKey {
         case content
@@ -21,5 +21,17 @@ class Mission: Codable {
         self.id = id
         self.content = content
         self.roleId = roleId
+    }
+    
+    // 미션 정렬을 위해 Comparable 프로토콜 사용
+    static func < (lhs: Mission, rhs: Mission) -> Bool {
+        return lhs.id < rhs.id
+    }
+    static func == (lhs: Mission, rhs: Mission) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func getMission() -> String {
+        return content
     }
 }

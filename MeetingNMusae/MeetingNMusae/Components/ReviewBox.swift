@@ -45,7 +45,7 @@ struct ReviewBox: View {
         .frame(width: UIScreen.screenWidth * 0.84)
         .background(
             CharacterBox(roleIndex: roleIndex)
-                .padding(.horizontal, 8)
+                .padding(.trailing, 8)
         )
         .padding(.bottom, 20)
 //        .padding(.leading, 28)

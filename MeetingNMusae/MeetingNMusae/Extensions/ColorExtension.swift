@@ -37,4 +37,10 @@ extension Color {
     static let musaePink = Color(hex: "FFAED5")
     static let musaeRed = Color(hex: "FF8469")
     static let musaeMustard = Color(hex: "FFDE68")
+    // 회색 몇 가지
+    static let circleGray = Color(hex: "E0E0E0")
+    static let bgGray = Color(hex: "F3F3F3")
+    static let buttonGray = Color(hex: "999999")
+    static let subTextGray = Color(hex: "6C6C6C")
+    
 }

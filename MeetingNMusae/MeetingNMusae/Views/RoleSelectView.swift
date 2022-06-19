@@ -16,33 +16,20 @@ struct RoleSelectView: View {
         GridItem()
     ]
 
-    @State var roomCode: String
+    @State var roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
+    @State var nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
+    @State var roleId = UserDefaults.standard.integer(forKey: "roleId")
+    
+    @State var owner: String = ""
     @State var roles: [Role] = Role.roles
-    @State var user: User
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
+    @ObservedObject var userViewModel = UserViewModel()
 
     private var db = Firestore.firestore()
 
-    init(roomCode: String, nickname: String) {
-        self.roomCode = roomCode
-        self.user = User(missionIds: [0, 1, 2], nickname: nickname, roomCode: roomCode)
-    }
-
     var body: some View {
         VStack(alignment: .center) {
-            ZStack {
-                HStack {
-                    NavigationLink(destination: HomeView(), label: {
-                        Image(systemName: "rectangle.portrait.and.arrow.right").rotationEffect(.degrees(180))
-                    })
-                    .foregroundColor(.black)
-                    .padding(.leading)
-                    
-                    Spacer()
-                }
-                
-                Text("역할을 골라주세요").font(.title2).bold()
-            }.padding(.top)
+            Text("역할을 골라주세요").font(.title2).bold()
             
             HStack {
                 Image(systemName: "star.circle.fill")
@@ -50,26 +37,45 @@ struct RoleSelectView: View {
             }
             .font(.subheadline)
             .foregroundColor(Color.gray)
-
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(meetingRoomViewModel.meetingRooms) { meetingRoom in
-                        ForEach(0..<roles.count, id: \.self) { i in
-                            RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, nickname: user.nickname)
-                                .background(meetingRoom.roleSelectUsers[i] != "" ? CharacterBox(roleIndex: 0) : CharacterBox(roleIndex: roles[i].id))
-                                .padding(.leading)
-                                .padding(.bottom)
+            
+            ForEach(meetingRoomViewModel.meetingRooms) { meetingRoom in
+                VStack {
+                    ScrollView {
+                        LazyVGrid(columns: columns) {
+                            ForEach(0..<roles.count, id: \.self) { i in
+                                RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, meetingRoomViewModel: meetingRoomViewModel)
+                                    .background(meetingRoom.roleSelectUsers[i] != "" ? CharacterBox(roleIndex: 0) : CharacterBox(roleIndex: roles[i].id))
+                                    .padding(.leading)
+                                    .padding(.bottom)
+                            }
                         }
+                        .padding(.top)
+                        .padding(.trailing)
                     }
-                }.onAppear {
-                    self.meetingRoomViewModel.fetchData(roomCode: roomCode)
+                    .padding(.trailing, 8)
+
+                    if meetingRoom.owner == nickname {
+                        Button(action: {
+                            // todo
+                            // 유니스 화면으로 이동
+                            // 회의 전체에 시작함 이라는 변수 넣기
+                            // reviews의 reviewee_role_id 에 랜덤 값으로 중복 없이 넣어주기
+                            meetingRoomViewModel.completedRoleSelect(roomCode: roomCode)
+                        }, label: {
+                            // nick의 SelectBox가 나오면 주석 해제
+                            SelectBox(isDark: true, description: "선택 완료")
+                        })
+                    } else {
+                        EmptyView()
+                    }
                 }
-                .padding(.top)
-                .padding(.trailing)
             }
-            .padding(.trailing, 8)
         }
         .navigationBarHidden(true)
+        .onAppear {
+            self.meetingRoomViewModel.fetchData(roomCode: roomCode)
+            userViewModel.updateUserRole(roomCode: roomCode, roleId: roleId, nickname: nickname, isSelect: true)
+        }
     }
 }
 
@@ -78,7 +84,7 @@ struct RoleItem: View {
     @State var role: Role
     @State var roleSelectUser: String
     var roomCode: String
-    @State var nickname: String
+    @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
 
     var body: some View {
         Button {
@@ -121,8 +127,9 @@ struct RoleItem: View {
             }
         }.sheet(isPresented: $isModalShown) {
             NavigationView {
-                RoleDetailView(role: role, roomCode: roomCode, nickname: nickname, isModalShown: $isModalShown)
-            }
+                RoleDetailView(role: role, isModalShown: $isModalShown, meetingRoomViewModel: meetingRoomViewModel)
+                    .ignoresSafeArea()
+            }.navigationBarHidden(true)
         }
     }
 }
