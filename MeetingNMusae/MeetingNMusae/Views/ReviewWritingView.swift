@@ -37,7 +37,11 @@ struct ReviewWritingView: View {
                     Image(Role.roles[review.revieweeRoleId - 1].roleName + "_피드백작성")
                     VStack(alignment: .leading, spacing: 16) {
                         HStack(spacing: 8) {
-                            NameBox(user: review.to)
+                            Text(review.to)
+                                .bold()
+                                .padding(4)
+                                .foregroundColor(.white)
+                                .background(RoundedRectangle(cornerRadius: 6.0).fill(Color.black))
                             Text(Role.roles[review.revieweeRoleId - 1].roleName)
                                 .font(.system(size: 17))
                                 .fontWeight(.bold)
@@ -51,10 +55,8 @@ struct ReviewWritingView: View {
                 }
             }
             Spacer()
-            Button {
-                guard !content.isEmpty else { return }
-//                self.reviewViewModel.addReview(review: Review(content: content, from: nickname, to: self.to, roomCode: roomCode, revieweeRoleId: 2))
-            } label: {
+            NavigationLink(destination:
+                            NavigationView { ReviewShowingView() } ) {
                 ZStack {
                     Rectangle()
                         .frame(height: 64)
@@ -66,6 +68,21 @@ struct ReviewWritingView: View {
                         .foregroundColor(.white)
                 }
             }
+            .simultaneousGesture(TapGesture()
+                .onEnded {
+                    print("bye")
+                    ////                    guard !content.isEmpty else { return }
+                    ////                    UserDefaults.standard.set(self.nickname, forKey: "nickname")
+                    ////
+                    ////                    let user: User = User(missionIds: [0, 1, 2], nickname: nickname, roomCode: roomCode)
+                    ////
+                    ////                    if isOwner {
+                    ////                        MeetingRoomViewModel().addMeetingRoom(meetingRoom: MeetingRoom(owner: nickname, roomCode: roomCode))
+                    ////                    }
+                    ////                    UserViewModel().addUser(roomCode: roomCode, user: user)
+                }
+            )
+            ////            .disabled(isTextEmpty(text: nickname))
             .frame(width: isTextFieldFocused ? nil : 334)
         }
         .onAppear {
@@ -89,9 +106,6 @@ struct ReviewWritingView: View {
                 }
             }
         }
-    }
-    
-    func action() {
     }
 }
 

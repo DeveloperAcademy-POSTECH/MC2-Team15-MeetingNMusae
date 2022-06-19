@@ -7,7 +7,7 @@
 import FirebaseFirestoreSwift
 
 class Review: Codable, Identifiable {
-    private var content: String
+    var content: String
     private var from: String
     var to: String
     private var roomCode: String
