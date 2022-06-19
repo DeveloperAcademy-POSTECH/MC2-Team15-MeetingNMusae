@@ -117,6 +117,7 @@ struct RoleItem: View {
                                 .foregroundColor(.white)
                                 .background(RoundedRectangle(cornerRadius: 6.0).fill(Color.black))
                         }
+                        
                         Spacer()
                     }
                     .foregroundColor(Color.black)
