@@ -22,7 +22,7 @@ class MeetingRoomViewModel: ObservableObject {
     private var db = Firestore.firestore()
 
     func fetchData(roomCode: String) {
-//        db.collection("test_meeting_room").whereField("room_code", isEqualTo: "\(roomCode)").addSnapshotListener { (querySnapshot, _) in
+  //test      print("mrVM fd in")
         db.collection("meeting_rooms").whereField("room_code", isEqualTo: "\(roomCode)").addSnapshotListener { (querySnapshot, _) in
             guard let documents = querySnapshot?.documents else {
                 print("no documents")
@@ -30,9 +30,12 @@ class MeetingRoomViewModel: ObservableObject {
             }
 
             self.meetingRooms = documents.compactMap { (queryDocumentSnapshot) -> MeetingRoom? in
+                
+     //test           print("222")
                 return try? queryDocumentSnapshot.data(as: MeetingRoom.self)
             }
         }
+   //test     print("mrVM fd out")
     }
     func addMeetingRoom(meetingRoom: MeetingRoom) {
         do {
