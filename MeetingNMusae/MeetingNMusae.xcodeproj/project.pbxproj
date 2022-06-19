@@ -47,6 +47,7 @@
 		CEC7BE4F2856DED50072ACB0 /* RoleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE4E2856DED50072ACB0 /* RoleViewModel.swift */; };
 		CEC7BE522856DEE60072ACB0 /* RoleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE502856DEE60072ACB0 /* RoleDetailView.swift */; };
 		CEC7BE532856DEE60072ACB0 /* RoleSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */; };
+		CED51658285F5B9D00EA16FF /* BestPlayerSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED51657285F5B9D00EA16FF /* BestPlayerSelectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		CEC7BE4E2856DED50072ACB0 /* RoleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleViewModel.swift; sourceTree = "<group>"; };
 		CEC7BE502856DEE60072ACB0 /* RoleDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleDetailView.swift; sourceTree = "<group>"; };
 		CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleSelectView.swift; sourceTree = "<group>"; };
+		CED51657285F5B9D00EA16FF /* BestPlayerSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestPlayerSelectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				C5E93F0428581927001C1DB9 /* MissionProgressCircleView.swift */,
 				C5E93F0328581927001C1DB9 /* MissionView.swift */,
+				CED51657285F5B9D00EA16FF /* BestPlayerSelectView.swift */,
 				90DF2CFE285C1A61007D4542 /* SwitchView.swift */,
 				CEC7BE502856DEE60072ACB0 /* RoleDetailView.swift */,
 				CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */,
@@ -333,6 +336,7 @@
 				9029185328572BF1002D8D90 /* NicknameSettingView.swift in Sources */,
 				90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */,
 				CEC7BE522856DEE60072ACB0 /* RoleDetailView.swift in Sources */,
+				CED51658285F5B9D00EA16FF /* BestPlayerSelectView.swift in Sources */,
 				9029184F28572B70002D8D90 /* Home.swift in Sources */,
 				CEC7BE492856DEAF0072ACB0 /* MeetingRoom.swift in Sources */,
 				9029185128572BDC002D8D90 /* RoomFindingView.swift in Sources */,
