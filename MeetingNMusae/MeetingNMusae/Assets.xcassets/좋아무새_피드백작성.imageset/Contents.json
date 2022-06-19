@@ -1,16 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "진행무새-2.png",
+      "filename" : "좋아무새_피드백작성.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "좋아무새_피드백작성@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "진행무새-1.png",
+      "filename" : "좋아무새_피드백작성@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

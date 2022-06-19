@@ -24,12 +24,20 @@
 		90DF2CFD285C106D007D4542 /* ReviewBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF2CFC285C106D007D4542 /* ReviewBox.swift */; };
 		90DF2CFF285C1A61007D4542 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF2CFE285C1A61007D4542 /* SwitchView.swift */; };
 		B57BB9D32854BEED007AFFAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57BB9D22854BEED007AFFAA /* User.swift */; };
+		B5A460EB28596924007E30E1 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A460EA28596924007E30E1 /* ReviewViewModel.swift */; };
 		B5B1B53E28543178000DE126 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53D28543178000DE126 /* FirebaseAnalytics */; };
 		B5B1B54028543178000DE126 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B53F28543178000DE126 /* FirebaseFirestore */; };
 		B5B1B54228543178000DE126 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B5B1B54128543178000DE126 /* FirebaseFirestoreSwift */; };
 		B5B1B54428545EFE000DE126 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1B54328545EFE000DE126 /* Line.swift */; };
 		B5B1B54D28547DC7000DE126 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1B54828547DC6000DE126 /* Role.swift */; };
 		B5B1B55328547DD7000DE126 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1B55028547DD7000DE126 /* UserViewModel.swift */; };
+		B5E78306285FA01E009ADE24 /* ReviewShowingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E78305285FA01E009ADE24 /* ReviewShowingView.swift */; };
+		B5E78308285FA045009ADE24 /* ReviewBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E78307285FA045009ADE24 /* ReviewBox.swift */; };
+		B5E7830A285FA0A2009ADE24 /* TitleBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E78309285FA0A2009ADE24 /* TitleBox.swift */; };
+		B5E7830C285FA0D3009ADE24 /* SelectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E7830B285FA0D3009ADE24 /* SelectBox.swift */; };
+		B5E7830E285FA472009ADE24 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E7830D285FA472009ADE24 /* SwitchView.swift */; };
+		B5F4B6A62857021B00D3839E /* ReviewWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4B6A52857021B00D3839E /* ReviewWritingView.swift */; };
+		B5F4B6A8285707CC00D3839E /* NameBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4B6A7285707CC00D3839E /* NameBox.swift */; };
 		B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */; };
 		B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */; };
 		C5320298285A151200A54E68 /* MissionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5320297285A151200A54E68 /* MissionCardView.swift */; };
@@ -73,9 +81,17 @@
 		90DF2CFC285C106D007D4542 /* ReviewBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewBox.swift; sourceTree = "<group>"; };
 		90DF2CFE285C1A61007D4542 /* SwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
 		B57BB9D22854BEED007AFFAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B5A460EA28596924007E30E1 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		B5B1B54328545EFE000DE126 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		B5B1B54828547DC6000DE126 /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		B5B1B55028547DD7000DE126 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		B5E78305285FA01E009ADE24 /* ReviewShowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewShowingView.swift; sourceTree = "<group>"; };
+		B5E78307285FA045009ADE24 /* ReviewBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewBox.swift; sourceTree = "<group>"; };
+		B5E78309285FA0A2009ADE24 /* TitleBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBox.swift; sourceTree = "<group>"; };
+		B5E7830B285FA0D3009ADE24 /* SelectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBox.swift; sourceTree = "<group>"; };
+		B5E7830D285FA472009ADE24 /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
+		B5F4B6A52857021B00D3839E /* ReviewWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWritingView.swift; sourceTree = "<group>"; };
+		B5F4B6A7285707CC00D3839E /* NameBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameBox.swift; sourceTree = "<group>"; };
 		B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
 		B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		C5320297285A151200A54E68 /* MissionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardView.swift; sourceTree = "<group>"; };
@@ -189,6 +205,7 @@
 				CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */,
 				CE3DCF2A28519B1F00E048A3 /* ContentView.swift */,
 				B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */,
+				B5F4B6A52857021B00D3839E /* ReviewWritingView.swift */,
 				C5320297285A151200A54E68 /* MissionCardView.swift */,
 				45DF5FDD28581F4A007DE145 /* LottieView.swift */,
 				45DF5FDF28582004007DE145 /* BestPlayerShowingView.swift */,
@@ -341,6 +358,7 @@
 				B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */,
 				45DF5FDE28581F4A007DE145 /* LottieView.swift in Sources */,
 				B5B1B54D28547DC7000DE126 /* Role.swift in Sources */,
+				B5E7830A285FA0A2009ADE24 /* TitleBox.swift in Sources */,
 				B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */,
 				90DF2CFF285C1A61007D4542 /* SwitchView.swift in Sources */,
 				9029185928573BA5002D8D90 /* SelectBox.swift in Sources */,
@@ -349,6 +367,7 @@
 				B5B1B55328547DD7000DE126 /* UserViewModel.swift in Sources */,
 				C5E93F0528581927001C1DB9 /* MissionView.swift in Sources */,
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
+				B5E7830C285FA0D3009ADE24 /* SelectBox.swift in Sources */,
 				45DF5FE028582004007DE145 /* BestPlayerShowingView.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
 				9029185328572BF1002D8D90 /* NicknameSettingView.swift in Sources */,
@@ -366,9 +385,11 @@
 				CEC7BE4D2856DECF0072ACB0 /* MeetingRoomViewModel.swift in Sources */,
 				90988FA128549568000711BE /* CharacterBox.swift in Sources */,
 				CEC7BE4F2856DED50072ACB0 /* RoleViewModel.swift in Sources */,
+				B5F4B6A62857021B00D3839E /* ReviewWritingView.swift in Sources */,
 				90DF2CF9285BA032007D4542 /* NameBox.swift in Sources */,
 				9029185528572F36002D8D90 /* CircleButton.swift in Sources */,
 				CEC7BE532856DEE60072ACB0 /* RoleSelectView.swift in Sources */,
+				B5A460EB28596924007E30E1 /* ReviewViewModel.swift in Sources */,
 				CEC7BE452856DE9C0072ACB0 /* HomeView.swift in Sources */,
 				C5320298285A151200A54E68 /* MissionCardView.swift in Sources */,
 				B57BB9D32854BEED007AFFAA /* User.swift in Sources */,
