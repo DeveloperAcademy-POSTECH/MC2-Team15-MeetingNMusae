@@ -30,10 +30,8 @@ struct ReviewShowingView: View {
                 reviewViewModel.fetchData(roomCode: roomCode)
                 meetingRoomViewModel.getUsersCount(roomCode: roomCode)
             }
-            NavigationLink(destination: Home()) {
-                SelectBox(isDark: true, description: "나가기")
-                    .padding(.top)
-            }.simultaneousGesture(TapGesture().onEnded {
+            
+            Button(action: {
                 userViewModel.deleteMeetingRoom(roomCode: roomCode, nickname: nickname)
                 if meetingRoomViewModel.usersCount == 1 {
                     meetingRoomViewModel.deleteMeetingRoom(roomCode: roomCode)
@@ -43,6 +41,9 @@ struct ReviewShowingView: View {
                 UserDefaults.standard.set(0, forKey: "roleId")
                 UserDefaults.standard.set("", forKey: "nickname")
                 UserDefaults.standard.set("", forKey: "roomCode")
+            }, label: {
+                SelectBox(isDark: true, description: "나가기")
+                    .padding(.top)
             })
             
             Spacer()
