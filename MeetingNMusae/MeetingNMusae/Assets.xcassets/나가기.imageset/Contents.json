@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "좋아무새.png",
+      "filename" : "rectangle_arrow_right.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "rectangle_arrow_right@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "rectangle_arrow_right@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

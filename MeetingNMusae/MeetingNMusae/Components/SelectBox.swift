@@ -10,7 +10,7 @@ import SwiftUI
 struct SelectBox: View {
     let isDark: Bool
     var description: String
-    
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
