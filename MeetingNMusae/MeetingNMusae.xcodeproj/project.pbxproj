@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
 		45DF5FDE28581F4A007DE145 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF5FDD28581F4A007DE145 /* LottieView.swift */; };
 		45DF5FE028582004007DE145 /* BestPlayerShowingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF5FDF28582004007DE145 /* BestPlayerShowingView.swift */; };
-		45DF5FE2285820C4007DE145 /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 45DF5FE1285820C4007DE145 /* confetti.json */; };
 		45DF5FE5285821E3007DE145 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 45DF5FE4285821E3007DE145 /* Lottie */; };
 		9029184F28572B70002D8D90 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029184E28572B70002D8D90 /* Home.swift */; };
 		9029185128572BDC002D8D90 /* RoomFindingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185028572BDC002D8D90 /* RoomFindingView.swift */; };
@@ -18,7 +16,6 @@
 		9029185528572F36002D8D90 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185428572F36002D8D90 /* CircleButton.swift */; };
 		9029185728573819002D8D90 /* TextInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185628573819002D8D90 /* TextInputBox.swift */; };
 		9029185928573BA5002D8D90 /* SelectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029185828573BA5002D8D90 /* SelectBox.swift */; };
-
 		90988FA128549568000711BE /* CharacterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90988FA028549568000711BE /* CharacterBox.swift */; };
 		90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */; };
 		90DF2CFF285C1A61007D4542 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DF2CFE285C1A61007D4542 /* SwitchView.swift */; };
@@ -41,6 +38,7 @@
 		CE3DCF2D28519B2000E048A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF2C28519B2000E048A3 /* Assets.xcassets */; };
 		CE3DCF3028519B2000E048A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF2F28519B2000E048A3 /* Preview Assets.xcassets */; };
 		CE3DCF3728519B7700E048A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF3628519B7700E048A3 /* GoogleService-Info.plist */; };
+		CE6491DC285F3BC500718CCF /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6491DB285F3BC500718CCF /* confetti.json */; };
 		CEC7BE452856DE9C0072ACB0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE442856DE9C0072ACB0 /* HomeView.swift */; };
 		CEC7BE492856DEAF0072ACB0 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE462856DEAF0072ACB0 /* MeetingRoom.swift */; };
 		CEC7BE4A2856DEAF0072ACB0 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE472856DEAF0072ACB0 /* Review.swift */; };
@@ -52,18 +50,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-
 		45DF5FDD28581F4A007DE145 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		45DF5FDF28582004007DE145 /* BestPlayerShowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestPlayerShowingView.swift; sourceTree = "<group>"; };
-		45DF5FE1285820C4007DE145 /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = confetti.json; path = ../../../../../../Downloads/confetti.json; sourceTree = "<group>"; };
-
 		9029184E28572B70002D8D90 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		9029185028572BDC002D8D90 /* RoomFindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFindingView.swift; sourceTree = "<group>"; };
 		9029185228572BF1002D8D90 /* NicknameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingView.swift; sourceTree = "<group>"; };
 		9029185428572F36002D8D90 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		9029185628573819002D8D90 /* TextInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputBox.swift; sourceTree = "<group>"; };
 		9029185828573BA5002D8D90 /* SelectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBox.swift; sourceTree = "<group>"; };
-
 		90988FA028549568000711BE /* CharacterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBox.swift; sourceTree = "<group>"; };
 		90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		90DF2CFE285C1A61007D4542 /* SwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
@@ -83,6 +77,7 @@
 		CE3DCF2C28519B2000E048A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE3DCF2F28519B2000E048A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE3DCF3628519B7700E048A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE6491DB285F3BC500718CCF /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		CEC7BE412856DE460072ACB0 /* MeetingNMusae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingNMusae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC7BE442856DE9C0072ACB0 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CEC7BE462856DEAF0072ACB0 /* MeetingRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingRoom.swift; sourceTree = "<group>"; };
@@ -141,7 +136,7 @@
 		CE3DCF2728519B1F00E048A3 /* MeetingNMusae */ = {
 			isa = PBXGroup;
 			children = (
-				45DF5FE1285820C4007DE145 /* confetti.json */,
+				CE6491DB285F3BC500718CCF /* confetti.json */,
 				CEC7BE432856DE900072ACB0 /* Temp */,
 				B59CAC122855E2BE00C0FC98 /* Components */,
 				B5FC08412851E46100EDC014 /* Extensions */,
@@ -181,7 +176,6 @@
 				9029184E28572B70002D8D90 /* Home.swift */,
 				9029185228572BF1002D8D90 /* NicknameSettingView.swift */,
 				9029185028572BDC002D8D90 /* RoomFindingView.swift */,
-
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,7 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45DF5FE2285820C4007DE145 /* confetti.json in Resources */,
+				CE6491DC285F3BC500718CCF /* confetti.json in Resources */,
 				C5DBBC8B2851DC7C00124A07 /* .swiftlint.yml in Resources */,
 				CE3DCF3028519B2000E048A3 /* Preview Assets.xcassets in Resources */,
 				CE3DCF2D28519B2000E048A3 /* Assets.xcassets in Resources */,
