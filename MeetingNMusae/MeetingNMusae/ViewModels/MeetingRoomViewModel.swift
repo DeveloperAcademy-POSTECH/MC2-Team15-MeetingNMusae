@@ -22,8 +22,8 @@ class MeetingRoomViewModel: ObservableObject {
     private var db = Firestore.firestore()
 
     func fetchData(roomCode: String) {
-        db.collection("test_meeting_room").whereField("room_code", isEqualTo: "\(roomCode)").addSnapshotListener { (querySnapshot, _) in
-//        db.collection("meeting_rooms").whereField("room_code", isEqualTo: "\(roomCode)").addSnapshotListener { (querySnapshot, _) in
+//        db.collection("test_meeting_room").whereField("room_code", isEqualTo: "\(roomCode)").addSnapshotListener { (querySnapshot, _) in
+        db.collection("meeting_rooms").whereField("room_code", isEqualTo: "\(roomCode)").addSnapshotListener { (querySnapshot, _) in
             guard let documents = querySnapshot?.documents else {
                 print("no documents")
                 return

@@ -26,7 +26,7 @@ struct MissionCardView: View {
         VStack {
 //            let roleId = userViewModel.user?.roleId ?? 0
             // var progress = userViewModel.user?.missionProgress ?? [false, false, false]
-            //missions = missionViewModel.getMissionsStr()
+            // missions = missionViewModel.getMissionsStr()
 
             // 추후 이미지 크기 조정 필요
             Image(imageName)
@@ -41,13 +41,12 @@ struct MissionCardView: View {
             // 코지의 라인 익스텐션 사용
             Line().stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
                 .frame(height: 1)
-                .padding(16)
+                .padding(.vertical, 16)
             
             // 아래부분 회색 넣기는 나중에..? checkbox에 foreground로 하거나 clipped로 될까?
             
             HStack {
-                Text("**미션**") // add font later
-//                .font(.title).extraBold() // 이런 류는 나중에 시간 있으면
+                Text("**미션**")
                     .font(.system(size: 18, weight: .bold)) // MARK: here (extrabold 여야함)
 
                 Spacer()
@@ -55,25 +54,25 @@ struct MissionCardView: View {
             .padding(.vertical, 12.735)
             .padding(.horizontal)
             
-            // MARK: 따로 뷰로 빼서 CheckBoxView와 옆에 텍스트 같이 두자
+            // 따로 뷰로 빼서 CheckBoxView와 옆에 텍스트 같이 뒀더니 미션이 안 보여서 되돌림
             ForEach(0...2, id: \.self) { ind in
                 HStack {
+                    // MARK: 모르겠음: userViewModel.user?가 항상 nil이 나옴
                     CheckBoxView(missionId: ind, progress: userViewModel.user?.missionProgress ?? [false, false, false], roleId: roleId)
 
                     Text((self.missionViewModel.missionStrs.count > ind) ? self.missionViewModel.missionStrs[ind] : "mcnt: \(self.missionViewModel.missionStrs.count)")
-//                .font(.title3).medium() // 이런 류는 나중에 시간 있으면
                         .font(.system(size: 16, weight: .medium))
                     Spacer()
                 }
-                .padding(.vertical, 6.105)
+                .padding(.vertical, 6.1)
                 .padding(.horizontal)
 
             }
         }
-//        .onAppear {
+        .onAppear {
 //            self.userViewModel.fetchData(roomCode: roomCode, nickname: nickname)
-//            self.missionViewModel.fetchMissions(roleId: roleId)
-//        }
+            self.missionViewModel.fetchMissions(roleId: roleId)
+        }
         .padding()
         .padding(.bottom)
         .background(
@@ -96,7 +95,6 @@ struct CheckBoxView: View {
     let missionId: Int
     @State var progress: [Bool]
     let roleId: Int
-//    let missionViewModel = MissionViewModel()
     let userViewModel = UserViewModel()
 
     let roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
@@ -108,8 +106,7 @@ struct CheckBoxView: View {
             .foregroundColor(Color(UIColor.black))
             .onTapGesture {
                 progress[missionId].toggle()
-                // MARK: 파이어베이스 update 하기
-                // missionViewModel.fetchData(roleId: roleId)
+                // 파이어베이스 update
                 userViewModel.updateMissionProgress(roomCode: roomCode, missionId: missionId, nickname: nickname)
             }
     }

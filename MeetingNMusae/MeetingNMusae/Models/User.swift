@@ -7,7 +7,7 @@
 import FirebaseFirestoreSwift
 import Foundation
 
-class User: Codable, Identifiable {
+class User: Codable, Identifiable, Comparable {
     var isReady: Bool
     let missionIds: [Int]
     var missionProgress: [Bool]
@@ -37,6 +37,15 @@ class User: Codable, Identifiable {
         self.roomCode = roomCode
         self.votedCount = 0
         self.reviewee = ""
+    }
+    
+    // users: [User] 어레이를 userID에 따라 sort() 하기 위해 추가 (프로토콜 Comparable)
+    // ref: https://babbab2.tistory.com/150
+    static func < (lhs: User, rhs: User) -> Bool {
+        return lhs.roleId < rhs.roleId
+    }
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.roleId == rhs.roleId
     }
     
     func getMissionProgress() -> Double {
