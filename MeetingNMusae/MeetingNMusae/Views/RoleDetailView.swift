@@ -50,6 +50,7 @@ struct RoleDetailView: View {
                 
                 Button {
                     UserDefaults.standard.set(role.id, forKey: "roleId")
+                    userViewModel.updateUserRole(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
                     meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
                     
                 } label: {

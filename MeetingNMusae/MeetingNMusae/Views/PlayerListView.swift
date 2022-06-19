@@ -12,6 +12,7 @@ struct PlayerListView: View {
     let roomCode: String
     let isOwner: Bool
     @State var users: [User] = []
+    
     @ObservedObject var userViewModel = UserViewModel()
     
     init(roomCode: String, isOwner: Bool) {
@@ -27,12 +28,15 @@ struct PlayerListView: View {
                     .fontWeight(.bold)
                     .padding(.vertical, UIScreen.screenHeight * 0.0237)
                 HStack {
-                    Button(action: action) {
+                    Button(action: {
+                        // Home으로 나가기
+                        userViewModel.deleteMeetingRoom(roomCode: roomCode, nickname: UserDefaults.standard.string(forKey: "nickname") ?? "")
+                    }, label: {
                         Image("나가기")
                             .resizable()
                             .frame(width: 28, height: 28)
                             .offset(x: -4, y: 0)
-                    }
+                    })
                     Spacer()
                 }
             }// ZStack_RoomCodeBox
@@ -61,7 +65,9 @@ struct PlayerListView: View {
                 Spacer()
                 
                 if isOwner {
-                    Button(action: action) {
+                    Button(action: {
+                        MeetingRoomViewModel().startMeeting(roomCode: roomCode)
+                    }, label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 12)
                                 .foregroundColor(.black)
@@ -70,7 +76,7 @@ struct PlayerListView: View {
                                 .foregroundColor(.white)
                         }
                         .frame(height: UIScreen.screenHeight * 0.076)
-                    }
+                    })
                     .padding(.bottom, 8)
                 } else {
                     EmptyView()
@@ -79,9 +85,5 @@ struct PlayerListView: View {
         }// VStack
         .frame(width: UIScreen.screenWidth * 0.84)
         .navigationBarHidden(true)
-    }
-
-    func action() {
-        MeetingRoomViewModel().startMeeting(roomCode: roomCode)
     }
 }

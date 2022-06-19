@@ -24,13 +24,13 @@ struct RoomFindingView: View {
         VStack(alignment: .leading) {
             HStack {
                 Button(action: {
-                                presentationMode.wrappedValue.dismiss()
-                            }, label: {
-                                Image(systemName: "arrow.backward")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .padding(.bottom)
-                                    .tint(.black)
-                            })
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Image(systemName: "arrow.backward")
+                        .font(.system(size: 18, weight: .semibold))
+                        .padding(.bottom)
+                        .tint(.black)
+                })
             }// HStack_BackButton
             Text("방 코드를 입력해주세요")
                 .font(.custom("Apple SD Gothic Neo", size: 24))

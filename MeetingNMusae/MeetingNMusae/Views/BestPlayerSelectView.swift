@@ -25,7 +25,6 @@ struct BestPlayerSelectView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            Text("\(roomCode)")
             Text("최고의 무새를 골라주세요")
                 .font(.title2)
                 .bold()

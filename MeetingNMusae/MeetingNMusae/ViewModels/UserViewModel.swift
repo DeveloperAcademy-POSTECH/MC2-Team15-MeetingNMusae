@@ -115,5 +115,15 @@ class UserViewModel: ObservableObject {
             }
         }
     }
+    
+    func deleteMeetingRoom(roomCode: String, nickname: String) {
+        db.collection("meeting_rooms").document(roomCode).collection("users").document(nickname).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
 }
 

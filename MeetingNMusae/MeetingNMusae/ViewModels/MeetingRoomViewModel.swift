@@ -12,6 +12,7 @@ class MeetingRoomViewModel: ObservableObject {
     @Published var meetingRooms: [MeetingRoom]
     @Published var roomCodeList: Set<String>
     @Published var isEnded: Bool // me
+    @Published var usersCount = 0
 
     init() {
         meetingRooms = [MeetingRoom]()
@@ -65,6 +66,10 @@ class MeetingRoomViewModel: ObservableObject {
     func enterMeetingRoom(roomCode: String, user: User) {
         UserViewModel().addUser(roomCode: roomCode, user: user)
     }
+    
+    func reviewStart(roomCode: String) {
+        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_best_role_selected": false, "is_review_started": true])
+    }
 
     // isSelect가 true인 경우 해당 역할 선택
     // isSelect가 false인 경우 해당 역할 선택 해제
@@ -116,6 +121,24 @@ class MeetingRoomViewModel: ObservableObject {
                     return
                 }
                 self.roomCodeList.insert(anotherRoomCode)
+            }
+        }
+    }
+    
+    func getUsersCount(roomCode: String) {
+        db.collection("meeting_rooms").document(roomCode).collection("users").getDocuments { (querySnapshot, _ ) in
+            for document in querySnapshot!.documents {
+                self.usersCount += 1
+            }
+        }
+    }
+    
+    func deleteMeetingRoom(roomCode: String) {
+        db.collection("meeting_rooms").document(roomCode).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
             }
         }
     }

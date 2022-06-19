@@ -17,6 +17,7 @@ class MeetingRoom: Codable, Identifiable {
     var isEnded: Bool
     var isRoleSelectCompleted: Bool
     var isBestRoleSelected: Bool
+    var isReviewStarted: Bool
     
     enum CodingKeys: String, CodingKey {
         case roomCode = "room_code"
@@ -27,6 +28,7 @@ class MeetingRoom: Codable, Identifiable {
         case isEnded = "is_ended"
         case isRoleSelectCompleted = "is_role_select_completed"
         case isBestRoleSelected = "is_best_role_selected"
+        case isReviewStarted = "is_review_started"
     }
 
     init(owner: String, roomCode: String) {
@@ -38,5 +40,6 @@ class MeetingRoom: Codable, Identifiable {
         self.isEnded = false
         self.isRoleSelectCompleted = false
         self.isBestRoleSelected = false
+        self.isReviewStarted = false
     }
 }
