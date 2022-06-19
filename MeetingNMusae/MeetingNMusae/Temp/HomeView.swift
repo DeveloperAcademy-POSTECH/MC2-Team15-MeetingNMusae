@@ -34,7 +34,7 @@ struct HomeView: View {
             
             NavigationLink(destination: RoleSelectView(roomCode: roomCode, nickname: nickname)) {
                 Text("입장하기")
-            }.simultaneousGesture(TapGesture().onEnded{
+            }.simultaneousGesture(TapGesture().onEnded {
                 let user: User = User(missionIds: [0, 1, 2], nickname: nickname, roomCode: roomCode)
                 UserViewModel().addUser(roomCode: roomCode, user: user)
             })
