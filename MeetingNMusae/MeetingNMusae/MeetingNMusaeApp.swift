@@ -23,6 +23,7 @@ struct MeetingNMusaeApp: App {
 
     var body: some Scene {
         WindowGroup {
+//            ReviewShowingView()
 //            ContentView()
             ReviewWritingView(roomCode: "GXKXQ7", nickname: "박시개")
         }
