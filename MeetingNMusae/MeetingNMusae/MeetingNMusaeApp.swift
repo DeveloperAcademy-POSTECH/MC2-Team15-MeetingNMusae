@@ -25,7 +25,6 @@ struct MeetingNMusaeApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            MissionView()
             Home()
         }
     }
