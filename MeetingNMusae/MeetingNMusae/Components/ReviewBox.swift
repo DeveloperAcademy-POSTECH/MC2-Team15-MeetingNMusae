@@ -36,7 +36,7 @@ struct ReviewBox: View {
             
             // 이미지에 role을 넣어주면 됩니다
             // 현재는 이미지가 없어서 "회의하는N무새" 임시로 배치했습니다
-            Image("회의하는N무새")
+            Image(Role.roles[roleIndex].roleName)
                 .resizable()
                 .frame(width: 64, height: 64)
                 .padding(.trailing, 17)
@@ -45,8 +45,9 @@ struct ReviewBox: View {
         .frame(width: UIScreen.screenWidth * 0.84)
         .background(
             CharacterBox(roleIndex: roleIndex)
+                .padding(.trailing, 8)
         )
         .padding(.bottom, 20)
-        .padding(.leading, 28)
+//        .padding(.leading, 28)
     }
 }

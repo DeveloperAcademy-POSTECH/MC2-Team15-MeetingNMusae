@@ -48,6 +48,7 @@
 		CEC7BE522856DEE60072ACB0 /* RoleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE502856DEE60072ACB0 /* RoleDetailView.swift */; };
 		CEC7BE532856DEE60072ACB0 /* RoleSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */; };
 		CED51658285F5B9D00EA16FF /* BestPlayerSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED51657285F5B9D00EA16FF /* BestPlayerSelectView.swift */; };
+		CED5165C285F965E00EA16FF /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5165B285F965E00EA16FF /* ReviewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		CEC7BE502856DEE60072ACB0 /* RoleDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleDetailView.swift; sourceTree = "<group>"; };
 		CEC7BE512856DEE60072ACB0 /* RoleSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleSelectView.swift; sourceTree = "<group>"; };
 		CED51657285F5B9D00EA16FF /* BestPlayerSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestPlayerSelectView.swift; sourceTree = "<group>"; };
+		CED5165B285F965E00EA16FF /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				CEC7BE4E2856DED50072ACB0 /* RoleViewModel.swift */,
 				CEC7BE4C2856DECF0072ACB0 /* MeetingRoomViewModel.swift */,
 				B5B1B55028547DD7000DE126 /* UserViewModel.swift */,
+				CED5165B285F965E00EA16FF /* ReviewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				9029184F28572B70002D8D90 /* Home.swift in Sources */,
 				CEC7BE492856DEAF0072ACB0 /* MeetingRoom.swift in Sources */,
 				9029185128572BDC002D8D90 /* RoomFindingView.swift in Sources */,
+				CED5165C285F965E00EA16FF /* ReviewViewModel.swift in Sources */,
 				CEC7BE4A2856DEAF0072ACB0 /* Review.swift in Sources */,
 				90DF2CF7285B99F9007D4542 /* ReviewShowingView.swift in Sources */,
 				90DF2CFD285C106D007D4542 /* ReviewBox.swift in Sources */,

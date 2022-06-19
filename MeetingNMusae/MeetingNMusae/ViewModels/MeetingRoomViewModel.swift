@@ -63,6 +63,10 @@ class MeetingRoomViewModel: ObservableObject {
     func enterMeetingRoom(roomCode: String, user: User) {
         UserViewModel().addUser(roomCode: roomCode, user: user)
     }
+    
+    func reviewStart(roomCode: String) {
+        db.collection("meeting_rooms").document("\(roomCode)").updateData(["is_best_role_selected": false, "is_review_started": true])
+    }
 
     // isSelect가 true인 경우 해당 역할 선택
     // isSelect가 false인 경우 해당 역할 선택 해제

@@ -26,11 +26,24 @@ struct SwitchView: View {
                     RoleSelectView()
                 } else if meetingRoom.isRoleSelectCompleted {
                     // 회의 진행 화면으로 전환
-                    
+                    VStack {
+                        Text("회의 진행중")
+                        
+                        if isOwner {
+                            Button(action: {
+                                meetingRoomViewModel.endMeeting(roomCode: roomCode)
+                            }, label: {
+                                Text("회의 종료")
+                            })
+                        }
+                    }
                 } else if meetingRoom.isEnded {
                     BestPlayerSelectView()
                 } else if meetingRoom.isBestRoleSelected {
                     BestPlayerShowingView(roomCode: roomCode)
+                        .navigationBarHidden(true)
+                } else if meetingRoom.isReviewStarted {
+                    ReviewShowingView(roomCode: "1SMZON")
                         .navigationBarHidden(true)
                 } else {
                     PlayerListView(roomCode: roomCode, isOwner: isOwner)
