@@ -62,6 +62,9 @@ struct MissionCardView: View {
 
                     Text((self.missionViewModel.missionStrs.count > ind) ? self.missionViewModel.missionStrs[ind] : "mcnt: \(self.missionViewModel.missionStrs.count)")
                         .font(.system(size: 16, weight: .medium))
+                        .onTapGesture {
+                            userViewModel.updateMissionProgress(roomCode: roomCode, missionId: ind, nickname: nickname)
+                        }
                     Spacer()
                 }
                 .padding(.vertical, 6.1)
