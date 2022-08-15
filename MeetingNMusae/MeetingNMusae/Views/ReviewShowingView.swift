@@ -22,7 +22,7 @@ struct ReviewShowingView: View {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 0) {
                     ForEach(reviewViewModel.reviews) { review in
-                        ReviewBox(user: review.to, role: Role.roles[review.revieweeRoleId].roleName, review: review.content, roleIndex: review.revieweeRoleId)
+                        ReviewBox(user: review.to, role: Role.roles[review.revieweeRoleId - 1].roleName, review: review.content, roleIndex: review.revieweeRoleId - 1)
                     }
                 }
             }

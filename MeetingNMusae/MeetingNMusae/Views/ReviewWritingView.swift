@@ -10,7 +10,7 @@ import SwiftUI
 struct ReviewWritingView: View {
     let roomCode: String
     let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
-    @State private var content: String = ""
+    @State var content: String = ""
     @ObservedObject var reviewViewModel = ReviewViewModel()
     @FocusState private var isTextFieldFocused: Bool
     @State private var to: String? = ""
@@ -33,8 +33,8 @@ struct ReviewWritingView: View {
                         .frame(height: 41)
                         .padding(.bottom, 8)
                     ForEach(self.reviewViewModel.reviews) { review in
-                        Image("이해무새_피드백작성")
-                        //                        Image(Role.roles[review.revieweeRoleId - 1].roleName + "_피드백작성")
+//                        Image("이해무새_피드백작성")
+                        Image("\(Role.roles[review.revieweeRoleId - 1].roleName)_피드백작성")
                         VStack(alignment: .leading, spacing: 16) {
                             HStack(spacing: 8) {
                                 Text(review.to)
@@ -46,7 +46,7 @@ struct ReviewWritingView: View {
                                     .font(.system(size: 17))
                                     .fontWeight(.bold)
                             }
-                            MultiLineTextField()
+                            MultiLineTextField(text: $content)
                                 .focused($isTextFieldFocused)
                         }
                         .padding(28)
@@ -70,7 +70,7 @@ struct ReviewWritingView: View {
                     }
                     .frame(width: nil)
                     .simultaneousGesture(TapGesture()
-                        .onEnded { () } )
+                        .onEnded { reviewViewModel.setReviewContent(roomCode: roomCode, nickname: nickname, content: content) } )
 //                } else {
 //                    NavigationLink(destination: ReviewShowingView()) {
 //                        ZStack {
@@ -98,7 +98,7 @@ struct ReviewWritingView: View {
         
     
     private struct MultiLineTextField: View {
-        @State private var text: String = ""
+        @Binding var text: String
         private let placeHolder: String = "OO해서 도움이 되었습니다!"
         
         var body: some View {

@@ -58,4 +58,17 @@ class ReviewViewModel: ObservableObject {
             }
         }
     }
+    
+    func setReviewContent(roomCode: String, nickname: String, content: String) {
+        
+        db.collection("reviews").whereField("room_code", isEqualTo: roomCode).whereField("from", isEqualTo: nickname).getDocuments { querySnapshot, error in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    document.reference.updateData(["content": content])
+                }
+            }
+        }
+    }
 }
