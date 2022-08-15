@@ -29,6 +29,23 @@ class ReviewViewModel: ObservableObject {
         }
     }
     
+    func getReviewee(roomCode: String, nickname: String) {
+        db.collection("reviews").whereField("from", isEqualTo: "\(nickname)").addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("Error Fetching document: \(error!)")
+                return
+            }
+            
+            self.reviews = documents.compactMap { (queryDocumentSnapshot) -> Review? in
+                return try? queryDocumentSnapshot.data(as: Review.self)
+            }
+        }
+    }
+    
+    func setReviewee(roomCode: String, nickname: String, review: Review) {
+        try? db.collection("reviews").addDocument(from: review)
+    }
+    
     func deleteReviews(roomCode: String) {
         db.collection("reviews").whereField("room_code", isEqualTo: roomCode).getDocuments() { (querySnapshot, err) in
             if let err = err {

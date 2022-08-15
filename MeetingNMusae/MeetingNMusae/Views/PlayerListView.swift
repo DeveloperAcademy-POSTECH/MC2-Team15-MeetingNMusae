@@ -11,6 +11,7 @@ struct PlayerListView: View {
 
     let roomCode: String
     let isOwner: Bool
+    let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
     @State var users: [User] = []
     
     @ObservedObject var userViewModel = UserViewModel()
@@ -67,6 +68,25 @@ struct PlayerListView: View {
                 if isOwner {
                     Button(action: {
                         MeetingRoomViewModel().startMeeting(roomCode: roomCode)
+                        
+                        var reviewee: String!
+                        var revieweeRoleId: Int!
+                        if userViewModel.users.count == 1 {
+                            reviewee = nickname
+                            revieweeRoleId = 0
+                        } else {
+                            for (idx, user) in userViewModel.users.enumerated() {
+                                if user.nickname == nickname {
+                                    reviewee = userViewModel.users[Date.getRevieweeIndex(index: idx, num: userViewModel.users.count)].nickname
+                                    revieweeRoleId = userViewModel.users[Date.getRevieweeIndex(index: idx, num: userViewModel.users.count)].roleId
+                                }
+                            }
+                        }
+                        
+                        // todo
+                        let review: Review = Review(content: "", from: nickname, to: reviewee, roomCode: roomCode, revieweeRoleId: revieweeRoleId)
+                        ReviewViewModel().setReviewee(roomCode: roomCode, nickname: nickname, review: review)
+                        
                     }, label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 12)

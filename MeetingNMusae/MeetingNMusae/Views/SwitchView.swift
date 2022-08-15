@@ -39,8 +39,10 @@ struct SwitchView: View {
                     BestPlayerShowingView(roomCode: roomCode)
                         .navigationBarHidden(true)
                 } else if meetingRoom.isReviewStarted {
-                    ReviewShowingView(roomCode: roomCode)
+                    ReviewWritingView(roomCode: roomCode)
                         .navigationBarHidden(true)
+//                    ReviewShowingView(roomCode: roomCode)
+//                        .navigationBarHidden(true)
                 } else {
                     PlayerListView(roomCode: roomCode, isOwner: isOwner)
                 }

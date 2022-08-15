@@ -42,6 +42,8 @@
 		CE3DCF2D28519B2000E048A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF2C28519B2000E048A3 /* Assets.xcassets */; };
 		CE3DCF3028519B2000E048A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF2F28519B2000E048A3 /* Preview Assets.xcassets */; };
 		CE3DCF3728519B7700E048A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE3DCF3628519B7700E048A3 /* GoogleService-Info.plist */; };
+		CE5B2B1B289AA87800E580F5 /* ReviewWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B2B1A289AA87800E580F5 /* ReviewWritingView.swift */; };
+		CE5B2B1F289AB0E400E580F5 /* Date+Reviewee.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B2B1E289AB0E400E580F5 /* Date+Reviewee.swift */; };
 		CE6491DC285F3BC500718CCF /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6491DB285F3BC500718CCF /* confetti.json */; };
 		CEC7BE452856DE9C0072ACB0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE442856DE9C0072ACB0 /* HomeView.swift */; };
 		CEC7BE492856DEAF0072ACB0 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE462856DEAF0072ACB0 /* MeetingRoom.swift */; };
@@ -88,6 +90,8 @@
 		CE3DCF2C28519B2000E048A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE3DCF2F28519B2000E048A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE3DCF3628519B7700E048A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE5B2B1A289AA87800E580F5 /* ReviewWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWritingView.swift; sourceTree = "<group>"; };
+		CE5B2B1E289AB0E400E580F5 /* Date+Reviewee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Reviewee.swift"; sourceTree = "<group>"; };
 		CE6491DB285F3BC500718CCF /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		CEC7BE412856DE460072ACB0 /* MeetingNMusae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingNMusae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC7BE442856DE9C0072ACB0 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			children = (
 				B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */,
 				90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */,
+				CE5B2B1E289AB0E400E580F5 /* Date+Reviewee.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 				9029185228572BF1002D8D90 /* NicknameSettingView.swift */,
 				9029185028572BDC002D8D90 /* RoomFindingView.swift */,
 				CED5165D285FAB0C00EA16FF /* MeetingEndingView.swift */,
+				CE5B2B1A289AA87800E580F5 /* ReviewWritingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 				B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */,
 				45DF5FDE28581F4A007DE145 /* LottieView.swift in Sources */,
 				B5B1B54D28547DC7000DE126 /* Role.swift in Sources */,
+				CE5B2B1F289AB0E400E580F5 /* Date+Reviewee.swift in Sources */,
 				B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */,
 				90DF2CFF285C1A61007D4542 /* SwitchView.swift in Sources */,
 				9029185928573BA5002D8D90 /* SelectBox.swift in Sources */,
@@ -351,6 +358,7 @@
 				CE3DCF2B28519B1F00E048A3 /* ContentView.swift in Sources */,
 				45DF5FE028582004007DE145 /* BestPlayerShowingView.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
+				CE5B2B1B289AA87800E580F5 /* ReviewWritingView.swift in Sources */,
 				9029185328572BF1002D8D90 /* NicknameSettingView.swift in Sources */,
 				90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */,
 				CEC7BE522856DEE60072ACB0 /* RoleDetailView.swift in Sources */,
