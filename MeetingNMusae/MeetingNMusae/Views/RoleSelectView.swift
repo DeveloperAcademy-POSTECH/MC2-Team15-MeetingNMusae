@@ -61,6 +61,20 @@ struct RoleSelectView: View {
                             // 회의 전체에 시작함 이라는 변수 넣기
                             // reviews의 reviewee_role_id 에 랜덤 값으로 중복 없이 넣어주기
                             meetingRoomViewModel.completedRoleSelect(roomCode: roomCode)
+                            
+                            var reviewee: String!
+                            var revieweeRoleId: Int!
+                            if userViewModel.users.count == 1 {
+                                reviewee = nickname
+                                revieweeRoleId = 0
+                            } else {
+                                for (idx, user) in userViewModel.users.enumerated() {
+                                    reviewee = userViewModel.users[Date.getRevieweeIndex(index: idx, num: userViewModel.users.count)].nickname
+                                    revieweeRoleId = userViewModel.users[Date.getRevieweeIndex(index: idx, num: userViewModel.users.count)].roleId
+                                    let review: Review = Review(content: "", from: user.nickname, to: reviewee, roomCode: roomCode, revieweeRoleId: revieweeRoleId)
+                                    ReviewViewModel().setReviewee(roomCode: roomCode, nickname: user.nickname, review: review)
+                                }
+                            }
                         }, label: {
                             // nick의 SelectBox가 나오면 주석 해제
                             SelectBox(isDark: true, description: "선택 완료")

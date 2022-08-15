@@ -14,7 +14,7 @@ struct BestPlayerSelectView: View {
         GridItem()
     ]
     
-    @State var remainTime: Int = 10
+    @State var remainTime: Int = 1
     
     @State var roles: [Role] = Role.roles
     @State var nickname = ""

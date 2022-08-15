@@ -69,20 +69,6 @@ struct PlayerListView: View {
                     Button(action: {
                         MeetingRoomViewModel().startMeeting(roomCode: roomCode)
                         
-                        var reviewee: String!
-                        var revieweeRoleId: Int!
-                        if userViewModel.users.count == 1 {
-                            reviewee = nickname
-                            revieweeRoleId = 0
-                        } else {
-                            for (idx, user) in userViewModel.users.enumerated() {
-                                reviewee = userViewModel.users[Date.getRevieweeIndex(index: idx, num: userViewModel.users.count)].nickname
-                                revieweeRoleId = userViewModel.users[Date.getRevieweeIndex(index: idx, num: userViewModel.users.count)].roleId
-                                let review: Review = Review(content: "", from: user.nickname, to: reviewee, roomCode: roomCode, revieweeRoleId: revieweeRoleId)
-                                ReviewViewModel().setReviewee(roomCode: roomCode, nickname: user.nickname, review: review)
-                            }
-                        }
-                        
                         // todo
 
                     }, label: {

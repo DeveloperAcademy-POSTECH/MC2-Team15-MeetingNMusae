@@ -42,7 +42,7 @@ struct ReviewWritingView: View {
                                     .padding(4)
                                     .foregroundColor(.white)
                                     .background(RoundedRectangle(cornerRadius: 6.0).fill(Color.black))
-                                Text(Role.roles[review.revieweeRoleId - 1].roleName)
+                                Text(Role.roles[review.revieweeRoleId].roleName)
                                     .font(.system(size: 17))
                                     .fontWeight(.bold)
                             }
