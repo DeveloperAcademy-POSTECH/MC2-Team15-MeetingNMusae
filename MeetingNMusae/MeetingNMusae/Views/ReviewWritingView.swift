@@ -41,30 +41,57 @@ struct ReviewWritingView: View {
                                 .bold()
                                 .padding(4)
                                 .foregroundColor(.white)
+                                .background(RoundedRectangle(cornerRadius: 6.0).fill(Color.black))
+                            Text(Role.roles[review.revieweeRoleId - 1].roleName)
+                                .font(.system(size: 17))
+                                .fontWeight(.bold)
                         }
+                        MultiLineTextField(text: $content)
+                            .focused($isTextFieldFocused)
                     }
-                    .frame(width: nil)
-                    .simultaneousGesture(TapGesture()
-                        .onEnded { reviewViewModel.setReviewContent(roomCode: roomCode, nickname: nickname, content: content) } )
-//                } else {
-//                    NavigationLink(destination: ReviewShowingView()) {
-//                        ZStack {
-//                            Rectangle()
-//                                .frame(height: 64)
-//                                .foregroundColor(.black)
-//                                .cornerRadius(12)
-//                            Text("작성 완료")
-//                                .font(.headline)
-//                                .fontWeight(.bold)
-//                                .foregroundColor(.white)
-//                        }
-//                    }
-//                    .frame(width: 334)
-//                    .simultaneousGesture(TapGesture()
-//                        .onEnded { () } )
-//                }
+                    .padding(28)
+                    .frame(width: 326, height: 144)
+                    .background(CharacterBox())
+                }
             }
-            .navigationBarHidden(true)
+            Spacer()
+            if isTextFieldFocused {
+                ZStack {
+                    Rectangle()
+                        .frame(height: 64)
+                        .foregroundColor(.black)
+                        .cornerRadius(0)
+                    Text("작성 완료")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
+                .frame(width: nil)
+                .simultaneousGesture(TapGesture()
+                    .onEnded {
+                        reviewViewModel.setReviewContent(roomCode: roomCode, nickname: nickname, content: content)
+                        isReviewFinished = true
+                    }
+                )
+            } else {
+                ZStack {
+                    Rectangle()
+                        .frame(height: 64)
+                        .foregroundColor(.black)
+                        .cornerRadius(12)
+                    Text("작성 완료")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
+                .frame(width: 334)
+                .simultaneousGesture(TapGesture()
+                    .onEnded {
+                        reviewViewModel.setReviewContent(roomCode: roomCode, nickname: nickname, content: content)
+                        isReviewFinished = true
+                    }
+                )
+            }
         }
         .onAppear {
             self.reviewViewModel.getReviewee(roomCode: self.roomCode, nickname: self.nickname)
