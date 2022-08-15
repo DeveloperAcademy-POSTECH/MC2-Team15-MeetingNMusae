@@ -89,6 +89,7 @@ struct RoleSelectView: View {
         .onAppear {
             self.meetingRoomViewModel.fetchData(roomCode: roomCode)
             userViewModel.updateUserRole(roomCode: roomCode, roleId: roleId, nickname: nickname, isSelect: true)
+            userViewModel.fetchData(roomCode: roomCode)
         }
     }
 }
