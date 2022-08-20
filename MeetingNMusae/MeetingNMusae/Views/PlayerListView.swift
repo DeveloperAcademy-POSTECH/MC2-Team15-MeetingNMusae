@@ -13,7 +13,8 @@ struct PlayerListView: View {
     let isOwner: Bool
     let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
     @State var users: [User] = []
-    
+    @Environment(\.presentationMode) private var presentationMode
+
     @ObservedObject var userViewModel = UserViewModel()
     
     init(roomCode: String, isOwner: Bool) {
@@ -31,6 +32,7 @@ struct PlayerListView: View {
                 HStack {
                     Button(action: {
                         // Home으로 나가기
+                        presentationMode.wrappedValue.dismiss()
                         userViewModel.deleteMeetingRoom(roomCode: roomCode, nickname: UserDefaults.standard.string(forKey: "nickname") ?? "")
                     }, label: {
                         Image("나가기")
@@ -91,3 +93,5 @@ struct PlayerListView: View {
         .navigationBarHidden(true)
     }
 }
+
+
