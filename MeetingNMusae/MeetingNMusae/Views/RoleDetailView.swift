@@ -47,18 +47,30 @@ struct RoleDetailView: View {
                 Text("\(role.recommendation)").font(.footnote)
                 
                 Spacer()
-                
-                Button {
-                    UserDefaults.standard.set(role.id, forKey: "roleId")
-                    userViewModel.updateUserRole(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
-                    meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
-                    
-                } label: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 12).foregroundColor(.black).frame(height: 64)
-                        Text("선택하기").foregroundColor(.white).bold()
-                    }
-                }.padding(.top)
+
+                if meetingRoomViewModel.meetingRooms[0].roleSelectUsers[role.id - 1].isEmpty {
+                    Button {
+                        UserDefaults.standard.set(role.id, forKey: "roleId")
+                        userViewModel.updateUserRole(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
+                        meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
+
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 12).foregroundColor(.black).frame(height: 64)
+                            Text("선택하기").foregroundColor(.white).bold()
+                        }
+                    }.padding(.top)
+
+                } else {
+                    Button {
+                        ()
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 12).foregroundColor(.buttonGray).frame(height: 64)
+                            Text("이미 선택된 역할입니다.").foregroundColor(.white).bold()
+                        }
+                    }.padding(.top)
+                }
             }
             .padding(.top)
             .frame(height: UIScreen.screenHeight / 2)
