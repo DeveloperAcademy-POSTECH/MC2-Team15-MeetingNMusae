@@ -29,8 +29,8 @@ struct ReviewShowingView: View {
                 }
             }
             .onAppear {
-                self.reviewViewModel.fetchData(roomCode: roomCode)
-                self.meetingRoomViewModel.getUsersCount(roomCode: roomCode)
+                reviewViewModel.fetchData(roomCode: roomCode)
+                meetingRoomViewModel.getUsersCount(roomCode: roomCode)
             }
             
             Button(action: {

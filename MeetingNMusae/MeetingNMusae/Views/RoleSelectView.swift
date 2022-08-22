@@ -69,8 +69,8 @@ struct RoleSelectView: View {
                                 revieweeRoleId = 0
                             } else {
                                 for (idx, user) in userViewModel.users.enumerated() {
-                                    reviewee = userViewModel.users[Date.getRevieweeIndex(index: idx, num: userViewModel.users.count)].nickname
-                                    revieweeRoleId = userViewModel.users[Date.getRevieweeIndex(index: idx, num: userViewModel.users.count)].roleId
+                                    reviewee = userViewModel.users[Date.getRevieweeIndex(userIndex: idx, totalUsers: userViewModel.users.count)].nickname
+                                    revieweeRoleId = userViewModel.users[Date.getRevieweeIndex(userIndex: idx, totalUsers: userViewModel.users.count)].roleId
                                     let review: Review = Review(content: "", from: user.nickname, to: reviewee, roomCode: roomCode, revieweeRoleId: revieweeRoleId)
                                     ReviewViewModel().setReviewee(roomCode: roomCode, nickname: user.nickname, review: review)
                                 }
