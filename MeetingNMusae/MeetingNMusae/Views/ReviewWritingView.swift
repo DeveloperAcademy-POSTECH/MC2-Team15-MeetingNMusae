@@ -33,7 +33,6 @@ struct ReviewWritingView: View {
                     .frame(height: 41)
                     .padding(.bottom, 8)
                 ForEach(self.reviewViewModel.reviews) { review in
-                    //                        Image("이해무새_피드백작성")
                     Image("\(Role.roles[review.revieweeRoleId - 1].roleName)_피드백작성")
                     VStack(alignment: .leading, spacing: 16) {
                         HStack(spacing: 8) {
