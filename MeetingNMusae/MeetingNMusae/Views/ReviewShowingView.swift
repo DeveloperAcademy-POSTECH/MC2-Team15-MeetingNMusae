@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ReviewShowingView: View {
-    //    roleIndex를 받아와서 ReviewBox에 넣어주시면 됩니다
     @ObservedObject var reviewViewModel: ReviewViewModel = ReviewViewModel()
     @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel = MeetingRoomViewModel()
     @ObservedObject var userViewModel: UserViewModel = UserViewModel()
