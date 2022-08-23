@@ -14,8 +14,7 @@ struct MissionCardView: View {
     @ObservedObject var userViewModel = UserViewModel()
     @ObservedObject var missionViewModel = MissionViewModel()
     @State var isChanged = false
-//    @State var missions: [String] = []
-//    @State var progress: [Bool] = userViewModel.deviceUser?.missionProgress ?? [false, false,false]
+    @State var progress: [Bool] = [false, false,false]
     let roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
     let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
     let roleId = UserDefaults.standard.integer(forKey: "roleId")
@@ -24,10 +23,6 @@ struct MissionCardView: View {
         let roleName: String = Role.getRoleName(roleId: roleId)
         let imageName: String = roleName
         VStack {
-//            let roleId = userViewModel.deviceUser?.roleId ?? 0
-            // var progress = userViewModel.deviceUser?.missionProgress ?? [false, false, false]
-            // missions = missionViewModel.getMissionsStr()
-
             // 추후 이미지 크기 조정 필요
             Image(imageName)
                 .resizable()
@@ -36,7 +31,6 @@ struct MissionCardView: View {
 //                .font(.largeTitle).bold() // 이런 류는 나중에 시간 있으면
                 .font(.system(size: 24, weight: .bold))
                 .padding(20)
-
 
             // 코지의 라인 익스텐션 사용
             Line().stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
@@ -58,23 +52,26 @@ struct MissionCardView: View {
             ForEach(0...2, id: \.self) { ind in
                 HStack {
                     // MARK: 모르겠음: userViewModel.deviceUser?가 항상 nil이 나옴
-                    CheckBoxView(missionId: ind, progress: userViewModel.deviceUser?.missionProgress ?? [false, false, false], roleId: roleId)
+                    Text("\(Image(systemName: progress[ind] ? "checkmark.square.fill" : "square"))")
+                        .bold()
+                        .foregroundColor(Color(UIColor.black))
 
                     Text((self.missionViewModel.missionStrs.count > ind) ? self.missionViewModel.missionStrs[ind] : "mcnt: \(self.missionViewModel.missionStrs.count)")
                         .font(.system(size: 16, weight: .medium))
-                        .onTapGesture {
-                            userViewModel.updateMissionProgress(roomCode: roomCode, missionId: ind, nickname: nickname)
-                        }
                     Spacer()
                 }
                 .padding(.vertical, 6.1)
                 .padding(.horizontal)
-
+                .onTapGesture {
+                    progress[ind].toggle()
+                    // 파이어베이스 update
+                    userViewModel.updateMissionProgress(roomCode: roomCode, missionId: ind, nickname: nickname)
+                }
             }
         }
         .onAppear {
-//            self.userViewModel.fetchData(roomCode: roomCode, nickname: nickname)
             self.missionViewModel.fetchMissions(roleId: roleId)
+            progress = userViewModel.deviceUser?.missionProgress ?? [false, false, false]
         }
         .padding()
         .padding(.bottom)
@@ -93,30 +90,8 @@ struct MissionCardView: View {
     }
 }
 
-// ref: https://stackoverflow.com/questions/58425829/how-can-i-create-a-text-with-checkbox-in-swiftui
-struct CheckBoxView: View {
-    let missionId: Int
-    @State var progress: [Bool]
-    let roleId: Int
-    let userViewModel = UserViewModel()
-
-    let roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
-    let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
-
-    var body: some View {
-        Text("\(Image(systemName: progress[missionId] ? "checkmark.square.fill" : "square"))")
-            .bold()
-            .foregroundColor(Color(UIColor.black))
-            .onTapGesture {
-                progress[missionId].toggle()
-                // 파이어베이스 update
-                userViewModel.updateMissionProgress(roomCode: roomCode, missionId: missionId, nickname: nickname)
-            }
+ struct MissionCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        MissionCardView()
     }
-}
-
-// struct MissionCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MissionCardView(roleId: 1)
-//    }
-// }
+ }
