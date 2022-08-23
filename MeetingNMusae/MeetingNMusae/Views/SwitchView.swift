@@ -12,6 +12,7 @@ struct SwitchView: View {
     
     @State var roomCode: String
     @State var isOwner: Bool
+    @State var isReviewFinished: Bool = false
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
     
     init(roomCode: String, isOwner: Bool) {
@@ -34,16 +35,20 @@ struct SwitchView: View {
                         MeetingEndingView().task(timer)
                     } else {
                         BestPlayerSelectView()
+                            .navigationBarHidden(true)
                     }
                 } else if meetingRoom.isBestRoleSelected {
                     BestPlayerShowingView(roomCode: roomCode)
                         .navigationBarHidden(true)
                 } else if meetingRoom.isReviewStarted {
-                    ReviewWritingView(roomCode: roomCode)
-                        .navigationBarHidden(true)
-//                    ReviewShowingView(roomCode: roomCode)
-//                        .navigationBarHidden(true)
-                } else {
+                    if isReviewFinished {
+                        ReviewShowingView(roomCode: roomCode)
+                            .navigationBarHidden(true)
+                    }
+                    else {
+                        ReviewWritingView(roomCode: roomCode, isReviewFinished: $isReviewFinished)
+                    }
+                }  else {
                     PlayerListView(roomCode: roomCode, isOwner: isOwner)
                 }
             }

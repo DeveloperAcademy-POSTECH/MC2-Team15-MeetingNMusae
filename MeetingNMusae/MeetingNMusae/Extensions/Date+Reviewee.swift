@@ -8,13 +8,13 @@
 import Foundation
 
 extension Date {
-    static func getRevieweeIndex(index: Int, num: Int) -> Int {
-        // 자정에 하면 클남
-        
-        var revieweeIndex = (index + Int(Date.now.timeIntervalSince1970)) / (60 * 60 * 24) % num
-        
-        while revieweeIndex == index {
-            revieweeIndex = (index + Int(Date.now.timeIntervalSince1970)) / (60 * 60 * 24) % num
+    // userIndex: 유저인덱스
+    // totalUsers: 총 사람 명수
+    static func getRevieweeIndex(userIndex: Int, totalUsers: Int) -> Int {
+        var revieweeIndex = (userIndex + ((Int(Date.now.timeIntervalSince1970) / (60 * 60 * 24)) % totalUsers)) % totalUsers
+
+        if revieweeIndex == userIndex {
+            revieweeIndex = (revieweeIndex + 1) % totalUsers
         }
         return revieweeIndex
     }
