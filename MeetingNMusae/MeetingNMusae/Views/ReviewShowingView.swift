@@ -27,6 +27,8 @@ struct ReviewShowingView: View {
                         }
                     }
                 }
+                .frame(width: UIScreen.screenWidth)
+                .padding(.top, 5)
             }
             .onAppear {
                 reviewViewModel.fetchData(roomCode: roomCode)
