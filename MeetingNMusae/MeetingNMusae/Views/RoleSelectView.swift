@@ -30,6 +30,7 @@ struct RoleSelectView: View {
     var body: some View {
         VStack(alignment: .center) {
             Text("역할을 골라주세요").font(.title2).bold()
+                .padding(EdgeInsets(top: 28, leading: 0, bottom: 3, trailing: 0))
             
             HStack {
                 Image(systemName: "star.circle.fill")
@@ -114,6 +115,7 @@ struct RoleItem: View {
                         .opacity(roleSelectUser == "" ? 1 : 0.5)
                         .padding(.top)
                     Text("\(role.roleName)")
+                        .bold()
                         .padding(.bottom)
                         .foregroundColor(.black)
                         .opacity(roleSelectUser == "" ? 1 : 0.5)
@@ -124,6 +126,7 @@ struct RoleItem: View {
                         if roleSelectUser == "" {
                             if role.id <= 3 {
                                 Image(systemName: "star.circle.fill")
+                                    .font(.system(size: 20))
                             }
                         } else {
                             Text("\(roleSelectUser)")
