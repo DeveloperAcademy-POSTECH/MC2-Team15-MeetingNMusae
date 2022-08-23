@@ -30,7 +30,7 @@ class ReviewViewModel: ObservableObject {
     }
     
     func getReviewee(roomCode: String, nickname: String) {
-        db.collection("reviews").whereField("from", isEqualTo: "\(nickname)").addSnapshotListener { (querySnapshot, error) in
+        db.collection("reviews").whereField("room_code", isEqualTo: roomCode).whereField("from", isEqualTo: "\(nickname)").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("Error Fetching document: \(error!)")
                 return
@@ -54,6 +54,19 @@ class ReviewViewModel: ObservableObject {
                 for document in querySnapshot!.documents {
                     document.reference.delete()
                     print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+    }
+    
+    func setReviewContent(roomCode: String, nickname: String, content: String) {
+        
+        db.collection("reviews").whereField("room_code", isEqualTo: roomCode).whereField("from", isEqualTo: nickname).getDocuments { querySnapshot, error in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    document.reference.updateData(["content": content])
                 }
             }
         }
