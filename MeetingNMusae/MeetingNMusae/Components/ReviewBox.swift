@@ -34,13 +34,14 @@ struct ReviewBox: View {
             
             Spacer()
             
-            // 이미지에 role을 넣어주면 됩니다
-            // 현재는 이미지가 없어서 "회의하는N무새" 임시로 배치했습니다
-            Image(Role.roles[roleIndex].roleName)
-                .resizable()
-                .frame(width: 64, height: 64)
-                .padding(.trailing, 17)
-                .padding(.leading, 20)
+            VStack {
+                Spacer()
+                Image(Role.roles[roleIndex].roleName)
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .padding(.trailing, 17)
+                    .padding(.bottom, 4)
+            }
         }// HStack
         .frame(width: UIScreen.screenWidth * 0.84)
         .background(
