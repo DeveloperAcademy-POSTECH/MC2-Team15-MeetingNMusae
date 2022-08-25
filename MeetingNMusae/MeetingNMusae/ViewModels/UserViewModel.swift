@@ -50,7 +50,6 @@ class UserViewModel: ObservableObject {
                 }
             }
         }
-        // print("uVM fD2 out ")
     }
     
     func addUser(roomCode: String, user: User) {
@@ -67,7 +66,6 @@ class UserViewModel: ObservableObject {
     }
 
     func updateMissionProgress(roomCode: String, missionId: Int, nickname: String) {
-        print("updateMP called")
         var isChanged = false
 
         let doc =
