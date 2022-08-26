@@ -26,15 +26,26 @@ struct Home: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text("회의하는 N무새")
-                    . font(.title)
-                    .fontWeight(.heavy)
-                    .padding(.bottom, 46)
-                Image("회의하는N무새")
-                    .frame(width: 360, height: 360)
-                    .padding(.bottom, 88)
+            ZStack {
+                VStack {
+                    Text("회의하는 N무새")
+                        . font(.title)
+                        .fontWeight(.heavy)
+                        .padding(.bottom, 46)
+                    Image("회의하는N무새")
+                        .frame(width: 360, height: 360)
+                        .padding(.bottom, 88)
+                    Spacer()
+                }
+                .navigationTitle("")
+                .navigationBarTitleDisplayMode(.inline)
+                .padding(.top)
+                .onAppear {
+                    self.meetingRoomViewModel.getRoomCodeList()
+                }
+                
                 VStack(alignment: .center, spacing: 20) {
+                    Spacer()
                     NavigationLink(destination: NicknameSettingView(roomCode: roomCode, isOwner: true)) {
                         SelectBox(isDark: true, description: "방 만들기")
                     }
@@ -46,12 +57,6 @@ struct Home: View {
                         SelectBox(isDark: false, description: "입장하기")
                     }
                 }// VStack
-            }
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .padding(.top)
-            .onAppear {
-                self.meetingRoomViewModel.getRoomCodeList()
             }
         }// NavigationView
     }

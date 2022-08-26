@@ -35,7 +35,7 @@ struct RoleDetailView: View {
             }
             
             VStack(alignment: .leading) {
-                Text("\(role.description)").font(.footnote).padding(.bottom)
+                Text("\(role.description)").font(.subheadline).padding(.bottom).lineSpacing(7)
                 
                 Line()
                     .stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
@@ -44,7 +44,7 @@ struct RoleDetailView: View {
                     .padding(.bottom)
                 
                 Text("이런 사람에게 추천해요!").font(.headline).padding(.bottom)
-                Text("\(role.recommendation)").font(.footnote)
+                Text("\(role.recommendation)").font(.subheadline).padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)).lineSpacing(7)
                 
                 Spacer()
 
@@ -53,13 +53,12 @@ struct RoleDetailView: View {
                         UserDefaults.standard.set(role.id, forKey: "roleId")
                         userViewModel.updateUserRole(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
                         meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
-
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 12).foregroundColor(.black).frame(height: 64)
                             Text("선택하기").foregroundColor(.white).bold()
                         }
-                    }.padding(.top)
+                    }.padding(.bottom)
 
                 } else {
                     Button {
@@ -69,7 +68,7 @@ struct RoleDetailView: View {
                             RoundedRectangle(cornerRadius: 12).foregroundColor(.buttonGray).frame(height: 64)
                             Text("이미 선택된 역할입니다.").foregroundColor(.white).bold()
                         }
-                    }.padding(.top)
+                    }.padding(.bottom)
                 }
             }
             .padding(.top)
@@ -81,6 +80,7 @@ struct RoleDetailView: View {
                 Button(action: {
                     // todo
                     // 방 선택뷰로 이동하는 기능
+                    isModalShown = false
                     meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: false)
                 }, label: {
                     Image(systemName: "xmark").rotationEffect(.degrees(180))
