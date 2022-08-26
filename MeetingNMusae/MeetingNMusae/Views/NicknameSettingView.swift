@@ -12,11 +12,8 @@ struct NicknameSettingView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var roomCode: String
     @State var nickname: String = ""
-    @State var errorMessage: String = ""
-    @State var isExistNickname: Bool = false
     var isOwner: Bool
     let nicknameUpperLimit: Int = 4
-    let meetingRoomViewModel = MeetingRoomViewModel()
     
     private func isTextEmpty(text: String) -> Bool {
         if text.count >= 1 {
@@ -42,23 +39,6 @@ struct NicknameSettingView: View {
                 .font(.custom("Apple SD Gothic Neo", size: 24))
                 .fontWeight(.bold)
             TextInputBox(textInput: $nickname, description: "한/영 4글자", textLimit: nicknameUpperLimit)
-                .onChange(of: nickname) { _ in
-                    if nickname.count > 0 {
-                        meetingRoomViewModel.isExistedNickname(roomCode: roomCode, nickname: nickname) {
-                            self.isExistNickname = meetingRoomViewModel.isExistNickname
-                            if !isExistNickname {
-                                errorMessage = "이미 사용중인 닉네임입니다"
-                            }
-                        }
-                    } else {
-                        errorMessage = ""
-                    }
-                }
-            Text(errorMessage)
-                .font(.callout)
-                .fontWeight(.medium)
-                .foregroundColor(.red)
-                .padding(.top, 20)
             Spacer()
             HStack {
                 Spacer()
