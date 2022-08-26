@@ -8,10 +8,6 @@
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-/**
-현재 있으나 쓰이지 않음
- */
-
 class RoleViewModel: ObservableObject {
     @Published var roles: [Role]
 
