@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RoomFindingView: View {
+    @Binding var isRootActive: Bool
     @Environment(\.presentationMode) var presentationMode
     @State var roomCode: String = ""
     @State var errorMessage: String = ""
@@ -60,8 +61,8 @@ struct RoomFindingView: View {
             Spacer()
             HStack {
                 Spacer()
-                NavigationLink(destination: NicknameSettingView(roomCode: roomCode, isOwner: false)) {
-                    CircleButton(text: $roomCode, isExist: $isRoomcodeExist, upperLimit: 6)
+                NavigationLink(destination: NicknameSettingView(isRootActive: $isRootActive, roomCode: roomCode, isOwner: false)) {
+                    CircleButton(text: $roomCode, upperLimit: 6)
                 }
                 .simultaneousGesture(TapGesture()
                     .onEnded {
@@ -74,11 +75,5 @@ struct RoomFindingView: View {
         .navigationTitle("")
         .padding(28)
         .navigationBarHidden(true)
-    }
-}
-
-struct RoomFindingView_Previews: PreviewProvider {
-    static var previews: some View {
-        RoomFindingView()
     }
 }
