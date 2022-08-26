@@ -99,8 +99,7 @@ class MeetingRoomViewModel: ObservableObject {
     // 정말 필요한지 확인하기 (roleselectview에서)
     func updateIsEnded(roomCode: String) {
         do {
-            _ = try
-        db.collection("test_meeting_room").document("ROOMCODE1").collection("test_users").document("TESTUSER1").updateData(["is_ended": true])
+            try db.collection("test_meeting_room").document("ROOMCODE1").collection("test_users").document("TESTUSER1").updateData(["is_ended": true])
             isEnded = true
         } catch {
             print(error)

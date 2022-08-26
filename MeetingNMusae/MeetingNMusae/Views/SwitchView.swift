@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SwitchView: View {
+    @State var isRootActive: Binding<Bool>
     @State var remainTime = 2
     
     @State var roomCode: String
@@ -15,9 +16,10 @@ struct SwitchView: View {
     @State var isReviewFinished: Bool = false
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
     
-    init(roomCode: String, isOwner: Bool) {
+    init(roomCode: String, isOwner: Bool, isRootActive: Binding<Bool>) {
         self.roomCode = roomCode
         self.isOwner = isOwner
+        self.isRootActive = isRootActive
         meetingRoomViewModel.fetchData(roomCode: roomCode)
     }
     
@@ -42,7 +44,7 @@ struct SwitchView: View {
                         .navigationBarHidden(true)
                 } else if meetingRoom.isReviewStarted {
                     if isReviewFinished {
-                        ReviewShowingView(roomCode: roomCode)
+                        ReviewShowingView(roomCode: roomCode, isRootActive: isRootActive)
                             .navigationBarHidden(true)
                     }
                     else {

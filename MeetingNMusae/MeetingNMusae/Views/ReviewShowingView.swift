@@ -13,6 +13,7 @@ struct ReviewShowingView: View {
     @ObservedObject var userViewModel: UserViewModel = UserViewModel()
     @State var roomCode: String
     @State var nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
+    @Binding var isRootActive: Bool
 
     var body: some View {
         VStack {
@@ -38,12 +39,13 @@ struct ReviewShowingView: View {
                 userViewModel.deleteMeetingRoom(roomCode: roomCode, nickname: nickname)
                 if meetingRoomViewModel.usersCount == 1 {
                     meetingRoomViewModel.deleteMeetingRoom(roomCode: roomCode)
+                    reviewViewModel.deleteReviews(roomCode: roomCode)
                 }
-                reviewViewModel.deleteReviews(roomCode: roomCode)
                 // home으로
                 UserDefaults.standard.set(0, forKey: "roleId")
                 UserDefaults.standard.set("", forKey: "nickname")
                 UserDefaults.standard.set("", forKey: "roomCode")
+                isRootActive = false
             }, label: {
                 SelectBox(isDark: true, description: "나가기")
                     .padding(.top)

@@ -29,6 +29,7 @@ struct PlayerListView: View {
                 Text(roomCode)
                     .fontWeight(.bold)
                     .padding(.vertical, UIScreen.screenHeight * 0.0237)
+                    .textSelection(.enabled)
                 HStack {
                     Button(action: {
                         // Home으로 나가기
