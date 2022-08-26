@@ -50,7 +50,6 @@ class UserViewModel: ObservableObject {
                 }
             }
         }
-        // print("uVM fD2 out ")
     }
     
     func addUser(roomCode: String, user: User) {
