@@ -22,7 +22,7 @@ struct ReviewWritingView: View {
                 Text("랜덤 피드백!")
                     .font(.system(size: 24))
                     .fontWeight(.heavy)
-                    .padding(.top, UIScreen.screenHeight * 0.0332)
+                    .padding(.top, UIScreen.screenHeight * 0.0237)
                     .padding(.bottom, UIScreen.screenHeight * 0.0095)
                 Text("모두가 피드백을 받을 수 있도록\n한 마디를 써주세요")
                     .font(.system(size: 16))
@@ -31,10 +31,9 @@ struct ReviewWritingView: View {
                     .foregroundColor(Color(hex: "6C6C6C"))
                     .multilineTextAlignment(.center)
                     .frame(height: 41)
-                    .padding(.bottom, 8)
                 ForEach(self.reviewViewModel.reviews) { review in
                     Image("\(Role.roles[review.revieweeRoleId - 1].roleName)_피드백작성")
-                    VStack(alignment: .leading, spacing: 16) {
+                    VStack(alignment: .leading, spacing: 8) {
                         HStack(spacing: 8) {
                             Text(review.to)
                                 .bold()
@@ -48,16 +47,18 @@ struct ReviewWritingView: View {
                         MultiLineTextField(text: $content)
                             .focused($isTextFieldFocused)
                     }
-                    .padding(28)
-                    .frame(width: 326, height: 144)
+                    .padding(.all, UIScreen.screenWidth * 0.0718)
                     .background(CharacterBox())
+                    .frame(height: UIScreen.screenHeight * 0.21)
+                    .padding(.horizontal, UIScreen.screenWidth * 0.0718)
+                    .padding(.trailing, UIScreen.screenWidth * 0.0205)
                 }
             }
             Spacer()
             if isTextFieldFocused {
                 ZStack {
                     Rectangle()
-                        .frame(height: 64)
+                        .frame(height: UIScreen.screenHeight * 0.076)
                         .foregroundColor(.black)
                         .cornerRadius(0)
                     Text("작성 완료")
@@ -75,7 +76,7 @@ struct ReviewWritingView: View {
             } else {
                 ZStack {
                     Rectangle()
-                        .frame(height: 64)
+                        .frame(height: UIScreen.screenHeight * 0.076)
                         .foregroundColor(.black)
                         .cornerRadius(12)
                     Text("작성 완료")
@@ -83,7 +84,7 @@ struct ReviewWritingView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                 }
-                .frame(width: 334)
+                .padding(.horizontal, UIScreen.screenWidth * 0.0718)
                 .simultaneousGesture(TapGesture()
                     .onEnded {
                         reviewViewModel.setReviewContent(roomCode: roomCode, nickname: nickname, content: content)
@@ -116,4 +117,3 @@ struct ReviewWritingView: View {
         }
     }
 }
-

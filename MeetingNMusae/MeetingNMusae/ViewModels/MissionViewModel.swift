@@ -22,10 +22,14 @@ class MissionViewModel: ObservableObject {
                 }
                 // id에 따라 순서 정렬
                 missions.sort()
+                print("mVM fM missions.cnt: \(missions.count)")
                 self.missionStrs = []
                 for mission in missions {
                     self.missionStrs.append(mission.getMission())
                 }
+                
+                print("mVM listener ...")
+                print("missionStrs[0]: \(self.missionStrs[0])")
             }
         print("mVM listener out")
     }
