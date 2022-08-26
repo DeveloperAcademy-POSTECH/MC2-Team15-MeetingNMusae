@@ -10,7 +10,7 @@ import SwiftUI
 struct RoomFindingView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var roomCode: String = ""
-    @State var roomState: String = ""
+    @State var errorMessage: String = ""
     @State var isRoomcodeExist: Bool = false
     let textUpperLimit: Int = 6
     let meetingRoomViewModel = MeetingRoomViewModel()
@@ -45,18 +45,18 @@ struct RoomFindingView: View {
                         meetingRoomViewModel.isExistedRoom(roomCode: roomCode) {
                             self.isRoomcodeExist = meetingRoomViewModel.isExistRoom
                             if !isRoomcodeExist {
-                                roomState = "존재하지 않는 방 번호입니다."
+                                errorMessage = "존재하지 않는 방 번호입니다."
                             }
                         }
                     } else {
-                        roomState = ""
+                        errorMessage = ""
                     }
                 }
-            Text(roomState)
+            Text(errorMessage)
                 .font(.callout)
                 .fontWeight(.medium)
                 .foregroundColor(.red)
-                .padding(.top, 24)
+                .padding(.top, 20)
             Spacer()
             HStack {
                 Spacer()

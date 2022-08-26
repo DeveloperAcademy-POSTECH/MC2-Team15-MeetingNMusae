@@ -14,6 +14,7 @@ class MeetingRoomViewModel: ObservableObject {
     @Published var isEnded: Bool // me
     @Published var usersCount = 0
     @Published var isExistRoom: Bool = false
+    @Published var isExistNickname: Bool = false
     
     init() {
         meetingRooms = [MeetingRoom]()
@@ -146,9 +147,18 @@ class MeetingRoomViewModel: ObservableObject {
     
     func isExistedRoom(roomCode: String, completion: @escaping () -> Void) {
         var result: Bool = false
-        db.collection("meeting_rooms").document(roomCode).getDocument { document, error in
+        db.collection("meeting_rooms").document(roomCode).getDocument { document, _ in
             result = document?.exists ?? false
             self.isExistRoom = result
+            completion()
+        }
+    }
+    
+    func isExistedNickname(roomCode: String, nickname: String, completion: @escaping () -> Void) {
+        var result: Bool = false
+        db.collection("meeting_rooms").document(roomCode).collection("users").whereField("nickname", isEqualTo: nickname).getDocuments { quereySnapshot, _ in
+            result = quereySnapshot?.isEmpty ?? false
+            self.isExistNickname = result
             completion()
         }
     }
