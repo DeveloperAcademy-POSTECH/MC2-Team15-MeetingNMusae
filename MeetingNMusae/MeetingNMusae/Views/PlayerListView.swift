@@ -37,7 +37,7 @@ struct PlayerListView: View {
                     }, label: {
                         Image("나가기")
                             .resizable()
-                            .frame(width: 28, height: 28)
+                            .frame(width: UIScreen.screenWidth * 0.0718, height: UIScreen.screenWidth * 0.0718)
                             .offset(x: -4, y: 0)
                     })
                     Spacer()
@@ -89,7 +89,9 @@ struct PlayerListView: View {
                 }
             }
         }// VStack
-        .frame(width: UIScreen.screenWidth * 0.84)
+        .padding(.leading, UIScreen.screenWidth * 0.0718)
+        .padding(.trailing, UIScreen.screenWidth * 0.0924)
+//        .frame(width: UIScreen.screenWidth * 0.84)
         .navigationBarHidden(true)
     }
 }
