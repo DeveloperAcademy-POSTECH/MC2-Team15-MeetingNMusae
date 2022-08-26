@@ -62,7 +62,7 @@ struct RoomFindingView: View {
             HStack {
                 Spacer()
                 NavigationLink(destination: NicknameSettingView(isRootActive: $isRootActive, roomCode: roomCode, isOwner: false)) {
-                    CircleButton(text: $roomCode, upperLimit: 6)
+                    CircleButton(text: $roomCode, isExist: $isRoomcodeExist, upperLimit: 6)
                 }
                 .simultaneousGesture(TapGesture()
                     .onEnded {

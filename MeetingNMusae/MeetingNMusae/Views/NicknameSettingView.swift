@@ -63,7 +63,7 @@ struct NicknameSettingView: View {
             HStack {
                 Spacer()
                 NavigationLink(destination: SwitchView(roomCode: roomCode, isOwner: isOwner, isRootActive: $isRootActive)) {
-                    CircleButton(text: $nickname, upperLimit: 1)
+                    CircleButton(text: $nickname, isExist: $isExistNickname, upperLimit: 1)
                 }
                 .simultaneousGesture(TapGesture()
                     .onEnded {
