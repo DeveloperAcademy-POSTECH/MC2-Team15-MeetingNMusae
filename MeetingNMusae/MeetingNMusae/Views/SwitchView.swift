@@ -49,6 +49,7 @@ struct SwitchView: View {
                     }
                     else {
                         ReviewWritingView(roomCode: roomCode, isReviewFinished: $isReviewFinished)
+                            .navigationBarHidden(true)
                     }
                 }  else {
                     PlayerListView(roomCode: roomCode, isOwner: isOwner)

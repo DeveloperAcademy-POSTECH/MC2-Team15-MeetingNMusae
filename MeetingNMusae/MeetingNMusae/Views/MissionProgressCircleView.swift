@@ -47,15 +47,13 @@ struct MissionProgressCircleView: View {
 
             // 역할
             Text(roleName)
-                .font(.footnote)
-                .bold()
-//                .font(.system(size: 14, weight: .bold))
+//                .font(.title3).bold() // 이런 류는 나중에 시간 있으면
+                .font(.system(size: 14, weight: .bold))
 
             // 닉네임
             Text(user.nickname)
-                .font(.footnote)
-                .fontWeight(.medium)
-//                .font(.system(size: 14, weight: .medium))
+//                .font(.title3).medium() // 이런 류는 나중에 시간 있으면
+                .font(.system(size: 14, weight: .medium))
                 .foregroundColor(.subTextGray)
 
         }
