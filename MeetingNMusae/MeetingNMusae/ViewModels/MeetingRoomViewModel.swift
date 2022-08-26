@@ -25,7 +25,6 @@ class MeetingRoomViewModel: ObservableObject {
     private var db = Firestore.firestore()
     
     func fetchData(roomCode: String) {
-        //test      print("mrVM fd in")
         db.collection("meeting_rooms").whereField("room_code", isEqualTo: "\(roomCode)").addSnapshotListener { (querySnapshot, _) in
             guard let documents = querySnapshot?.documents else {
                 print("no documents")
@@ -34,11 +33,9 @@ class MeetingRoomViewModel: ObservableObject {
             
             self.meetingRooms = documents.compactMap { (queryDocumentSnapshot) -> MeetingRoom? in
                 
-                //test           print("222")
                 return try? queryDocumentSnapshot.data(as: MeetingRoom.self)
             }
         }
-        //test     print("mrVM fd out")
     }
     func addMeetingRoom(meetingRoom: MeetingRoom) {
         do {
@@ -105,8 +102,7 @@ class MeetingRoomViewModel: ObservableObject {
     // 정말 필요한지 확인하기 (roleselectview에서)
     func updateIsEnded(roomCode: String) {
         do {
-            _ = try
-            db.collection("test_meeting_room").document("ROOMCODE1").collection("test_users").document("TESTUSER1").updateData(["is_ended": true])
+            try db.collection("test_meeting_room").document("ROOMCODE1").collection("test_users").document("TESTUSER1").updateData(["is_ended": true])
             isEnded = true
         } catch {
             print(error)
