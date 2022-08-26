@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NicknameSettingView: View {
+    @Binding var isRootActive: Bool
     @Environment(\.presentationMode) var presentationMode
     @State var roomCode: String
     @State var nickname: String = ""
@@ -41,7 +42,7 @@ struct NicknameSettingView: View {
             Spacer()
             HStack {
                 Spacer()
-                NavigationLink(destination: SwitchView(roomCode: roomCode, isOwner: isOwner)) {
+                NavigationLink(destination: SwitchView(roomCode: roomCode, isOwner: isOwner, isRootActive: $isRootActive)) {
                     CircleButton(text: $nickname, upperLimit: 1)
                 }
                 .simultaneousGesture(TapGesture()

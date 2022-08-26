@@ -11,6 +11,9 @@ struct Home: View {
     @State var roomCode: String = ""
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
     
+    @State var isNicknameSettingViewActive: Bool = false
+    @State var isRoomFindingViewActive: Bool = false
+    
     private func makeRoomCode() {
         let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         self.roomCode = ""
@@ -46,14 +49,14 @@ struct Home: View {
                 
                 VStack(alignment: .center, spacing: 20) {
                     Spacer()
-                    NavigationLink(destination: NicknameSettingView(roomCode: roomCode, isOwner: true)) {
+                    NavigationLink(destination: NicknameSettingView(isRootActive: $isNicknameSettingViewActive, roomCode: roomCode, isOwner: true), isActive: self.$isNicknameSettingViewActive) {
                         SelectBox(isDark: true, description: "방 만들기")
                     }
                     .simultaneousGesture(TapGesture().onEnded {
                         makeRoomCode()
                         UserDefaults.standard.set(self.roomCode, forKey: "roomCode")
                     })
-                    NavigationLink(destination: RoomFindingView()) {
+                    NavigationLink(destination: RoomFindingView(isRootActive: $isRoomFindingViewActive), isActive: self.$isRoomFindingViewActive) {
                         SelectBox(isDark: false, description: "입장하기")
                     }
                 }// VStack
