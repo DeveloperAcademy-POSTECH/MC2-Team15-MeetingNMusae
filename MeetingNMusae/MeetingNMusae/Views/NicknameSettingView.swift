@@ -11,6 +11,7 @@ struct NicknameSettingView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var roomCode: String
     @State var nickname: String = ""
+    @State var isNicknameExist: Bool = false
     var isOwner: Bool
     let nicknameUpperLimit: Int = 4
     
@@ -42,7 +43,7 @@ struct NicknameSettingView: View {
             HStack {
                 Spacer()
                 NavigationLink(destination: SwitchView(roomCode: roomCode, isOwner: isOwner)) {
-                    CircleButton(text: $nickname, upperLimit: 1)
+                    CircleButton(text: $nickname, isExist: $isNicknameExist, upperLimit: 1)
                 }
                 .simultaneousGesture(TapGesture()
                     .onEnded {
