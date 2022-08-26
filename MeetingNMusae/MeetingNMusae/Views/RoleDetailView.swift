@@ -66,7 +66,7 @@ struct RoleDetailView: View {
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 12).foregroundColor(.buttonGray).frame(height: 64)
-                            Text("이미 선택된 역할입니다.").foregroundColor(.white).bold()
+                            Text("이미 선택된 역할입니다").foregroundColor(.white).bold()
                         }
                     }.padding(.bottom)
                 }
