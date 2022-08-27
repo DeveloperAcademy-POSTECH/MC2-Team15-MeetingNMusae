@@ -45,7 +45,6 @@
 		CE5B2B1B289AA87800E580F5 /* ReviewWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B2B1A289AA87800E580F5 /* ReviewWritingView.swift */; };
 		CE5B2B1F289AB0E400E580F5 /* Date+Reviewee.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B2B1E289AB0E400E580F5 /* Date+Reviewee.swift */; };
 		CE6491DC285F3BC500718CCF /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6491DB285F3BC500718CCF /* confetti.json */; };
-		CEC7BE452856DE9C0072ACB0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE442856DE9C0072ACB0 /* HomeView.swift */; };
 		CEC7BE492856DEAF0072ACB0 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE462856DEAF0072ACB0 /* MeetingRoom.swift */; };
 		CEC7BE4A2856DEAF0072ACB0 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE472856DEAF0072ACB0 /* Review.swift */; };
 		CEC7BE4B2856DEAF0072ACB0 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE482856DEAF0072ACB0 /* Mission.swift */; };
@@ -94,7 +93,6 @@
 		CE5B2B1E289AB0E400E580F5 /* Date+Reviewee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Reviewee.swift"; sourceTree = "<group>"; };
 		CE6491DB285F3BC500718CCF /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		CEC7BE412856DE460072ACB0 /* MeetingNMusae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingNMusae.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEC7BE442856DE9C0072ACB0 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CEC7BE462856DEAF0072ACB0 /* MeetingRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingRoom.swift; sourceTree = "<group>"; };
 		CEC7BE472856DEAF0072ACB0 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		CEC7BE482856DEAF0072ACB0 /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				CE6491DB285F3BC500718CCF /* confetti.json */,
-				CEC7BE432856DE900072ACB0 /* Temp */,
 				B59CAC122855E2BE00C0FC98 /* Components */,
 				B5FC08412851E46100EDC014 /* Extensions */,
 				CE76059B2851BD6D00D647EE /* Models */,
@@ -228,14 +225,6 @@
 				B57BB9D22854BEED007AFFAA /* User.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		CEC7BE432856DE900072ACB0 /* Temp */ = {
-			isa = PBXGroup;
-			children = (
-				CEC7BE442856DE9C0072ACB0 /* HomeView.swift */,
-			);
-			path = Temp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,7 +366,6 @@
 				90DF2CF9285BA032007D4542 /* NameBox.swift in Sources */,
 				9029185528572F36002D8D90 /* CircleButton.swift in Sources */,
 				CEC7BE532856DEE60072ACB0 /* RoleSelectView.swift in Sources */,
-				CEC7BE452856DE9C0072ACB0 /* HomeView.swift in Sources */,
 				C5320298285A151200A54E68 /* MissionCardView.swift in Sources */,
 				B57BB9D32854BEED007AFFAA /* User.swift in Sources */,
 				C58B4E272858EEF000F388B8 /* MissionViewModel.swift in Sources */,
