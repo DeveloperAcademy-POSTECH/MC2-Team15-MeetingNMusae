@@ -8,8 +8,8 @@ import SwiftUI
 
 struct CharacterBox: View {
     let colorList: [Color] = [.black, .musaeBlue, .musaeOrange, .musaeMint,
-                              .musaeGreen, .musaeLightGreen, .musaePurple,
-                              .musaeSkyBlue, .musaePink, .musaeRed, .musaeMustard]
+                              .musaeRed, .musaeMustard, .musaePurple, .musaePink,
+                              .musaeGreen, .musaeLightGreen, .musaeSkyBlue]
     let width: CGFloat?
     let height: CGFloat?
     var roleIndex: Int
