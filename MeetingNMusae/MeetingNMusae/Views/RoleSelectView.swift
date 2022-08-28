@@ -63,7 +63,7 @@ struct RoleSelectView: View {
                             // 유니스 화면으로 이동
                             // 회의 전체에 시작함 이라는 변수 넣기
                             // reviews의 reviewee_role_id 에 랜덤 값으로 중복 없이 넣어주기
-                            if  meetingRoomViewModel.meetingRooms[0].roleSelectUsers.filter({ $0.count > 0 }).count == userViewModel.users.count {
+                            if  meetingRoomViewModel.meetingRooms[0].roleSelectUsers.filter({ $0.count > 0 }).count == userViewModel.users.count, !(meetingRoomViewModel.meetingRooms[0].roleSelectUsers[0].isEmpty || meetingRoomViewModel.meetingRooms[0].roleSelectUsers[1].isEmpty || meetingRoomViewModel.meetingRooms[0].roleSelectUsers[2].isEmpty) {
                                 meetingRoomViewModel.completedRoleSelect(roomCode: roomCode)
 
                                 var reviewee: String!
@@ -82,7 +82,11 @@ struct RoleSelectView: View {
                             }
                         }, label: {
                             // nick의 SelectBox가 나오면 주석 해제
-                            SelectBox(isDark: true, description: meetingRoomViewModel.meetingRooms[0].roleSelectUsers.filter { $0.count > 0 }.count == userViewModel.users.count ? "선택 완료" : "선택 중...")
+                            if meetingRoomViewModel.meetingRooms[0].roleSelectUsers.filter { $0.count > 0 }.count == userViewModel.users.count, !(meetingRoomViewModel.meetingRooms[0].roleSelectUsers[0].isEmpty || meetingRoomViewModel.meetingRooms[0].roleSelectUsers[1].isEmpty || meetingRoomViewModel.meetingRooms[0].roleSelectUsers[2].isEmpty) {
+                                SelectBox(isDark: true, description: "선택 완료")
+                            } else {
+                                EmptyView()
+                            }
                         })
 
                     } else {
