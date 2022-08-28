@@ -132,7 +132,7 @@ class MeetingRoomViewModel: ObservableObject {
     }
     
     func deleteMeetingRoom(roomCode: String) {
-        db.collection("meeting_rooms").document(roomCode).delete() { err in
+        db.collection("meeting_rooms").document(roomCode).delete { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
@@ -140,7 +140,7 @@ class MeetingRoomViewModel: ObservableObject {
             }
         }
     }
-    
+
     func isExistedRoom(roomCode: String, completion: @escaping () -> Void) {
         var result: Bool = false
         db.collection("meeting_rooms").document(roomCode).getDocument { document, _ in

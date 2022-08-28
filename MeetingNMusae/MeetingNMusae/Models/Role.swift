@@ -95,7 +95,6 @@ extension Role {
     }
     // swiftlint:enable cyclomatic_complexity
     
-//    static func getRoleName(roleId: RolesEnum) -> String {
     static func getRoleName(roleId: Int) -> String {
         if (roleId > 0) && (roleId <= 10) {
             return self.roles[roleId-1].roleName
@@ -103,18 +102,4 @@ extension Role {
             return "no role"
         }
     }
-    
-//    enum RolesEnum: Int {
-//        case 진행무새 = 1
-//        case 기록무새 = 2
-//        case 타임무새 = 3
-//        case 발언권무새 = 4
-//        case 금고무새 = 5
-//        case 왜무새 = 6
-//        case 좋아무새 = 7
-//        case 주제무새 = 8
-//        case 이해무새 = 9
-//        case 삐딱무새 = 10
-//    }
-
 }
