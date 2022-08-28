@@ -13,7 +13,13 @@ struct Home: View {
     
     @State var isNicknameSettingViewActive: Bool = false
     @State var isRoomFindingViewActive: Bool = false
-    
+
+    private let imageHeight = UIScreen.screenHeight * 0.4265
+    private let imageWidth = UIScreen.screenWidth * 0.923
+    private let buttonSpacing = UIScreen.screenHeight * 0.019
+    private let titleTopPadding = UIScreen.screenHeight * 0.114
+    private let titleBottomPadding = UIScreen.screenHeight * 0.057
+
     private func makeRoomCode() {
         let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         self.roomCode = ""
@@ -29,26 +35,18 @@ struct Home: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                VStack {
-                    Text("회의하는 N무새")
-                        . font(.title)
-                        .fontWeight(.heavy)
-                        .padding(.bottom, 46)
-                    Image("회의하는N무새")
-                        .frame(width: 360, height: 360)
-                        .padding(.bottom, 88)
-                    Spacer()
-                }
-                .navigationTitle("")
-                .navigationBarTitleDisplayMode(.inline)
-                .padding(.top)
-                .onAppear {
-                    self.meetingRoomViewModel.getRoomCodeList()
-                }
-                
-                VStack(alignment: .center, spacing: 20) {
-                    Spacer()
+            VStack(alignment: .center, spacing: 0) {
+                Text("회의하는 N무새")
+                    .font(.title)
+                    .fontWeight(.heavy)
+                    .padding(.top, titleTopPadding)
+                    .padding(.bottom, titleBottomPadding)
+                Image("회의하는N무새")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: imageWidth, height: imageHeight)
+                    .padding(.bottom, UIScreen.screenHeight * 0.1)
+                VStack(spacing: buttonSpacing) {
                     NavigationLink(destination: NicknameSettingView(isRootActive: $isNicknameSettingViewActive, roomCode: roomCode, isOwner: true), isActive: self.$isNicknameSettingViewActive) {
                         SelectBox(isDark: true, description: "방 만들기")
                     }
@@ -59,7 +57,11 @@ struct Home: View {
                     NavigationLink(destination: RoomFindingView(isRootActive: $isRoomFindingViewActive), isActive: self.$isRoomFindingViewActive) {
                         SelectBox(isDark: false, description: "입장하기")
                     }
-                }// VStack
+                }
+            }
+            .navigationBarHidden(true)
+            .onAppear {
+                self.meetingRoomViewModel.getRoomCodeList()
             }
         }// NavigationView
     }

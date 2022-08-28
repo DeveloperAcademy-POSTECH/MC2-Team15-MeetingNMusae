@@ -22,7 +22,9 @@ struct MissionView: View {
 
     // 폰트 크기에 따라 수정 예정
     let textheight: CGFloat = 34 // UIScreen.screenHeight * 0.06
-    
+    private let leadingPadding = UIScreen.screenWidth * 0.0718
+    private let trailingPadding = UIScreen.screenWidth * 0.0923
+
     var body: some View {
         VStack {
             Spacer()
@@ -44,13 +46,12 @@ struct MissionView: View {
                 .frame(height: UIScreen.screenWidth*0.2+textheight)
                 .padding(.leading, 28)
             }
-//            .padding(.top, 58)
-//            .padding(.bottom, 24)
             Spacer()
             // 내 역할 미션 카드
             MissionCardView(userViewModel: userViewModel, missionViewModel: missionViewModel)
                 .frame(height: 510)
-                .padding(.horizontal, 28)
+                .padding(.leading, leadingPadding)
+                .padding(.trailing, trailingPadding)
                 .padding(.bottom)
 
             Spacer()
@@ -62,11 +63,9 @@ struct MissionView: View {
                     meetingRoomViewModel.endMeeting(roomCode: roomCode)
                 } label: {
                     Text("회의 종료하기")
-//                        .font(.system(size: 18, weight: .bold))
                         .font(.headline)
                         .fontWeight(.heavy)
                         .foregroundColor(.buttonGray)
-//                        .padding(54)
                 }
             } else {
                 EmptyView()

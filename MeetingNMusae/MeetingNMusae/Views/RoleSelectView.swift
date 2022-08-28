@@ -8,8 +8,6 @@
 import SwiftUI
 import FirebaseFirestore
 
-let characterSize: CGFloat = UIScreen.screenWidth / 4
-
 struct RoleSelectView: View {
     @State var columns: [GridItem] = [
         GridItem(),
@@ -19,26 +17,30 @@ struct RoleSelectView: View {
     @State var roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
     @State var nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
     @State var roleId = UserDefaults.standard.integer(forKey: "roleId")
-    
+
     @State var owner: String = ""
     @State var roles: [Role] = Role.roles
     @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
     @ObservedObject var userViewModel = UserViewModel()
 
     private var db = Firestore.firestore()
+    private let leadPadding = UIScreen.screenWidth * 0.03
+    private let trailingPadding = UIScreen.screenWidth * 0.0923
+    private let generalPadding = UIScreen.screenWidth * 0.0718
 
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 0) {
             Text("역할을 골라주세요").font(.title2).bold()
-                .padding(EdgeInsets(top: 28, leading: 0, bottom: 3, trailing: 0))
-            
+                .padding(EdgeInsets(top: generalPadding, leading: 0, bottom: 8, trailing: 0))
+
             HStack {
                 Image(systemName: "star.circle.fill")
                 Text("필수 역할입니다")
             }
+            .padding(.bottom, generalPadding)
             .font(.subheadline)
-            .foregroundColor(Color.gray)
-            
+            .foregroundColor(Color(hex: "6C6C6C"))
+
             ForEach(meetingRoomViewModel.meetingRooms) { meetingRoom in
                 VStack {
                     ScrollView {
@@ -46,14 +48,14 @@ struct RoleSelectView: View {
                             ForEach(0..<roles.count, id: \.self) { i in
                                 RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, meetingRoomViewModel: meetingRoomViewModel)
                                     .background(meetingRoom.roleSelectUsers[i] != "" ? CharacterBox(roleIndex: 0) : CharacterBox(roleIndex: roles[i].id))
-                                    .padding(.leading)
-                                    .padding(.bottom)
+                                    .padding(.leading, leadPadding)
+                                    .padding(.bottom, generalPadding)
                             }
                         }
-                        .padding(.top)
-                        .padding(.trailing)
+                        .padding(.top, 3)
+                        .padding(.trailing, trailingPadding)
                     }
-                    .padding(.trailing, 8)
+                    .padding(.leading, UIScreen.screenWidth * 0.04)
 
                     if meetingRoom.owner == nickname {
                         Button(action: {
@@ -103,6 +105,7 @@ struct RoleItem: View {
     @State var role: Role
     @State var roleSelectUser: String
     var roomCode: String
+    private let characterSize: CGFloat = UIScreen.screenHeight * 0.1422
     @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
 
     var body: some View {
@@ -110,18 +113,14 @@ struct RoleItem: View {
             isModalShown = true
         } label: {
             ZStack {
-                VStack {
+                VStack(spacing: 0) {
                     Image("\(role.roleName)")
                         .resizable()
-                        .scaledToFill()
+                        .aspectRatio(contentMode: .fit)
                         .frame(height: characterSize)
                         .opacity(roleSelectUser == "" ? 1 : 0.5)
-                        .padding(.top)
-                    Text("\(role.roleName)")
-                        .bold()
-                        .padding(.bottom)
-                        .foregroundColor(.black)
-                        .opacity(roleSelectUser == "" ? 1 : 0.5)
+                        .padding(.top, 8)
+                    Spacer()
                 }
 
                 VStack {
@@ -132,26 +131,35 @@ struct RoleItem: View {
                                     .font(.system(size: 20))
                             }
                         } else {
-                            Text("\(roleSelectUser)")
-                                .bold()
-                                .padding(4)
-                                .foregroundColor(.white)
-                                .background(RoundedRectangle(cornerRadius: 6.0).fill(Color.black))
+                            NameBox(user: roleSelectUser)
                         }
-                        
+
                         Spacer()
                     }
                     .foregroundColor(Color.black)
                     .padding(10)
-                    
+
                     Spacer()
+                    Text("\(role.roleName)")
+                        .bold()
+                        .padding(.bottom, 16)
+                        .foregroundColor(.black)
+                        .opacity(roleSelectUser == "" ? 1 : 0.5)
                 }
             }
+            .frame(width: UIScreen.screenWidth * 0.39, height: UIScreen.screenWidth * 0.41)
+
         }.sheet(isPresented: $isModalShown) {
             NavigationView {
                 RoleDetailView(role: role, isModalShown: $isModalShown, meetingRoomViewModel: meetingRoomViewModel)
                     .ignoresSafeArea()
-            }.navigationBarHidden(true)
+            }
         }
+    }
+}
+
+struct RoleSelectView_Previews: PreviewProvider {
+    static var previews: some View {
+        RoleSelectView()
     }
 }

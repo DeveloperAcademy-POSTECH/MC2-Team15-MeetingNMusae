@@ -28,7 +28,8 @@ struct PlayerListView: View {
             ZStack {
                 Text(roomCode)
                     .fontWeight(.bold)
-                    .padding(.vertical, UIScreen.screenHeight * 0.0237)
+                    .padding(.top, 15)
+                    .padding(.bottom, 22)
                     .textSelection(.enabled)
                 HStack {
                     Button(action: {
@@ -43,10 +44,8 @@ struct PlayerListView: View {
                     })
                     Spacer()
                 }
+                .padding(.leading, 24)
             }// ZStack_RoomCodeBox
-            .overlay(alignment: .leading) {
-                
-            }
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
                     Text("참여자 (\(userViewModel.users.count))")
@@ -66,35 +65,22 @@ struct PlayerListView: View {
                     .padding(.all, UIScreen.screenHeight * 0.0178)
                 }
                 .background(CharacterBox())
+                .padding(.leading, UIScreen.screenWidth * 0.0718)
+                .padding(.trailing, UIScreen.screenWidth * 0.0924)
                 Spacer()
                 
                 if isOwner {
-                    Button(action: {
+                    Button {
                         MeetingRoomViewModel().startMeeting(roomCode: roomCode)
-                        
-                        // todo
-
-                    }, label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 12)
-                                .foregroundColor(.black)
-                            Text("회의 시작")
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                        }
-                        .frame(height: UIScreen.screenHeight * 0.076)
-                    })
-                    .padding(.bottom, 8)
+                    } label: {
+                        SelectBox(isDark: true, description: "회의 시작")
+                    }
                 } else {
                     EmptyView()
                 }
-            }
-        }// VStack
-        .padding(.leading, UIScreen.screenWidth * 0.0718)
-        .padding(.trailing, UIScreen.screenWidth * 0.0924)
-//        .frame(width: UIScreen.screenWidth * 0.84)
+            }// VStack
+        }
         .navigationBarHidden(true)
     }
+
 }
-
-

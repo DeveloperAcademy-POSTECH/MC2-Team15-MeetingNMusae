@@ -20,39 +20,40 @@ struct ReviewWritingView: View {
         VStack(alignment: .center, spacing: 0) {
             VStack(spacing: 0) {
                 Text("랜덤 피드백!")
-                    .font(.system(size: 24))
+                    .font(.system(size: UIScreen.screenHeight * 0.028))
                     .fontWeight(.heavy)
                     .padding(.top, UIScreen.screenHeight * 0.0237)
                     .padding(.bottom, UIScreen.screenHeight * 0.0095)
                 Text("모두가 피드백을 받을 수 있도록\n한 마디를 써주세요")
-                    .font(.system(size: 16))
+                    .font(.system(size: UIScreen.screenHeight * 0.019))
                     .fontWeight(.medium)
                     .lineSpacing(2.2)
                     .foregroundColor(Color(hex: "6C6C6C"))
                     .multilineTextAlignment(.center)
-                    .frame(height: 41)
                 ForEach(self.reviewViewModel.reviews) { review in
-                    Image("\(Role.roles[review.revieweeRoleId - 1].roleName)_피드백작성")
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack(spacing: 8) {
-                            Text(review.to)
-                                .bold()
-                                .padding(4)
-                                .foregroundColor(.white)
-                                .background(RoundedRectangle(cornerRadius: 6.0).fill(Color.black))
-                            Text(Role.roles[review.revieweeRoleId - 1].roleName)
-                                .font(.system(size: 17))
-                                .fontWeight(.bold)
+                    VStack(spacing: 0) {
+                        Image("\(Role.roles[review.revieweeRoleId - 1].roleName)_피드백작성")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: UIScreen.screenHeight * 0.148)
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack(spacing: 8) {
+                                NameBox(user: review.to)
+                                Text(Role.roles[review.revieweeRoleId - 1].roleName)
+                                    .font(.system(size: 17))
+                                    .fontWeight(.bold)
+                            }
+                            MultiLineTextField(text: $content)
+                                .focused($isTextFieldFocused)
                         }
-                        MultiLineTextField(text: $content)
-                            .focused($isTextFieldFocused)
+                        .padding(.all, UIScreen.screenHeight * 0.033)
+                        .background(CharacterBox())
+                        .frame(maxHeight: UIScreen.screenHeight * 0.21)
+                        .padding(.horizontal, UIScreen.screenWidth * 0.0718)
+                        .padding(.trailing, UIScreen.screenWidth * 0.0205)
                     }
-                    .padding(.all, UIScreen.screenWidth * 0.0718)
-                    .background(CharacterBox())
-                    .frame(height: UIScreen.screenHeight * 0.21)
-                    .padding(.horizontal, UIScreen.screenWidth * 0.0718)
-                    .padding(.trailing, UIScreen.screenWidth * 0.0205)
                 }
+                .padding(.bottom, 8)
             }
             Spacer()
             if isTextFieldFocused {
@@ -74,17 +75,7 @@ struct ReviewWritingView: View {
                     }
                 )
             } else {
-                ZStack {
-                    Rectangle()
-                        .frame(height: UIScreen.screenHeight * 0.076)
-                        .foregroundColor(.black)
-                        .cornerRadius(12)
-                    Text("작성 완료")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                }
-                .padding(.horizontal, UIScreen.screenWidth * 0.0718)
+                SelectBox(isDark: true, description: "작성 완료")
                 .simultaneousGesture(TapGesture()
                     .onEnded {
                         reviewViewModel.setReviewContent(roomCode: roomCode, nickname: nickname, content: content)
