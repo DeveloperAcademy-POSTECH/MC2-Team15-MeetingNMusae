@@ -28,6 +28,6 @@ struct SelectBox: View {
         }
         .frame(height: boxHeight)
         .padding(.horizontal, horizontalPadding)
-        .padding(.bottom, bottomPadding)
+        .padding(.bottom, UIDevice.hasSafeArea ? bottomPadding : 28)
     }
 }
