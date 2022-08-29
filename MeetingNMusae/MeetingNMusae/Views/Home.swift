@@ -19,6 +19,7 @@ struct Home: View {
     private let buttonSpacing = UIScreen.screenHeight * 0.019
     private let titleTopPadding = UIScreen.screenHeight * 0.114
     private let titleBottomPadding = UIScreen.screenHeight * 0.057
+    private let horizontalPadding = UIScreen.screenWidth * 0.0718
 
     private func makeRoomCode() {
         let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -45,10 +46,21 @@ struct Home: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: imageWidth, height: imageHeight)
-                    .padding(.bottom, UIScreen.screenHeight * 0.1)
-                VStack(spacing: buttonSpacing) {
+                Spacer()
+                VStack(spacing: 16) {
                     NavigationLink(destination: NicknameSettingView(isRootActive: $isNicknameSettingViewActive, roomCode: roomCode, isOwner: true), isActive: self.$isNicknameSettingViewActive) {
-                        SelectBox(isDark: true, description: "방 만들기")
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 12)
+                                .foregroundColor(.black)
+                            Text("방 만들기")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.black, lineWidth: 3)
+                        }
+                        .frame(height: 64)
+                        .padding(.horizontal, horizontalPadding)
                     }
                     .simultaneousGesture(TapGesture().onEnded {
                         makeRoomCode()

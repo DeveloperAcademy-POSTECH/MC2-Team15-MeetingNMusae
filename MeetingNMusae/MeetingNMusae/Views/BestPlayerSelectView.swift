@@ -18,11 +18,10 @@ struct BestPlayerSelectView: View {
     @State var nickname = ""
     @State var roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
     @ObservedObject var userViewModel = UserViewModel()
-    private let leadPadding = UIScreen.screenWidth * 0.03
+    private let leadPadding = UIScreen.screenWidth * 0.0512
     private let trailingPadding = UIScreen.screenWidth * 0.0923
     private let generalPadding = UIScreen.screenWidth * 0.0718
     private var db = Firestore.firestore()
-    private var characterSize = UIScreen.screenHeight * 0.1422
 
     var body: some View {
         VStack(alignment: .center) {
@@ -40,7 +39,7 @@ struct BestPlayerSelectView: View {
                 .task(timer)
             
             ScrollView {
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: columns, spacing: generalPadding * 0.9) {
                     ForEach(userViewModel.users) { user in
                         if user.roleId == 0 {
                             EmptyView()
@@ -50,15 +49,15 @@ struct BestPlayerSelectView: View {
                             }, label: {
                                 PlayerItem(role: roles[user.roleId - 1], user: user, nickname: $nickname)
                                     .background(CharacterBox(roleIndex: nickname == user.nickname ? 0 : user.roleId))
-                            }).padding(.leading, leadPadding)
-                                .padding(.bottom, generalPadding)
+                            })
+                            .padding(.leading, leadPadding)
                         }
                     }
                 }
-                .padding(.top, UIScreen.screenHeight * 0.038)
                 .padding(.trailing, trailingPadding)
             }
-            .padding(.leading, UIScreen.screenWidth * 0.04)
+            .padding(.top, UIScreen.screenHeight * 0.038)
+            .padding(.leading, UIScreen.screenWidth * 0.02)
         }
         .navigationBarHidden(true)
         .onAppear {
@@ -86,7 +85,7 @@ struct PlayerItem: View {
     @State var roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
     
     @ObservedObject var userViewModel = UserViewModel()
-    private let characterSize: CGFloat = UIScreen.screenWidth / 4
+    private let characterSize: CGFloat = UIScreen.screenWidth * 0.308
 
     var body: some View {
         ZStack {
@@ -101,12 +100,7 @@ struct PlayerItem: View {
 
             VStack {
                 HStack {
-                    Text("\(user.nickname)")
-                        .bold()
-                        .padding(4)
-                        .foregroundColor(.white)
-                        .background(RoundedRectangle(cornerRadius: 6.0).fill(Color.black))
-                    
+                    NameBox(user: user.nickname)
                     Spacer()
                 }
                 .foregroundColor(Color.black)

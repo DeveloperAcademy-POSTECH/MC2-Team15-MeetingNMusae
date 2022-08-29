@@ -37,11 +37,11 @@ struct MissionCardView: View {
                 Rectangle()
                     .foregroundColor(Color.bgGray)
                     .cornerRadius(12, corners: [.bottomLeft, .bottomRight])
-                    .padding([.horizontal, .bottom], 1.5)
+                    .padding([.horizontal, .bottom], 4)
                 VStack {
                     // 코지의 라인 익스텐션 사용
-                    Line().stroke(style: StrokeStyle(lineWidth: 3, lineCap: .round, dash: [8, 10]))
-                        .frame(height: 1)
+                    Image("dotted_line")
+
                     Spacer()
                 }
                 VStack(alignment: .leading) {
@@ -83,7 +83,7 @@ struct MissionCardView: View {
             }
         }
         .background(
-            CharacterBox(roleIndex: roleId)
+            CharacterBox(roleIndex: roleId, strokeBorderWidth: 4)
         )
     }
 }

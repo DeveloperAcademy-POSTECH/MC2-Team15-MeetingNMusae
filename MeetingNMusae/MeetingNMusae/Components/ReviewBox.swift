@@ -27,7 +27,7 @@ struct ReviewBox: View {
                 
                 Text(review)
                     .font(.callout)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.subTextGray)
                     .fixedSize(horizontal: false, vertical: true)
             }// VStack_Review
             .padding([.top, .leading, .bottom], 20)

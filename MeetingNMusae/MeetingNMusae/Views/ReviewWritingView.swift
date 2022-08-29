@@ -28,7 +28,7 @@ struct ReviewWritingView: View {
                     .font(.system(size: UIScreen.screenHeight * 0.019))
                     .fontWeight(.medium)
                     .lineSpacing(2.2)
-                    .foregroundColor(Color(hex: "6C6C6C"))
+                    .foregroundColor(.subTextGray)
                     .multilineTextAlignment(.center)
                 ForEach(self.reviewViewModel.reviews) { review in
                     VStack(spacing: 0) {

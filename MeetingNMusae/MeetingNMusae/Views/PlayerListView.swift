@@ -52,9 +52,10 @@ struct PlayerListView: View {
                         .font(.title3)
                         .fontWeight(.heavy)
                         .padding(.all, UIScreen.screenHeight * 0.0284)
-                    Line()
-                        .stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
-                        .frame(height: 1)
+                    Image("dotted_line")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .scaledToFit()
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(userViewModel.users) { user in
                             Text("• " + user.nickname)
@@ -67,16 +68,36 @@ struct PlayerListView: View {
                 .background(CharacterBox())
                 .padding(.leading, UIScreen.screenWidth * 0.0718)
                 .padding(.trailing, UIScreen.screenWidth * 0.0924)
-                Spacer()
-                
-                if isOwner {
+
+                if userViewModel.users.count < 3 {
+                    HStack {
+                        Text("최소 3명의 인원이 필요합니다.")
+                            .font(.callout)
+                            .fontWeight(.medium)
+                            .foregroundColor(.subTextGray)
+                            .padding(.top, 20)
+                        Spacer()
+                    }
+                    .padding(.leading, UIScreen.screenWidth * 0.0718 + 6)
+                    Spacer()
+                } else if isOwner {
+                    Spacer()
                     Button {
                         MeetingRoomViewModel().startMeeting(roomCode: roomCode)
                     } label: {
                         SelectBox(isDark: true, description: "회의 시작")
                     }
                 } else {
-                    EmptyView()
+                    HStack {
+                        Text("방장의 시작을 기다리는 중입니다.")
+                            .font(.callout)
+                            .fontWeight(.medium)
+                            .foregroundColor(.subTextGray)
+                            .padding(.top, 20)
+                        Spacer()
+                    }
+                    .padding(.leading, UIScreen.screenWidth * 0.0718 + 6)
+                    Spacer()
                 }
             }// VStack
         }

@@ -45,9 +45,7 @@ struct RoleDetailView: View {
                 }
             }
             Spacer()
-            Line()
-                .stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
-                .frame(height: 1)
+            Image("dotted_line")
             Spacer()
             Group {
                 Text("이런 사람에게 추천해요!")
@@ -76,14 +74,14 @@ struct RoleDetailView: View {
                         RoundedRectangle(cornerRadius: 12).foregroundColor(.black).frame(height: 64)
                         Text("선택하기").foregroundColor(.white).bold()
                     }
-                }.padding(.bottom, 42)
-
+                }
+                .padding(.bottom, UIDevice.hasSafeArea ? 42 : 28)
             } else {
                 ZStack {
                     RoundedRectangle(cornerRadius: 12).foregroundColor(.buttonGray).frame(height: 64)
                     Text("이미 선택된 역할입니다").foregroundColor(.white).bold()
                 }
-                .padding(.bottom, 42)
+                .padding(.bottom, UIDevice.hasSafeArea ? 42 : 28)
             }
         }
         .toolbar {

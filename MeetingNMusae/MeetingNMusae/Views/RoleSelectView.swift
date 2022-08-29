@@ -24,7 +24,7 @@ struct RoleSelectView: View {
     @ObservedObject var userViewModel = UserViewModel()
 
     private var db = Firestore.firestore()
-    private let leadPadding = UIScreen.screenWidth * 0.03
+    private let leadPadding = UIScreen.screenWidth * 0.0512
     private let trailingPadding = UIScreen.screenWidth * 0.0923
     private let generalPadding = UIScreen.screenWidth * 0.0718
 
@@ -33,28 +33,27 @@ struct RoleSelectView: View {
             Text("역할을 골라주세요").font(.title2).bold()
                 .padding(EdgeInsets(top: generalPadding, leading: 0, bottom: 8, trailing: 0))
 
-            HStack {
+            HStack(spacing: 6) {
                 Image(systemName: "star.circle.fill")
                 Text("필수 역할입니다")
             }
             .padding(.bottom, generalPadding)
             .font(.subheadline)
-            .foregroundColor(Color(hex: "6C6C6C"))
+            .foregroundColor(.subTextGray)
 
             ForEach(meetingRoomViewModel.meetingRooms) { meetingRoom in
                 VStack {
                     ScrollView {
-                        LazyVGrid(columns: columns) {
+                        LazyVGrid(columns: columns, spacing: generalPadding * 0.9) {
                             ForEach(0..<roles.count, id: \.self) { i in
                                 RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, meetingRoomViewModel: meetingRoomViewModel)
                                     .background(meetingRoom.roleSelectUsers[i] != "" ? CharacterBox(roleIndex: 0) : CharacterBox(roleIndex: roles[i].id))
                                     .padding(.leading, leadPadding)
-                                    .padding(.bottom, generalPadding)
                             }
                         }
-                        .padding(.top, 3)
                         .padding(.trailing, trailingPadding)
                     }
+                    .padding(.top, 3)
                     .padding(.leading, UIScreen.screenWidth * 0.04)
 
                     if meetingRoom.owner == nickname {
@@ -105,7 +104,7 @@ struct RoleItem: View {
     @State var role: Role
     @State var roleSelectUser: String
     var roomCode: String
-    private let characterSize: CGFloat = UIScreen.screenHeight * 0.1422
+    private let characterSize: CGFloat = UIScreen.screenWidth * 0.308
     @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
 
     var body: some View {
