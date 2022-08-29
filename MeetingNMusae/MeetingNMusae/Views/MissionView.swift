@@ -49,7 +49,7 @@ struct MissionView: View {
             Spacer()
             // 내 역할 미션 카드
             MissionCardView(userViewModel: userViewModel, missionViewModel: missionViewModel)
-                .frame(height: 510)
+                .frame(idealHeight: 510, maxHeight: 510)
                 .padding(.leading, leadingPadding)
                 .padding(.trailing, trailingPadding)
                 .padding(.bottom)
