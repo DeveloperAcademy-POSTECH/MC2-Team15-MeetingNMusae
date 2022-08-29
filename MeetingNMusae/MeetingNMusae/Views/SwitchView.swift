@@ -46,12 +46,11 @@ struct SwitchView: View {
                     if isReviewFinished {
                         ReviewShowingView(roomCode: roomCode, isRootActive: isRootActive)
                             .navigationBarHidden(true)
-                    }
-                    else {
+                    } else {
                         ReviewWritingView(roomCode: roomCode, isReviewFinished: $isReviewFinished)
                             .navigationBarHidden(true)
                     }
-                }  else {
+                } else {
                     PlayerListView(roomCode: roomCode, isOwner: isOwner)
                 }
             }
@@ -59,7 +58,7 @@ struct SwitchView: View {
         .navigationBarHidden(true)
     }
     
-    func timer() async {
+    @Sendable private func timer() async {
         while remainTime > 0 {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
             remainTime -= 1

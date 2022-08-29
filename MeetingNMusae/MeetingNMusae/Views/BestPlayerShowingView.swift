@@ -94,7 +94,7 @@ struct BestPlayerShowingView: View {
         .task(timer)
     }
     
-    func timer() async {
+    @Sendable private func timer() async {
         while remainTime > 0 {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
             remainTime -= 1

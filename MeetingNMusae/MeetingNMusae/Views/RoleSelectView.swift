@@ -59,10 +59,6 @@ struct RoleSelectView: View {
 
                     if meetingRoom.owner == nickname {
                         Button(action: {
-                            // todo
-                            // 유니스 화면으로 이동
-                            // 회의 전체에 시작함 이라는 변수 넣기
-                            // reviews의 reviewee_role_id 에 랜덤 값으로 중복 없이 넣어주기
                             if  meetingRoomViewModel.meetingRooms[0].roleSelectUsers.filter({ $0.count > 0 }).count == userViewModel.users.count, !(meetingRoomViewModel.meetingRooms[0].roleSelectUsers[0].isEmpty || meetingRoomViewModel.meetingRooms[0].roleSelectUsers[1].isEmpty || meetingRoomViewModel.meetingRooms[0].roleSelectUsers[2].isEmpty) {
                                 meetingRoomViewModel.completedRoleSelect(roomCode: roomCode)
 
