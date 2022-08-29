@@ -10,7 +10,7 @@ import SwiftUI
 struct SelectBox: View {
     private let horizontalPadding = UIScreen.screenWidth * 0.0718
     private let bottomPadding = 8.0
-    private let boxHeight = UIScreen.screenHeight * 0.076
+    private let boxHeight = 64.0
     let isDark: Bool
     var description: String
 
