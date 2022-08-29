@@ -36,7 +36,7 @@ struct ReviewBox: View {
             
             VStack {
                 Spacer()
-                Image(Role.roles[roleIndex].roleName)
+                Image(Role.roles[roleIndex - 1].roleName)
                     .resizable()
                     .frame(width: 80, height: 80)
                     .padding(.trailing, 17)
