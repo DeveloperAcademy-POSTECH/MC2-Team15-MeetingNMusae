@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SwitchView: View {
-    @State var isRootActive: Binding<Bool>
+    @Binding var isRootActive: Bool
     @State var remainTime = 2
     
     @State var isModalShown: Bool = false
-    @State var selectedRoleId: Int = 1
+    @State var selectedRoleId: Int = 0
     
     @State var roomCode: String
     @State var isOwner: Bool
@@ -22,7 +22,7 @@ struct SwitchView: View {
     init(roomCode: String, isOwner: Bool, isRootActive: Binding<Bool>) {
         self.roomCode = roomCode
         self.isOwner = isOwner
-        self.isRootActive = isRootActive
+        self._isRootActive = isRootActive
         meetingRoomViewModel.fetchData(roomCode: roomCode)
     }
     
@@ -47,7 +47,7 @@ struct SwitchView: View {
                         .navigationBarHidden(true)
                 } else if meetingRoom.isReviewStarted {
                     if isReviewFinished {
-                        ReviewShowingView(meetingRoomViewModel: meetingRoomViewModel, roomCode: roomCode, isRootActive: isRootActive)
+                        ReviewShowingView(roomCode: roomCode, isRootActive: $isRootActive)
                             .navigationBarHidden(true)
                     } else {
                         ReviewWritingView(roomCode: roomCode, isReviewFinished: $isReviewFinished)
@@ -61,10 +61,9 @@ struct SwitchView: View {
         .navigationBarHidden(true)
         .sheet(isPresented: $isModalShown) {
             NavigationView {
-                RoleDetailView(role: Role.roles[selectedRoleId], isModalShown: $isModalShown, meetingRoomViewModel: meetingRoomViewModel)
+                RoleDetailView(roleId: $selectedRoleId, isModalShown: $isModalShown, meetingRoomViewModel: meetingRoomViewModel)
                     .navigationBarHidden(false)
                     .ignoresSafeArea()
-
             }
         }
     }

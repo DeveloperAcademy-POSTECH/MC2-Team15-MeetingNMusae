@@ -48,7 +48,7 @@ struct RoleSelectView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: generalPadding * 0.9) {
                             ForEach(0..<roles.count, id: \.self) { i in
-                                RoleItem(isModalShown: $isModalShown, selectedRoleId: $selectedRoleId, role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, meetingRoomViewModel: meetingRoomViewModel, id: i)
+                                RoleItem(isModalShown: $isModalShown, selectedRoleId: $selectedRoleId, role: $roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, meetingRoomViewModel: meetingRoomViewModel, id: i)
                                     .background(meetingRoom.roleSelectUsers[i] != "" ? CharacterBox(roleIndex: 0) : CharacterBox(roleIndex: roles[i].id))
                                     .padding(.leading, leadPadding)
                             }
@@ -103,7 +103,7 @@ struct RoleSelectView: View {
 struct RoleItem: View {
     @Binding var isModalShown: Bool
     @Binding var selectedRoleId: Int
-    @State var role: Role
+    @Binding var role: Role
     @State var roleSelectUser: String
     var roomCode: String
     private let characterSize: CGFloat = UIScreen.screenWidth * 0.308

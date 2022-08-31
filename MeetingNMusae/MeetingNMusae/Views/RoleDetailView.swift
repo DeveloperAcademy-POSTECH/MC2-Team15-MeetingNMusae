@@ -11,7 +11,7 @@
 import SwiftUI
 
 struct RoleDetailView: View {
-    @State var role: Role
+    @Binding var roleId: Int
     @State var roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
     @State var nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
     @Binding var isModalShown: Bool
@@ -23,11 +23,11 @@ struct RoleDetailView: View {
         VStack(alignment: .leading, spacing: 0) {
             Spacer()
             VStack(spacing: 0) {
-                Image("\(role.roleName)")
+                Image("\(Role.roles[roleId].roleName)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: UIScreen.screenHeight * 0.237, height: UIScreen.screenHeight * 0.237)
-                Text("\(role.roleName)")
+                Text("\(Role.roles[roleId].roleName)")
                     .font(.title2)
                     .bold()
             }.alignmentGuide(.leading) { context in
@@ -35,7 +35,7 @@ struct RoleDetailView: View {
             }
             Spacer()
             VStack(alignment: .leading, spacing: 6) {
-                ForEach(role.description.components(separatedBy: "\n"), id: \.self) { sentence in
+                ForEach(Role.roles[roleId].description.components(separatedBy: "\n"), id: \.self) { sentence in
                     HStack(alignment: .top) {
                         Text("•")
                         Text("\(sentence)")
@@ -52,7 +52,7 @@ struct RoleDetailView: View {
                     .font(.system(size: 18, weight: .bold))
                     .padding(.bottom, 20)
                 VStack(alignment: .leading, spacing: 6) {
-                    ForEach(role.recommendation.components(separatedBy: "\n"), id: \.self) { sentence in
+                    ForEach(Role.roles[roleId].recommendation.components(separatedBy: "\n"), id: \.self) { sentence in
                         HStack(alignment: .top) {
                             Text("•")
                             Text("\(sentence)")
@@ -64,11 +64,11 @@ struct RoleDetailView: View {
             }
             Spacer()
 
-            if meetingRoomViewModel.meetingRooms[0].roleSelectUsers[role.id - 1].isEmpty {
+            if meetingRoomViewModel.meetingRooms[0].roleSelectUsers[Role.roles[roleId].id - 1].isEmpty {
                 Button {
-                    UserDefaults.standard.set(role.id, forKey: "roleId")
-                    userViewModel.updateUserRole(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
-                    meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
+                    UserDefaults.standard.set(Role.roles[roleId].id, forKey: "roleId")
+                    userViewModel.updateUserRole(roomCode: roomCode, roleId: Role.roles[roleId].id, nickname: nickname, isSelect: true)
+                    meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: Role.roles[roleId].id, nickname: nickname, isSelect: true)
                     isModalShown = false
                 } label: {
                     ZStack {

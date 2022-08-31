@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReviewShowingView: View {
     @ObservedObject var reviewViewModel: ReviewViewModel = ReviewViewModel()
-    @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
+    @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
     @ObservedObject var userViewModel: UserViewModel = UserViewModel()
     @State var roomCode: String
     @State var nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
