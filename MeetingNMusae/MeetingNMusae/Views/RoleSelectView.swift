@@ -13,17 +13,19 @@ struct RoleSelectView: View {
         GridItem(),
         GridItem()
     ]
-
+    
+    @Binding var selectedRoleId: Int
+    @Binding var isModalShown: Bool
+    
     @State var roomCode = UserDefaults.standard.string(forKey: "roomCode") ?? ""
     @State var nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
     @State var roleId = UserDefaults.standard.integer(forKey: "roleId")
 
     @State var owner: String = ""
     @State var roles: [Role] = Role.roles
-    @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
+    @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
     @ObservedObject var userViewModel = UserViewModel()
 
-    private var db = Firestore.firestore()
     private let leadPadding = UIScreen.screenWidth * 0.0512
     private let trailingPadding = UIScreen.screenWidth * 0.0923
     private let generalPadding = UIScreen.screenWidth * 0.0718
@@ -46,7 +48,7 @@ struct RoleSelectView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: generalPadding * 0.9) {
                             ForEach(0..<roles.count, id: \.self) { i in
-                                RoleItem(role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, meetingRoomViewModel: meetingRoomViewModel)
+                                RoleItem(isModalShown: $isModalShown, selectedRoleId: $selectedRoleId, role: roles[i], roleSelectUser: meetingRoom.roleSelectUsers[i], roomCode: roomCode, meetingRoomViewModel: meetingRoomViewModel, id: i)
                                     .background(meetingRoom.roleSelectUsers[i] != "" ? CharacterBox(roleIndex: 0) : CharacterBox(roleIndex: roles[i].id))
                                     .padding(.leading, leadPadding)
                             }
@@ -92,7 +94,6 @@ struct RoleSelectView: View {
         }
         .navigationBarHidden(true)
         .onAppear {
-            self.meetingRoomViewModel.fetchData(roomCode: roomCode)
             userViewModel.updateUserRole(roomCode: roomCode, roleId: roleId, nickname: nickname, isSelect: true)
             userViewModel.fetchData(roomCode: roomCode)
         }
@@ -100,16 +101,19 @@ struct RoleSelectView: View {
 }
 
 struct RoleItem: View {
-    @State var isModalShown = false
+    @Binding var isModalShown: Bool
+    @Binding var selectedRoleId: Int
     @State var role: Role
     @State var roleSelectUser: String
     var roomCode: String
     private let characterSize: CGFloat = UIScreen.screenWidth * 0.308
     @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
+    var id: Int
 
     var body: some View {
         Button {
             isModalShown = true
+            selectedRoleId = id
         } label: {
             ZStack {
                 VStack(spacing: 0) {
@@ -148,17 +152,12 @@ struct RoleItem: View {
             }
             .frame(width: UIScreen.screenWidth * 0.39, height: UIScreen.screenWidth * 0.41)
 
-        }.sheet(isPresented: $isModalShown) {
-            NavigationView {
-                RoleDetailView(role: role, isModalShown: $isModalShown, meetingRoomViewModel: meetingRoomViewModel)
-                    .ignoresSafeArea()
-            }
         }
     }
 }
 
-struct RoleSelectView_Previews: PreviewProvider {
-    static var previews: some View {
-        RoleSelectView()
-    }
-}
+//struct RoleSelectView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RoleSelectView()
+//    }
+//}

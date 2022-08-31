@@ -11,6 +11,9 @@ struct SwitchView: View {
     @State var isRootActive: Binding<Bool>
     @State var remainTime = 2
     
+    @State var isModalShown: Bool = false
+    @State var selectedRoleId: Int = 1
+    
     @State var roomCode: String
     @State var isOwner: Bool
     @State var isReviewFinished: Bool = false
@@ -27,10 +30,10 @@ struct SwitchView: View {
         NavigationView {
             ForEach(meetingRoomViewModel.meetingRooms) { meetingRoom in
                 if meetingRoom.isStarted {
-                    RoleSelectView()
+                    RoleSelectView(selectedRoleId: $selectedRoleId, isModalShown: $isModalShown, meetingRoomViewModel: meetingRoomViewModel)
                 } else if meetingRoom.isRoleSelectCompleted {
                     // 회의 진행 화면으로 전환
-                    MissionView()
+                    MissionView(meetingRoomViewModel: meetingRoomViewModel)
                         .navigationBarHidden(true)
                 } else if meetingRoom.isEnded {
                     if remainTime != 0 {
@@ -40,11 +43,11 @@ struct SwitchView: View {
                             .navigationBarHidden(true)
                     }
                 } else if meetingRoom.isBestRoleSelected {
-                    BestPlayerShowingView(roomCode: roomCode)
+                    BestPlayerShowingView(roomCode: roomCode, meetingRoomViewModel: meetingRoomViewModel)
                         .navigationBarHidden(true)
                 } else if meetingRoom.isReviewStarted {
                     if isReviewFinished {
-                        ReviewShowingView(roomCode: roomCode, isRootActive: isRootActive)
+                        ReviewShowingView(meetingRoomViewModel: meetingRoomViewModel, roomCode: roomCode, isRootActive: isRootActive)
                             .navigationBarHidden(true)
                     } else {
                         ReviewWritingView(roomCode: roomCode, isReviewFinished: $isReviewFinished)
@@ -56,6 +59,14 @@ struct SwitchView: View {
             }
         }
         .navigationBarHidden(true)
+        .sheet(isPresented: $isModalShown) {
+            NavigationView {
+                RoleDetailView(role: Role.roles[selectedRoleId], isModalShown: $isModalShown, meetingRoomViewModel: meetingRoomViewModel)
+                    .navigationBarHidden(false)
+                    .ignoresSafeArea()
+
+            }
+        }
     }
     
     @Sendable private func timer() async {

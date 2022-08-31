@@ -11,15 +11,16 @@ import FirebaseFirestore
 struct BestPlayerShowingView: View {
     @State var roomCode: String
     @State var roles: [Role] = Role.roles
-    @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
+    @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
     @ObservedObject var userViewModel = UserViewModel()
     
     @State var remainTime: Int = 4
     
     private var db = Firestore.firestore()
     
-    init(roomCode: String) {
+    init(roomCode: String, meetingRoomViewModel: MeetingRoomViewModel) {
         self.roomCode = roomCode
+        self.meetingRoomViewModel = meetingRoomViewModel
     }
     var body: some View {
         ZStack {

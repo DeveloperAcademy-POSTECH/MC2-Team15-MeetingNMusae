@@ -5,7 +5,7 @@ struct MissionView: View {
     // 미션 수행 정도
     @ObservedObject var userViewModel = UserViewModel()
     // 진행자가 회의 종료를 선택하면 참가자도 자동으로 다음 뷰로 넘어가기 위해 필요
-    @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
+    @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
     // 이 뷰에서 미션 내용을 가져오고, 미션카드뷰에서 미션 내용을 읽어오기 위해 필요.
     // 없이 하면 미션카드뷰에서 미션 내용이 로딩 안 됨.
     @ObservedObject var missionViewModel = MissionViewModel()

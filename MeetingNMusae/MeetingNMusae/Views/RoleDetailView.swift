@@ -69,6 +69,7 @@ struct RoleDetailView: View {
                     UserDefaults.standard.set(role.id, forKey: "roleId")
                     userViewModel.updateUserRole(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
                     meetingRoomViewModel.updateRoleSelectUser(roomCode: roomCode, roleId: role.id, nickname: nickname, isSelect: true)
+                    isModalShown = false
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 12).foregroundColor(.black).frame(height: 64)

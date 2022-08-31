@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct PlayerListView: View {
+    
+    #if DEBUG
+    var minPlayerCount: Int = 0
+    #else
+    var minPlayerCount: Int = 3
+    #endif
 
     let roomCode: String
     let isOwner: Bool
@@ -69,7 +75,7 @@ struct PlayerListView: View {
                 .padding(.leading, UIScreen.screenWidth * 0.0718)
                 .padding(.trailing, UIScreen.screenWidth * 0.0924)
 
-                if userViewModel.users.count < 3 {
+                if userViewModel.users.count < minPlayerCount {
                     HStack {
                         Text("최소 3명의 인원이 필요합니다.")
                             .font(.callout)
