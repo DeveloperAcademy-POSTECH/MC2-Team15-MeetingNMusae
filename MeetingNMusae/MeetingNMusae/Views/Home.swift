@@ -17,7 +17,8 @@ struct Home: View {
     private let imageHeight = UIScreen.screenHeight * 0.4265
     private let imageWidth = UIScreen.screenWidth * 0.923
     private let buttonSpacing = UIScreen.screenHeight * 0.019
-    private let titleTopPadding = UIScreen.screenHeight * 0.114
+    private let titleTopPadding = UIScreen.screenHeight * 0.066
+    private let questionTopPadding = UIScreen.screenHeight * 0.014
     private let titleBottomPadding = UIScreen.screenHeight * 0.057
     private let horizontalPadding = UIScreen.screenWidth * 0.0718
 
@@ -40,11 +41,10 @@ struct Home: View {
                 HStack {
                     Spacer()
                     NavigationLink(destination: HelpView(), label: {
-                        Image(systemName: "questionmark.circle")
-                            .foregroundColor(.black)
+                        Image("btn_question_mark")
                     })
                     .padding(.trailing, 28)
-                    .padding(.top)
+                    .padding(.top, questionTopPadding)
                 }
                 Text("회의하는 N무새")
                     .font(.title)

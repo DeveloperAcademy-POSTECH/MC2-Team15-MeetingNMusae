@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "help-5.pdf",
+      "filename" : "help-5.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "help-5@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "help-5@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

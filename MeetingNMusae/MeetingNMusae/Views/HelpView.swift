@@ -10,31 +10,67 @@ import SwiftUI
 struct HelpView: View {
     @State var currentTab: Int = 1
     @State var remainTime: Int = 3
+    @Environment(\.presentationMode) var presentationMode
+    private let closebtnTopPadding = UIScreen.screenHeight * 0.014
+    private let helpImageTopPadding = UIScreen.screenHeight * 0.073
+    private let helpImagebottomPadding = UIScreen.screenHeight * 0.057
+    private let bottomPadding = UIScreen.screenHeight * 0.116
     
     var body: some View {
-        TabView(selection: $currentTab) {
-            ForEach(1...6, id: \.self) { i in
-                Image("help-\(i)")
-                    .ignoresSafeArea()
-            }
-        }
-        .transition(.slide)
-        .tabViewStyle(.page)
-        .indexViewStyle(.page(backgroundDisplayMode: .always))
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+        VStack {
+            HStack {
                 Button(action: {
-                    if currentTab < 6 {
-                        currentTab += 1
-                    }
+                    presentationMode.wrappedValue.dismiss()
                 }, label: {
-                    Text(currentTab >= 6 ? "Done" : "Next")
+                    Image("btn_close")
+                        .resizable()
+                        .frame(width: UIScreen.screenWidth * 0.0718, height: UIScreen.screenWidth * 0.0718)
+                        .offset(x: -4, y: 0)
                 })
-                .disabled(currentTab >= 6)
+                Spacer()
             }
+            .padding(.leading, 24)
+            .padding(.top, closebtnTopPadding)
+            
+            TabView(selection: $currentTab) {
+                ForEach(1...6, id: \.self) { i in
+                    Image("help-\(i)")
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.bottom, helpImagebottomPadding)
+                }
+                
+                
+            }
+            .transition(.slide)
+            .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .never))
+            .onAppear {
+                setupAppearance()
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        if currentTab < 6 {
+                            currentTab += 1
+                        }
+                    }, label: {
+                        Text(currentTab >= 6 ? "Done" : "Next")
+                    })
+                    .disabled(currentTab >= 6)
+                }
+            }
+            .padding(.bottom, bottomPadding)
+            .task(timer)
         }
-        .task(timer)
+        .navigationBarHidden(true)
+        
     }
+    
+    func setupAppearance() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .black
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
+    }
+    
     
     @Sendable private func timer() async {
         while currentTab < 6 {
