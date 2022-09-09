@@ -37,6 +37,15 @@ struct Home: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: 0) {
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: HelpView(), label: {
+                        Image(systemName: "questionmark.circle")
+                            .foregroundColor(.black)
+                    })
+                    .padding(.trailing, 28)
+                    .padding(.top)
+                }
                 Text("회의하는 N무새")
                     .font(.title)
                     .fontWeight(.heavy)
@@ -76,6 +85,7 @@ struct Home: View {
                 self.meetingRoomViewModel.getRoomCodeList()
             }
         }// NavigationView
+        .accentColor(.black)
     }
 }
 

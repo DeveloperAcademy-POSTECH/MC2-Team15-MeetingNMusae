@@ -45,6 +45,7 @@
 		CE5B2B1B289AA87800E580F5 /* ReviewWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B2B1A289AA87800E580F5 /* ReviewWritingView.swift */; };
 		CE5B2B1F289AB0E400E580F5 /* Date+Reviewee.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B2B1E289AB0E400E580F5 /* Date+Reviewee.swift */; };
 		CE6491DC285F3BC500718CCF /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6491DB285F3BC500718CCF /* confetti.json */; };
+		CE9D21C028C8BFA500DD27FA /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D21BF28C8BFA500DD27FA /* HelpView.swift */; };
 		CEC7BE492856DEAF0072ACB0 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE462856DEAF0072ACB0 /* MeetingRoom.swift */; };
 		CEC7BE4A2856DEAF0072ACB0 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE472856DEAF0072ACB0 /* Review.swift */; };
 		CEC7BE4B2856DEAF0072ACB0 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7BE482856DEAF0072ACB0 /* Mission.swift */; };
@@ -92,6 +93,7 @@
 		CE5B2B1A289AA87800E580F5 /* ReviewWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWritingView.swift; sourceTree = "<group>"; };
 		CE5B2B1E289AB0E400E580F5 /* Date+Reviewee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Reviewee.swift"; sourceTree = "<group>"; };
 		CE6491DB285F3BC500718CCF /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
+		CE9D21BF28C8BFA500DD27FA /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		CEC7BE412856DE460072ACB0 /* MeetingNMusae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingNMusae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC7BE462856DEAF0072ACB0 /* MeetingRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingRoom.swift; sourceTree = "<group>"; };
 		CEC7BE472856DEAF0072ACB0 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				9029185228572BF1002D8D90 /* NicknameSettingView.swift */,
 				CED5165D285FAB0C00EA16FF /* MeetingEndingView.swift */,
 				CE5B2B1A289AA87800E580F5 /* ReviewWritingView.swift */,
+				CE9D21BF28C8BFA500DD27FA /* HelpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				C5E93F0528581927001C1DB9 /* MissionView.swift in Sources */,
 				45DF5FE028582004007DE145 /* BestPlayerShowingView.swift in Sources */,
 				CE3DCF2928519B1F00E048A3 /* MeetingNMusaeApp.swift in Sources */,
+				CE9D21C028C8BFA500DD27FA /* HelpView.swift in Sources */,
 				CE5B2B1B289AA87800E580F5 /* ReviewWritingView.swift in Sources */,
 				9029185328572BF1002D8D90 /* NicknameSettingView.swift in Sources */,
 				90A8C4DC2856042C0086ADE0 /* ColorExtension.swift in Sources */,
