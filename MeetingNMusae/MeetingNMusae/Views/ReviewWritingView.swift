@@ -86,6 +86,7 @@ struct ReviewWritingView: View {
         }
         .onAppear {
             self.reviewViewModel.getReviewee(roomCode: self.roomCode, nickname: self.nickname)
+            UIApplication.shared.hideKeyboard()
         }
     }
 
@@ -108,3 +109,4 @@ struct ReviewWritingView: View {
         }
     }
 }
+

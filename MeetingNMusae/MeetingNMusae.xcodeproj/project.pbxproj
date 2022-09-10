@@ -31,6 +31,7 @@
 		B5B1B54428545EFE000DE126 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1B54328545EFE000DE126 /* Line.swift */; };
 		B5B1B54D28547DC7000DE126 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1B54828547DC6000DE126 /* Role.swift */; };
 		B5B1B55328547DD7000DE126 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1B55028547DD7000DE126 /* UserViewModel.swift */; };
+		B5E680E728CC63DF00F11DCA /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E680E628CC63DF00F11DCA /* UIApplication+Extension.swift */; };
 		B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */; };
 		B5FC08432851E49900EDC014 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */; };
 		C5320298285A151200A54E68 /* MissionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5320297285A151200A54E68 /* MissionCardView.swift */; };
@@ -79,6 +80,7 @@
 		B5B1B54328545EFE000DE126 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		B5B1B54828547DC6000DE126 /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		B5B1B55028547DD7000DE126 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		B5E680E628CC63DF00F11DCA /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		B5FC083F2851E3BB00EDC014 /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
 		B5FC08422851E49900EDC014 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		C5320297285A151200A54E68 /* MissionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				90A8C4DB2856042C0086ADE0 /* ColorExtension.swift */,
 				CE5B2B1E289AB0E400E580F5 /* Date+Reviewee.swift */,
 				B502C87228BC9102007FE70D /* UIDevice+Extension.swift */,
+				B5E680E628CC63DF00F11DCA /* UIApplication+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5FC08402851E3BB00EDC014 /* PlayerListView.swift in Sources */,
+				B5E680E728CC63DF00F11DCA /* UIApplication+Extension.swift in Sources */,
 				45DF5FDE28581F4A007DE145 /* LottieView.swift in Sources */,
 				B5B1B54D28547DC7000DE126 /* Role.swift in Sources */,
 				CE5B2B1F289AB0E400E580F5 /* Date+Reviewee.swift in Sources */,
@@ -504,7 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeetingNMusae/Preview Content\"";
-				DEVELOPMENT_TEAM = MH33J6XU95;
+				DEVELOPMENT_TEAM = Y7G824SH3W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -519,7 +523,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jogeunjogeun.MeetingNMusae;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taekyunkim.MeetingNMusae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -536,7 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeetingNMusae/Preview Content\"";
-				DEVELOPMENT_TEAM = MH33J6XU95;
+				DEVELOPMENT_TEAM = Y7G824SH3W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -551,9 +555,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jogeunjogeun.MeetingNMusae;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taekyunkim.MeetingNMusae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
