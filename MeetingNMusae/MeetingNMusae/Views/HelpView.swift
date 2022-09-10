@@ -38,7 +38,7 @@ struct HelpView: View {
                         .aspectRatio(contentMode: .fit)
                         .padding(.bottom, helpImagebottomPadding)
                 }
-                
+
                 
             }
             .transition(.slide)
@@ -47,17 +47,9 @@ struct HelpView: View {
             .onAppear {
                 setupAppearance()
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        if currentTab < 6 {
-                            currentTab += 1
-                        }
-                    }, label: {
-                        Text(currentTab >= 6 ? "Done" : "Next")
-                    })
-                    .disabled(currentTab >= 6)
-                }
+            .onChange(of: currentTab) { _ in
+                print("called")
+                remainTime = 3
             }
             .padding(.bottom, bottomPadding)
             .task(timer)
