@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HelpView: View {
     @State var currentTab: Int = 1
-    @State var remainTime: Int = 3
     @Environment(\.presentationMode) var presentationMode
     private let closebtnTopPadding = UIScreen.screenHeight * 0.014
     private let helpImageTopPadding = UIScreen.screenHeight * 0.073
@@ -47,12 +46,7 @@ struct HelpView: View {
             .onAppear {
                 setupAppearance()
             }
-            .onChange(of: currentTab) { _ in
-                print("called")
-                remainTime = 3
-            }
-            .padding(.bottom, bottomPadding)
-            .task(timer)
+            .padding(.bottom, UIDevice.hasSafeArea ? bottomPadding : bottomPadding / 2)
         }
         .navigationBarHidden(true)
         
@@ -61,18 +55,6 @@ struct HelpView: View {
     func setupAppearance() {
         UIPageControl.appearance().currentPageIndicatorTintColor = .black
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
-    }
-    
-    
-    @Sendable private func timer() async {
-        while currentTab < 6 {
-            remainTime = 3
-            while remainTime > 0 {
-                try? await Task.sleep(nanoseconds: 1_000_000_000)
-                remainTime -= 1
-            }
-            currentTab += 1
-        }
     }
 }
 

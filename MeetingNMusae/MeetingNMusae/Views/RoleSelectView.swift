@@ -155,9 +155,3 @@ struct RoleItem: View {
         }
     }
 }
-
-//struct RoleSelectView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RoleSelectView()
-//    }
-//}
