@@ -27,7 +27,7 @@ struct ReviewBox: View {
                 
                 Text(review)
                     .font(.callout)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.subTextGray)
                     .fixedSize(horizontal: false, vertical: true)
             }// VStack_Review
             .padding([.top, .leading, .bottom], 20)
@@ -36,7 +36,7 @@ struct ReviewBox: View {
             
             VStack {
                 Spacer()
-                Image(Role.roles[roleIndex].roleName)
+                Image(Role.roles[roleIndex - 1].roleName)
                     .resizable()
                     .frame(width: 80, height: 80)
                     .padding(.trailing, 17)

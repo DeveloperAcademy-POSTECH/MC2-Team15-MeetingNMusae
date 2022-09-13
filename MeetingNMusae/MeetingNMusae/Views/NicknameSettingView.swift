@@ -77,7 +77,7 @@ struct NicknameSettingView: View {
                         UserViewModel().addUser(roomCode: roomCode, user: user)
                     }
                 )
-                .disabled(isTextEmpty(text: nickname))
+                .disabled(isTextEmpty(text: nickname) || !isExistNickname)
             }// HStack
         }// VStack
         .navigationTitle("")

@@ -23,56 +23,47 @@ struct MissionCardView: View {
         let roleName: String = Role.getRoleName(roleId: roleId)
         let imageName: String = roleName
         VStack(spacing: 0) {
-            // 추후 이미지 크기 조정 필요
             Image(imageName)
                 .resizable()
-            //                .aspectRatio(contentMode: .fill)
-            //                .frame(idealWidth: 200, idealHeight: 200)
-                .scaledToFit()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: UIScreen.screenWidth * 0.513, maxHeight: UIScreen.screenWidth * 0.513)
+                .padding(.top)
             Text(roleName)
                 .font(.title2)
                 .bold()
-                // .font(.system(size: 24, weight: .bold))
-                .padding(.bottom)
-                .offset(y: -20)
-            
+                .padding(.bottom, UIScreen.screenHeight * 0.0438)
+
             ZStack {
                 Rectangle()
                     .foregroundColor(Color.bgGray)
                     .cornerRadius(12, corners: [.bottomLeft, .bottomRight])
-                    .padding([.horizontal, .bottom], 1.5)
+                    .padding([.horizontal, .bottom], 4)
                 VStack {
                     // 코지의 라인 익스텐션 사용
-                    Line().stroke(style: StrokeStyle(lineWidth: 3, lineCap: .round, dash: [8, 10]))
-                        .frame(height: 1)
+                    Image("dotted_line")
+
                     Spacer()
                 }
                 VStack(alignment: .leading) {
                     Text("미션")
                         .font(.headline)
                         .fontWeight(.black)
-                    //                    .font(.system(size: 18, weight: .black))
-//                        .padding(.vertical, 12.735)
-                    //                    .padding(.horizontal)
-                    
+
                     // 따로 뷰로 빼서 CheckBoxView와 옆에 텍스트 같이 뒀더니 미션이 안 보여서 되돌림
                     ForEach(0...2, id: \.self) { ind in
                         HStack(alignment: .firstTextBaseline) {
                             // MARK: 모르겠음: userViewModel.deviceUser?가 항상 nil이 나옴
                              Text("\(Image(systemName: progress[ind] ? "checkmark.square.fill" : "square"))")
-                            // .bold()
-                            // .font(.system(size: 20, weight: .heavy))
                                 .font(.title3)
                                 .fontWeight(.heavy)
+                                .minimumScaleFactor(0.5)
                                 .foregroundColor(Color(UIColor.black))
                                 .background(Color.white.padding(4))
                             Text((self.missionViewModel.missionStrs.count > ind) ? self.missionViewModel.missionStrs[ind] : "mcnt: \(self.missionViewModel.missionStrs.count)")
-                            // .font(.system(size: 16, weight: .medium))
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                                 .baselineOffset(2)
                                 .lineSpacing(2)
-                            // .font(.callout)
                             Spacer()
                         }
                         .padding(.vertical, 3)
@@ -92,7 +83,7 @@ struct MissionCardView: View {
             }
         }
         .background(
-            CharacterBox(roleIndex: roleId)
+            CharacterBox(roleIndex: roleId, strokeBorderWidth: 4)
         )
     }
 }

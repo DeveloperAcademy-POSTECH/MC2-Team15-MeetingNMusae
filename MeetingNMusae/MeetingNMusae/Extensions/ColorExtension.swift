@@ -33,9 +33,9 @@ extension Color {
     static let musaeGreen = Color(hex: "6ADE84")
     static let musaeLightGreen = Color(hex: "CBFF77")
     static let musaePurple = Color(hex: "C387FF")
-    static let musaeSkyBlue = Color(hex: "9EE8FF")
+    static let musaeSkyBlue = Color(hex: "87D4FF")
     static let musaePink = Color(hex: "FFAED5")
-    static let musaeRed = Color(hex: "FF8469")
+    static let musaeRed = Color(hex: "FF8373")
     static let musaeMustard = Color(hex: "FFDE68")
     // 회색 몇 가지
     static let circleGray = Color(hex: "E0E0E0")

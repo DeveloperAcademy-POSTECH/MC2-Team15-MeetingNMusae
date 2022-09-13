@@ -28,7 +28,6 @@ class UserViewModel: ObservableObject {
                 return
             }
             self.users = documents.compactMap { (queryDocumentSnapshot) -> User? in
-                print("\(String(describing: queryDocumentSnapshot.data()["nickname"]))----------------------------")
                 return try? queryDocumentSnapshot.data(as: User.self)
             }
                         
@@ -66,7 +65,6 @@ class UserViewModel: ObservableObject {
     }
 
     func updateMissionProgress(roomCode: String, missionId: Int, nickname: String) {
-        print("updateMP called")
         var isChanged = false
 
         let doc =
@@ -116,7 +114,7 @@ class UserViewModel: ObservableObject {
     }
     
     func deleteMeetingRoom(roomCode: String, nickname: String) {
-        db.collection("meeting_rooms").document(roomCode).collection("users").document(nickname).delete() { err in
+        db.collection("meeting_rooms").document(roomCode).collection("users").document(nickname).delete { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {

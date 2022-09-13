@@ -28,7 +28,6 @@ struct TextInputBox: View {
                         .font(.system(size: 18, weight: .bold))
                         .padding(.horizontal, 20)
                         .autocapitalization(UITextAutocapitalizationType.allCharacters)
-                        // cozytk
                         .onChange(of: textInput) { newValue in
                             textInput = newValue.replacingOccurrences(of: " ", with: "")
                         }

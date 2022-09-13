@@ -5,7 +5,7 @@ struct MissionView: View {
     // 미션 수행 정도
     @ObservedObject var userViewModel = UserViewModel()
     // 진행자가 회의 종료를 선택하면 참가자도 자동으로 다음 뷰로 넘어가기 위해 필요
-    @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
+    @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
     // 이 뷰에서 미션 내용을 가져오고, 미션카드뷰에서 미션 내용을 읽어오기 위해 필요.
     // 없이 하면 미션카드뷰에서 미션 내용이 로딩 안 됨.
     @ObservedObject var missionViewModel = MissionViewModel()
@@ -22,7 +22,9 @@ struct MissionView: View {
 
     // 폰트 크기에 따라 수정 예정
     let textheight: CGFloat = 34 // UIScreen.screenHeight * 0.06
-    
+    private let leadingPadding = UIScreen.screenWidth * 0.0718
+    private let trailingPadding = UIScreen.screenWidth * 0.0923
+
     var body: some View {
         VStack {
             Spacer()
@@ -44,13 +46,12 @@ struct MissionView: View {
                 .frame(height: UIScreen.screenWidth*0.2+textheight)
                 .padding(.leading, 28)
             }
-//            .padding(.top, 58)
-//            .padding(.bottom, 24)
             Spacer()
             // 내 역할 미션 카드
             MissionCardView(userViewModel: userViewModel, missionViewModel: missionViewModel)
-                .frame(height: 510)
-                .padding(.horizontal, 28)
+                .frame(idealHeight: 510, maxHeight: 510)
+                .padding(.leading, leadingPadding)
+                .padding(.trailing, trailingPadding)
                 .padding(.bottom)
 
             Spacer()
@@ -62,11 +63,9 @@ struct MissionView: View {
                     meetingRoomViewModel.endMeeting(roomCode: roomCode)
                 } label: {
                     Text("회의 종료하기")
-//                        .font(.system(size: 18, weight: .bold))
                         .font(.headline)
                         .fontWeight(.heavy)
                         .foregroundColor(.buttonGray)
-//                        .padding(54)
                 }
             } else {
                 EmptyView()

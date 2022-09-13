@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct SwitchView: View {
-    @State var isRootActive: Binding<Bool>
+    @Binding var isRootActive: Bool
     @State var remainTime = 2
+    
+    @State var isModalShown: Bool = false
+    @State var selectedRoleId: Int = 0
     
     @State var roomCode: String
     @State var isOwner: Bool
@@ -19,7 +22,7 @@ struct SwitchView: View {
     init(roomCode: String, isOwner: Bool, isRootActive: Binding<Bool>) {
         self.roomCode = roomCode
         self.isOwner = isOwner
-        self.isRootActive = isRootActive
+        self._isRootActive = isRootActive
         meetingRoomViewModel.fetchData(roomCode: roomCode)
     }
     
@@ -27,10 +30,10 @@ struct SwitchView: View {
         NavigationView {
             ForEach(meetingRoomViewModel.meetingRooms) { meetingRoom in
                 if meetingRoom.isStarted {
-                    RoleSelectView()
+                    RoleSelectView(selectedRoleId: $selectedRoleId, isModalShown: $isModalShown, meetingRoomViewModel: meetingRoomViewModel)
                 } else if meetingRoom.isRoleSelectCompleted {
                     // 회의 진행 화면으로 전환
-                    MissionView()
+                    MissionView(meetingRoomViewModel: meetingRoomViewModel)
                         .navigationBarHidden(true)
                 } else if meetingRoom.isEnded {
                     if remainTime != 0 {
@@ -40,26 +43,32 @@ struct SwitchView: View {
                             .navigationBarHidden(true)
                     }
                 } else if meetingRoom.isBestRoleSelected {
-                    BestPlayerShowingView(roomCode: roomCode)
+                    BestPlayerShowingView(roomCode: roomCode, meetingRoomViewModel: meetingRoomViewModel)
                         .navigationBarHidden(true)
                 } else if meetingRoom.isReviewStarted {
                     if isReviewFinished {
-                        ReviewShowingView(roomCode: roomCode, isRootActive: isRootActive)
+                        ReviewShowingView(roomCode: roomCode, isRootActive: $isRootActive)
                             .navigationBarHidden(true)
-                    }
-                    else {
+                    } else {
                         ReviewWritingView(roomCode: roomCode, isReviewFinished: $isReviewFinished)
                             .navigationBarHidden(true)
                     }
-                }  else {
+                } else {
                     PlayerListView(roomCode: roomCode, isOwner: isOwner)
                 }
             }
         }
         .navigationBarHidden(true)
+        .sheet(isPresented: $isModalShown) {
+            NavigationView {
+                RoleDetailView(roleId: $selectedRoleId, isModalShown: $isModalShown, meetingRoomViewModel: meetingRoomViewModel)
+                    .navigationBarHidden(false)
+                    .ignoresSafeArea()
+            }
+        }
     }
     
-    func timer() async {
+    @Sendable private func timer() async {
         while remainTime > 0 {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
             remainTime -= 1

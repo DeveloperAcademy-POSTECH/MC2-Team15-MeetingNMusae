@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReviewShowingView: View {
     @ObservedObject var reviewViewModel: ReviewViewModel = ReviewViewModel()
-    @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel = MeetingRoomViewModel()
+    @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
     @ObservedObject var userViewModel: UserViewModel = UserViewModel()
     @State var roomCode: String
     @State var nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
@@ -23,7 +23,7 @@ struct ReviewShowingView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     ForEach(reviewViewModel.reviews) { review in
                         if review.content != "" {
-                            ReviewBox(user: review.to, role: Role.roles[review.revieweeRoleId - 1].roleName, review: review.content, roleIndex: review.revieweeRoleId - 1)
+                            ReviewBox(user: review.to, role: Role.roles[review.revieweeRoleId - 1].roleName, review: review.content, roleIndex: review.revieweeRoleId)
                         }
                     }
                 }
@@ -50,8 +50,6 @@ struct ReviewShowingView: View {
                 SelectBox(isDark: true, description: "나가기")
                     .padding(.top)
             })
-            
-            Spacer()
         }
         .navigationBarHidden(true)
     }

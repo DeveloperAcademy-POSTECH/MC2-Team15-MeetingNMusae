@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct PlayerListView: View {
+    
+    #if DEBUG
+    var minPlayerCount: Int = 0
+    #else
+    var minPlayerCount: Int = 3
+    #endif
 
     let roomCode: String
     let isOwner: Bool
@@ -28,7 +34,8 @@ struct PlayerListView: View {
             ZStack {
                 Text(roomCode)
                     .fontWeight(.bold)
-                    .padding(.vertical, UIScreen.screenHeight * 0.0237)
+                    .padding(.top, 15)
+                    .padding(.bottom, 22)
                     .textSelection(.enabled)
                 HStack {
                     Button(action: {
@@ -43,19 +50,18 @@ struct PlayerListView: View {
                     })
                     Spacer()
                 }
+                .padding(.leading, 24)
             }// ZStack_RoomCodeBox
-            .overlay(alignment: .leading) {
-                
-            }
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
                     Text("참여자 (\(userViewModel.users.count))")
                         .font(.title3)
                         .fontWeight(.heavy)
                         .padding(.all, UIScreen.screenHeight * 0.0284)
-                    Line()
-                        .stroke(style: StrokeStyle(lineWidth: 3, dash: [10]))
-                        .frame(height: 1)
+                    Image("dotted_line")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .scaledToFit()
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(userViewModel.users) { user in
                             Text("• " + user.nickname)
@@ -66,35 +72,42 @@ struct PlayerListView: View {
                     .padding(.all, UIScreen.screenHeight * 0.0178)
                 }
                 .background(CharacterBox())
-                Spacer()
-                
-                if isOwner {
-                    Button(action: {
-                        MeetingRoomViewModel().startMeeting(roomCode: roomCode)
-                        
-                        // todo
+                .padding(.leading, UIScreen.screenWidth * 0.0718)
+                .padding(.trailing, UIScreen.screenWidth * 0.0924)
 
-                    }, label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 12)
-                                .foregroundColor(.black)
-                            Text("회의 시작")
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                        }
-                        .frame(height: UIScreen.screenHeight * 0.076)
-                    })
-                    .padding(.bottom, 8)
+                if userViewModel.users.count < minPlayerCount {
+                    HStack {
+                        Text("최소 3명의 인원이 필요합니다.")
+                            .font(.callout)
+                            .fontWeight(.medium)
+                            .foregroundColor(.subTextGray)
+                            .padding(.top, 20)
+                        Spacer()
+                    }
+                    .padding(.leading, UIScreen.screenWidth * 0.0718 + 6)
+                    Spacer()
+                } else if isOwner {
+                    Spacer()
+                    Button {
+                        MeetingRoomViewModel().startMeeting(roomCode: roomCode)
+                    } label: {
+                        SelectBox(isDark: true, description: "회의 시작")
+                    }
                 } else {
-                    EmptyView()
+                    HStack {
+                        Text("방장의 시작을 기다리는 중입니다.")
+                            .font(.callout)
+                            .fontWeight(.medium)
+                            .foregroundColor(.subTextGray)
+                            .padding(.top, 20)
+                        Spacer()
+                    }
+                    .padding(.leading, UIScreen.screenWidth * 0.0718 + 6)
+                    Spacer()
                 }
-            }
-        }// VStack
-        .padding(.leading, UIScreen.screenWidth * 0.0718)
-        .padding(.trailing, UIScreen.screenWidth * 0.0924)
-//        .frame(width: UIScreen.screenWidth * 0.84)
+            }// VStack
+        }
         .navigationBarHidden(true)
     }
+
 }
-
-

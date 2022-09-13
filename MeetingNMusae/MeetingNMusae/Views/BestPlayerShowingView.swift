@@ -11,15 +11,16 @@ import FirebaseFirestore
 struct BestPlayerShowingView: View {
     @State var roomCode: String
     @State var roles: [Role] = Role.roles
-    @ObservedObject var meetingRoomViewModel = MeetingRoomViewModel()
+    @ObservedObject var meetingRoomViewModel: MeetingRoomViewModel
     @ObservedObject var userViewModel = UserViewModel()
     
     @State var remainTime: Int = 4
     
     private var db = Firestore.firestore()
     
-    init(roomCode: String) {
+    init(roomCode: String, meetingRoomViewModel: MeetingRoomViewModel) {
         self.roomCode = roomCode
+        self.meetingRoomViewModel = meetingRoomViewModel
     }
     var body: some View {
         ZStack {
@@ -30,69 +31,60 @@ struct BestPlayerShowingView: View {
                     .padding(.bottom, 33)
                 if userViewModel.user.nickname != "" {
                     ZStack {
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
-                                Text("\(userViewModel.user.nickname)")
-                                    .bold()
-                                    .padding(4)
-                                    .foregroundColor(.white)
-                                    .background(RoundedRectangle(cornerRadius: 6.0).fill(Color.black))
+                                NameBox(user: userViewModel.user.nickname)
                                 Spacer()
                             }
                             .foregroundColor(Color.black)
-                            .padding(10)
-                            
+                            .padding(12)
+
                             Spacer()
-                        }
-                        VStack {
-                            Image("\(roles[userViewModel.user.roleId - 1].roleName)")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 120, height: 120)
-                            
                             Text("\(roles[userViewModel.user.roleId - 1].roleName)")
                                 .fontWeight(.bold)
-                                .padding(.bottom)
+                                .padding(.bottom, 16)
                                 .foregroundColor(.black)
+                        }
+                        VStack(spacing: 0) {
+                            Image("\(roles[userViewModel.user.roleId - 1].roleName)")
+                                .padding(.top, 8)
+                            Spacer()
+
                         }
                     }
                     .frame(width: 153, height: 160)
                     .background(CharacterBox(roleIndex: userViewModel.user.roleId))
-                    Spacer()
                 } else {
                     ZStack {
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
-                                Text("모두")
-                                    .bold()
-                                    .padding(4)
-                                    .foregroundColor(.white)
-                                    .background(RoundedRectangle(cornerRadius: 6.0).fill(Color.black))
+                                NameBox(user: "모두")
                                 Spacer()
                             }
                             .foregroundColor(Color.black)
-                            .padding(10)
-                            
+                            .padding(12)
+
                             Spacer()
-                        }
-                        VStack {
-                            Image("회의하는N무새")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 120, height: 120)
-                            
                             Text("회의하는N무새")
                                 .fontWeight(.bold)
-                                .padding(.bottom)
+                                .padding(.bottom, 16)
                                 .foregroundColor(.black)
+                        }
+                        VStack(spacing: 0) {
+                            Image("회의하는N무새")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 120, height: 120)
+                                .padding(.top, 8)
+                            Spacer()
+
                         }
                     }
                     .frame(width: 153, height: 160)
-                    .background(CharacterBox(roleIndex: userViewModel.user.roleId))
-                    Spacer()
+                    .background(CharacterBox(roleIndex: 0))
                 }
+                Spacer()
             }
-            
             LottieView(name: "confetti", loopMode: .loop)
                 .scaledToFill()
                 .ignoresSafeArea(edges: .top)
@@ -103,7 +95,7 @@ struct BestPlayerShowingView: View {
         .task(timer)
     }
     
-    func timer() async {
+    @Sendable private func timer() async {
         while remainTime > 0 {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
             remainTime -= 1

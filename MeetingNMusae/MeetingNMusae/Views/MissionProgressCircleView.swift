@@ -49,22 +49,13 @@ struct MissionProgressCircleView: View {
             Text(roleName)
                 .font(.footnote)
                 .bold()
-//                .font(.system(size: 14, weight: .bold))
 
             // 닉네임
             Text(user.nickname)
                 .font(.footnote)
                 .fontWeight(.medium)
-//                .font(.system(size: 14, weight: .medium))
                 .foregroundColor(.subTextGray)
 
         }
     }
 }
-//
-// struct CircleProgBarView_Previews: PreviewProvider {
-//    let user = User(missionIds: [0,1,2], nickname: "e", roomCode: roomCode)
-//    static var previews: some View {
-//        MissionProgressCircleView(user: self.user, lineWidth: 5.0)
-//    }
-// }
