@@ -26,11 +26,7 @@
 ```
 main(default)
 
-dev
-
 release
-
-feature
 
 hotfix
 ```
