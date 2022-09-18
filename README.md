@@ -24,7 +24,9 @@
 
 ### Git branch & Git flow
 ```
-dev(default)
+main(default)
+
+dev
 
 release
 
