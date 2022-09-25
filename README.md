@@ -16,9 +16,14 @@
 <br/>
 
 ## 🎆 Screenshots
-|  |  |  |  |
+| Main | Room number setting | Nickname Setting | Player List |
 |:---:|:---:|:---:|:---:|
-|<img width="220" alt="" src="">|<img width="220" alt="" src="">|<img width="220" alt="" src="">|<img width="220" alt="" src="">|
+|<img width="220" alt="main view" src="https://user-images.githubusercontent.com/81206228/192129838-2f6d8d17-96c3-4d57-87e0-a4b9de7774fc.png">|<img width="220" alt="room number setting view" src="https://user-images.githubusercontent.com/81206228/192130068-c859cb09-6b9e-4d64-bca1-b2a6882ed859.png">|<img width="220" alt="nickname setting view" src="https://user-images.githubusercontent.com/81206228/192130093-3c4e68a5-d8ca-4c11-a52b-736303f96312.png">|<img width="220" alt="player list view" src="https://user-images.githubusercontent.com/81206228/192130117-85cffc4b-30c2-4247-8613-35fff725b6e0.png">|
+| Role select | Role detail | Mission View | Best Player |  
+|<img width="220" alt="role select view" src="https://user-images.githubusercontent.com/81206228/192129858-0f98c532-46cd-4452-a037-73e302e09d0b.png">|<img width="220" alt="detail role view" src="https://user-images.githubusercontent.com/81206228/192130175-333b99c9-87b0-4b53-b1dd-1c07206eb704.png">|<img width="220" alt="meeting view" src="https://user-images.githubusercontent.com/81206228/192129886-daee9e71-531f-4393-a93c-a43b42d1d067.png">|<img width="220" alt="choose best player view" src="https://user-images.githubusercontent.com/81206228/192129906-c6a1d4da-6809-4c99-8ad6-a69220023439.png">|
+| Random feedback | Review | 
+|<img width="220" alt="random feedback view" src="https://user-images.githubusercontent.com/81206228/192130264-f6c47f84-b606-4c44-9919-93358e7c17f5.png"> | <img width="220" alt="review view" src="https://user-images.githubusercontent.com/81206228/192130276-e81cb286-6fcf-462f-abae-8271dd83883b.png">|
+
 
 ### Git branch & Git flow
 ```
