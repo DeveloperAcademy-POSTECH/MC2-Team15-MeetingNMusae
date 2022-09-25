@@ -24,8 +24,10 @@
 | Random feedback | Review | 
 |<img width="220" alt="random feedback view" src="https://user-images.githubusercontent.com/81206228/192130264-f6c47f84-b606-4c44-9919-93358e7c17f5.png"> | <img width="220" alt="review view" src="https://user-images.githubusercontent.com/81206228/192130276-e81cb286-6fcf-462f-abae-8271dd83883b.png">|
 
+## 📘History
+### [v1.0.0](https://github.com/DeveloperAcademy-POSTECH/MC2-Team15-MeetingNMusae/wiki/v1.0.0)
 
-### Git branch & Git flow
+## Git branch & Git flow
 ```
 main(default)
 
@@ -34,7 +36,7 @@ release
 hotfix
 ```
 
-### 🗂 Folder Structure
+## 🗂 Folder Structure
 
 ```
 MeetingNMusae
@@ -51,7 +53,7 @@ MeetingNMusae
 
 ```
 
-### ⚒️ Skill & Tech Stack
+## ⚒️ Skill & Tech Stack
 <p>
   <img src="https://img.shields.io/badge/Swift-F05138?style=for-the-badge&logo=Swift&logoColor=white"> &nbsp;
   <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=GitHub&logoColor=white"> &nbsp;
